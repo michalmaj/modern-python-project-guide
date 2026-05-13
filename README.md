@@ -96,6 +96,10 @@ The repository contains a small example package:
 src/text_toolkit/
 ```
 
+In this guide, “package” means an importable Python package inside `src/`.
+
+Building and publishing installable Python distributions is a separate topic and is intentionally not covered in the first version of this guide.
+
 The package is intentionally simple.
 
 It is used to demonstrate project structure, tests, linting, formatting, and CI without adding unnecessary domain complexity.

@@ -106,6 +106,58 @@ The example package starts with standard library code only.
 
 Development tools such as `pytest` and `ruff` will be added later as development dependencies.
 
+## Project structure is not the same as packaging
+
+This guide currently uses a `src/` layout and an importable package:
+
+```text
+src/text_toolkit/
+```
+
+However, this guide does not yet cover Python packaging in the distribution sense.
+
+That means it does not yet explain how to:
+
+- define a build backend,
+- build wheels,
+- build source distributions,
+- publish packages to PyPI,
+- configure package metadata for distribution.
+
+For that reason, this project does not define a `[build-system]` section yet.
+
+This is intentional.
+
+The first version of the guide focuses on:
+
+- project structure,
+- dependency management,
+- tests,
+- linting,
+- formatting,
+- CI,
+- pull requests.
+
+Packaging, building, and publishing can be added later as a separate chapter.
+
+## Why there is no `[build-system]` yet
+
+A `[build-system]` section tells Python tooling how the project should be built and installed.
+
+In this guide, leaving out `[build-system]` keeps the first version focused on project workflow instead of distribution mechanics.
+
+The project still has useful Python code in `src/text_toolkit/`.
+
+However, the current setup should be understood as a learning project structure, not a complete packaging tutorial.
+
+A future version of the guide may introduce a build backend and commands such as:
+
+```bash
+uv build
+```
+
+but that is intentionally outside the first foundation.
+
 ## Runtime dependencies vs development dependencies
 
 Not all dependencies have the same role.
