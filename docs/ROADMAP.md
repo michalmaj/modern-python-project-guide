@@ -76,19 +76,23 @@ Planned steps:
 - explain how to review a pull request,
 - show common beginner mistakes.
 
-## Future ideas
+## Possible future chapters
 
 These topics are intentionally not part of the first version.
 
-They may be added later:
+They may be added later as separate chapters:
 
-- test coverage,
+- static type checking with Pyright or mypy,
 - pre-commit hooks,
-- static type checking,
-- command-line interfaces,
+- test coverage,
+- Python build systems and packaging,
+- building wheels and source distributions,
+- publishing packages to PyPI,
 - documentation sites,
-- packaging and releases,
-- publishing to PyPI.
+- release automation,
+- Docker for Python projects.
+
+These topics should be introduced only after the basic workflow is clear.
 
 ## Current focus
 

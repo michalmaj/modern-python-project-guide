@@ -279,6 +279,26 @@ Those topics may be added later.
 
 The goal here is to build a clean foundation first.
 
+## Possible future chapters
+
+The first version of this guide focuses on the project foundation.
+
+Possible future chapters may include:
+
+- static type checking with Pyright or mypy,
+- pre-commit hooks,
+- test coverage,
+- Python build systems and packaging,
+- building wheels and source distributions,
+- publishing packages to PyPI,
+- documentation sites,
+- release automation,
+- Docker for Python projects.
+
+These topics are useful, but they are intentionally left out of the first path.
+
+The goal is to understand the foundation before adding more layers.
+
 ## Current status
 
 This repository is built step by step.
