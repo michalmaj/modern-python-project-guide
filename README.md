@@ -74,6 +74,12 @@ Start from the beginning if you want to understand why each tool and file is int
 9. [Common beginner mistakes](docs/08_common_mistakes.md)
 10. [Project checklist](docs/09_checklist.md)
 
+## Common questions
+
+Have questions about the project decisions?
+
+Read [Common questions](docs/common_questions.md).
+
 ## Why these tools?
 
 This guide uses a small set of tools that cover the basic needs of a modern Python project:
