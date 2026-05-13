@@ -7,8 +7,23 @@ dependencies = []
 [dependency-groups]
 dev = [
     "pytest>=9.0.3",
+    "ruff>=0.15.12",
 ]
 
 [tool.pytest.ini_options]
 testpaths = ["tests"]
 pythonpath = ["src"]
+
+[tool.ruff]
+line-length = 88
+target-version = "py312"
+src = ["src", "tests"]
+
+[tool.ruff.lint]
+select = [
+    "E",
+    "F",
+    "I",
+    "B",
+    "UP",
+]
