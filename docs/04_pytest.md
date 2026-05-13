@@ -134,6 +134,30 @@ The `pythonpath` option allows tests to import the package from the `src/` direc
 
 This keeps the project structure clean while still making imports straightforward.
 
+### Why `pythonpath = ["src"]` is used here
+
+The project currently uses:
+
+```toml
+pythonpath = ["src"]
+```
+
+This lets pytest import the example package from the `src/` directory.
+
+For example, tests can import:
+
+```python
+from text_toolkit import count_words
+```
+
+This is an educational simplification.
+
+It keeps the guide focused on tests and project structure before introducing packaging, build systems, or editable installs.
+
+In a more complete packaging workflow, the project may instead be installed into the environment as an editable package.
+
+That topic is intentionally left for a later stage.
+
 ## Running tests
 
 Tests can be run with:
