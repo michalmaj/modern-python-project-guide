@@ -148,19 +148,33 @@ When opening a pull request, try to make the reviewer’s job easy:
 
 ## Local checks
 
-As the project grows, local checks will be added gradually.
+Before opening a pull request with code changes, run the local quality checks:
 
-For now, documentation-only changes do not require code checks.
-
-Later, contributors will be expected to run commands such as:
-
-```text
+```bash
 uv run ruff check .
 uv run ruff format --check .
 uv run pytest
 ```
 
-These commands will be introduced step by step in the guide.
+If formatting fails, run:
+
+```bash
+uv run ruff format .
+```
+
+Then repeat the checks:
+
+```bash
+uv run ruff check .
+uv run ruff format --check .
+uv run pytest
+```
+
+For documentation-only changes, code checks may not always be necessary.
+
+However, review the rendered Markdown on GitHub after opening the pull request.
+
+The goal is to catch simple issues locally before CI runs on GitHub.
 
 ## Project philosophy
 
