@@ -18,12 +18,44 @@ It shows how to turn a small Python idea into a maintainable project with:
 - branches,
 - pull requests.
 
+## What you will learn
+
+After this guide, you will know how to:
+
+- create a small Python project with `uv`,
+- manage dependencies in `pyproject.toml`,
+- separate source code and tests,
+- run tests with `pytest`,
+- check and format code with Ruff,
+- run the same checks in GitHub Actions,
+- use a simple branch and pull request workflow.
+
+## Prerequisites
+
+This guide is beginner-friendly, but it does not start from absolute zero.
+
+You should be comfortable with:
+
+- basic Python syntax,
+- running commands in a terminal,
+- basic Git commands such as `clone`, `add`, `commit`, and `push`,
+- using GitHub at a basic level.
+
+You do not need to know how to package Python projects, configure CI, or structure larger repositories.
+Those topics are introduced step by step.
+
 ## Quick starts
 
 In a hurry? Start here:
 
 - [uv quickstart](docs/quickstart_uv.md)
 - [Clone and CI quickstart](docs/quickstart_clone_and_ci.md)
+
+## Choose your path
+
+- I want to create a new project from scratch → read [uv quickstart](docs/quickstart_uv.md).
+- I cloned this repository and want to run it locally → read [Clone and CI quickstart](docs/quickstart_clone_and_ci.md).
+- I want to understand each file and tool step by step → start with the [full guide](#recommended-path).
 
 ## Full guide
 
@@ -41,6 +73,20 @@ Start from the beginning if you want to understand why each tool and file is int
 8. [Git, commits, branches, and pull requests](docs/07_git_commits_branches_prs.md)
 9. [Common beginner mistakes](docs/08_common_mistakes.md)
 10. [Project checklist](docs/09_checklist.md)
+
+## Why these tools?
+
+This guide uses a small set of tools that cover the basic needs of a modern Python project:
+
+- `uv` manages Python, dependencies, and the project environment.
+- `pytest` checks whether the code behaves correctly.
+- Ruff keeps code style and common issues under control.
+- GitHub Actions runs the same checks on GitHub.
+- Pull requests make changes easier to explain, review, and verify.
+
+The goal is not to use tools for their own sake.
+
+The goal is to build a workflow that is simple, reproducible, and easy to understand.
 
 ## Example package
 
@@ -195,6 +241,16 @@ It is especially useful for:
 - junior Python developers,
 - teachers preparing programming classes,
 - anyone moving from scripts to maintainable projects.
+
+## Do not optimize too early
+
+This guide intentionally avoids adding too many tools at once.
+
+A smaller setup that you understand is better than a large template copied blindly.
+
+Tools such as Docker, pre-commit hooks, type checkers, coverage reports, documentation generators, and release automation can be useful later.
+
+They are not required to understand the foundation.
 
 ## What this guide is not
 
