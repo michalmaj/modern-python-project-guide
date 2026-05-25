@@ -86,6 +86,12 @@ New to project tooling terms?
 
 Read the [Glossary](docs/glossary.md).
 
+## Cheatsheet
+
+Need commands only?
+
+Read the [Command cheatsheet](docs/cheatsheet.md).
+
 ## Why these tools?
 
 This guide uses a small set of tools that cover the basic needs of a modern Python project:
