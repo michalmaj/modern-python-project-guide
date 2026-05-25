@@ -43,6 +43,22 @@ git clone https://github.com/michalmaj/modern-python-project-guide.git
 cd modern-python-project-guide
 ```
 
+### Expected result
+
+You should now be inside the cloned repository directory.
+
+Check the current repository state:
+
+```bash
+git status
+```
+
+A clean clone should usually show:
+
+```bash
+working tree clean
+```
+
 ## 2. Install uv
 
 If `uv` is not installed yet, install it first.
@@ -98,6 +114,20 @@ This file stores the Python version used by the project.
 
 It helps `uv` install and use the correct Python version.
 
+### Expected result
+
+A project managed with `uv` should usually contain:
+
+```text
+pyproject.toml
+uv.lock
+.python-version
+```
+
+If one of these files is missing, check the project documentation.
+
+Not every repository uses the same setup, but this guide relies on these files.
+
 ## 4. Sync the local environment
 
 After cloning a project, run:
@@ -105,6 +135,20 @@ After cloning a project, run:
 ```bash
 uv sync
 ```
+
+### Expected result
+
+The local environment should be created or updated.
+
+You should usually see:
+
+```text
+.venv/
+```
+
+This directory is local to your machine.
+
+It should stay ignored by Git.
 
 This creates or updates the local virtual environment.
 
@@ -181,6 +225,18 @@ uv run ruff check .
 uv run ruff format --check .
 uv run pytest
 ```
+
+### Expected result
+
+If the project is set up correctly:
+
+- Ruff linting should pass,
+- Ruff formatting check should pass,
+- pytest should pass.
+
+If one command fails, read the error message before changing anything.
+
+The error usually tells you what needs to be fixed.
 
 ## 7. When to run uv sync again
 
@@ -317,6 +373,23 @@ This workflow runs on:
 
 - pull requests targeting `main`,
 - pushes to `main`.
+
+### Expected result
+
+After this workflow is committed and pushed to GitHub, pull requests should show a CI check.
+
+A successful run means that GitHub was able to:
+
+- install `uv`,
+- install the requested Python version,
+- sync dependencies from the lockfile,
+- run Ruff linting,
+- check formatting,
+- run tests.
+
+A green CI check does not replace review.
+
+It only confirms that the automated checks passed.
 
 ## 11. Why CI uses the same commands
 
