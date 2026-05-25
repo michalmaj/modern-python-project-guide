@@ -92,6 +92,12 @@ Need commands only?
 
 Read the [Command cheatsheet](docs/cheatsheet.md).
 
+## Troubleshooting
+
+Something does not work?
+
+Read the [Troubleshooting guide](docs/troubleshooting.md).
+
 ## Example pull request
 
 Want to see what a clear pull request looks like?
