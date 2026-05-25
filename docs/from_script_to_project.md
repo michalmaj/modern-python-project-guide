@@ -1,0 +1,464 @@
+# From Script to Project
+
+Many Python projects start as a single script.
+
+That is normal.
+
+A single script is often the best way to test an idea quickly.
+
+However, if the code becomes useful, reused, tested, or shared with other people, it may be time to turn it into a small project.
+
+This page shows the thinking process behind that transition.
+
+## Starting point: one script
+
+A beginner project may start like this:
+
+```text
+main.py
+```
+
+Example:
+
+```python
+def normalize_whitespace(text: str) -> str:
+    return " ".join(text.split())
+
+
+def count_words(text: str) -> int:
+    normalized_text = normalize_whitespace(text)
+
+    if not normalized_text:
+        return 0
+
+    return len(normalized_text.split(" "))
+
+
+text = "Python    project\nworkflow"
+print(count_words(text))
+```
+
+This is fine for a quick experiment.
+
+The code is small, readable, and easy to run:
+
+```bash
+python main.py
+```
+
+## When a script starts to hurt
+
+A single script becomes harder to maintain when:
+
+- it contains many unrelated functions,
+- it mixes logic with printing, plotting, or user input,
+- it becomes hard to test,
+- it is copied into other projects,
+- it needs dependencies,
+- another person needs to run it,
+- changes start breaking existing behavior.
+
+At that point, the problem is not Python.
+
+The problem is project organization.
+
+## First improvement: separate reusable logic
+
+The reusable logic should not be mixed with script execution.
+
+Instead of keeping everything in `main.py`, create a small module:
+
+```text
+text_stats.py
+```
+
+Example:
+
+```python
+def normalize_whitespace(text: str) -> str:
+    return " ".join(text.split())
+
+
+def count_words(text: str) -> int:
+    normalized_text = normalize_whitespace(text)
+
+    if not normalized_text:
+        return 0
+
+    return len(normalized_text.split(" "))
+```
+
+Then `main.py` can use it:
+
+```python
+from text_stats import count_words
+
+text = "Python    project\nworkflow"
+print(count_words(text))
+```
+
+This is already better because reusable logic is separated from script execution.
+
+However, the project is still flat:
+
+```text
+main.py
+text_stats.py
+```
+
+That may be enough for a tiny project, but it does not scale well.
+
+## Second improvement: create a package
+
+A package groups related Python modules.
+
+In this guide, the package lives inside `src/`:
+
+```text
+src/
+└── text_toolkit/
+    ├── __init__.py
+    └── text_stats.py
+```
+
+The reusable code moves to:
+
+```text
+src/text_toolkit/text_stats.py
+```
+
+Example:
+
+```python
+def normalize_whitespace(text: str) -> str:
+    return " ".join(text.split())
+
+
+def count_words(text: str) -> int:
+    normalized_text = normalize_whitespace(text)
+
+    if not normalized_text:
+        return 0
+
+    return len(normalized_text.split(" "))
+```
+
+The package can expose selected functions in:
+
+```text
+src/text_toolkit/__init__.py
+```
+
+Example:
+
+```python
+from text_toolkit.text_stats import count_words, normalize_whitespace
+
+__all__ = [
+    "count_words",
+    "normalize_whitespace",
+]
+```
+
+Now other code can import from the package:
+
+```python
+from text_toolkit import count_words
+```
+
+## Why use src/?
+
+The `src/` layout separates source code from the rest of the repository.
+
+This makes the structure clearer:
+
+```text
+src/      source code
+tests/    tests
+docs/     documentation
+.github/  GitHub-specific configuration
+```
+
+It also avoids some import confusion that can happen when code is imported directly from the repository root.
+
+In this guide, `src/` is used to teach clean project structure.
+
+Packaging and publishing are separate topics.
+
+## Third improvement: add tests
+
+Once logic is separated, it becomes easier to test.
+
+Create:
+
+```text
+tests/test_text_stats.py
+```
+
+Example:
+
+```python
+from text_toolkit import count_words, normalize_whitespace
+
+
+def test_normalize_whitespace_replaces_repeated_spaces() -> None:
+    text = "Python    is   fun"
+
+    result = normalize_whitespace(text)
+
+    assert result == "Python is fun"
+
+
+def test_count_words_handles_repeated_whitespace() -> None:
+    text = "Python    project\nworkflow"
+
+    result = count_words(text)
+
+    assert result == 3
+```
+
+Tests make behavior explicit.
+
+They also help protect the project when the code changes later.
+
+## Fourth improvement: describe the project
+
+A project should describe its Python version, dependencies, and tool configuration.
+
+This guide uses:
+
+```text
+pyproject.toml
+```
+
+Example:
+
+```toml
+[project]
+name = "text-toolkit"
+version = "0.1.0"
+requires-python = ">=3.12"
+dependencies = []
+
+[dependency-groups]
+dev = [
+    "pytest>=8.0.0",
+    "ruff>=0.11.0",
+]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+pythonpath = ["src"]
+
+[tool.ruff]
+line-length = 88
+target-version = "py312"
+src = ["src", "tests"]
+
+[tool.ruff.lint]
+select = [
+    "E",
+    "F",
+    "I",
+    "B",
+    "UP",
+]
+```
+
+The exact dependency versions may be different.
+
+Keep the versions generated by `uv`.
+
+## Fifth improvement: lock dependencies
+
+A project should be reproducible.
+
+This guide uses:
+
+```text
+uv.lock
+```
+
+The lockfile records exact dependency versions.
+
+Commit it to Git.
+
+This helps make local development and CI use the same resolved dependencies.
+
+## Sixth improvement: add local checks
+
+A maintainable project should be easy to check.
+
+In this guide, the main local checks are:
+
+```bash
+uv run ruff check .
+uv run ruff format --check .
+uv run pytest
+```
+
+These commands check:
+
+- linting,
+- formatting,
+- behavior.
+
+If formatting fails, run:
+
+```bash
+uv run ruff format .
+```
+
+Then repeat the checks.
+
+## Seventh improvement: add CI
+
+Local checks are useful, but people can forget to run them.
+
+CI runs important checks automatically on GitHub.
+
+This guide uses:
+
+```text
+.github/workflows/ci.yml
+```
+
+A minimal CI workflow runs:
+
+```bash
+uv python install
+uv sync --locked
+uv run ruff check .
+uv run ruff format --check .
+uv run pytest
+```
+
+This gives every pull request a basic safety net.
+
+## Eighth improvement: use branches and pull requests
+
+A clean project is not only about files.
+
+It is also about workflow.
+
+Instead of committing directly to `main`, use:
+
+```text
+branch → commit → pull request → CI → review → merge
+```
+
+Example:
+
+```bash
+git switch main
+git pull
+git switch -c test/add-text-stats-tests
+
+# edit files
+
+git status
+git add tests/test_text_stats.py pyproject.toml uv.lock
+git commit -m "test: add text statistics tests"
+git push -u origin test/add-text-stats-tests
+```
+
+Then open a pull request on GitHub.
+
+## Before and after
+
+A script may start like this:
+
+```text
+main.py
+```
+
+A small project may grow into this:
+
+```text
+modern-python-project-guide/
+├── .github/
+│   ├── workflows/
+│   │   └── ci.yml
+│   └── pull_request_template.md
+├── docs/
+├── src/
+│   └── text_toolkit/
+│       ├── __init__.py
+│       └── text_stats.py
+├── tests/
+│   └── test_text_stats.py
+├── .gitignore
+├── .python-version
+├── CONTRIBUTING.md
+├── LICENSE
+├── README.md
+├── pyproject.toml
+└── uv.lock
+```
+
+This structure is not bigger for the sake of being bigger.
+
+Each part has a role.
+
+## What changed?
+
+The project now has:
+
+- source code in `src/`,
+- tests in `tests/`,
+- documentation in `docs/`,
+- dependencies described in `pyproject.toml`,
+- exact dependency versions in `uv.lock`,
+- local checks with Ruff and pytest,
+- CI with GitHub Actions,
+- a branch and pull request workflow.
+
+This makes the project easier to run, test, review, and extend.
+
+## What did not change?
+
+The core idea stayed simple.
+
+The example code still does basic text processing.
+
+The project structure changed because the code became something worth maintaining.
+
+Good project structure does not need a complicated domain.
+
+It needs a reason to exist.
+
+## Do not jump too far
+
+A common mistake is moving from:
+
+```text
+main.py
+```
+
+directly to a huge template with Docker, type checking, coverage, pre-commit hooks, packaging, release automation, and documentation sites.
+
+Those tools can be useful later.
+
+They are not required for the first clean project foundation.
+
+Start with:
+
+- clear structure,
+- dependency management,
+- tests,
+- formatting,
+- linting,
+- CI,
+- pull requests.
+
+Then add more tools only when they solve a real problem.
+
+## Rule of thumb
+
+A script is good for testing an idea.
+
+A project is better when the code should be reused, tested, reviewed, or shared.
+
+Do not make the structure complicated too early.
+
+But do not wait until the script becomes painful to organize it.

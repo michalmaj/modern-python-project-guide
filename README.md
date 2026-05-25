@@ -98,6 +98,12 @@ Want to see what a clear pull request looks like?
 
 Read [Example pull request](docs/example_pull_request.md).
 
+## From script to project
+
+Want to turn a single Python script into a maintainable project?
+
+Read [From script to project](docs/from_script_to_project.md).
+
 ## Why these tools?
 
 This guide uses a small set of tools that cover the basic needs of a modern Python project:
