@@ -55,12 +55,18 @@ Pin the Python version:
 uv python pin 3.12
 ```
 
-This creates:
+### Expected result
+
+At this point, the project should contain:
 
 ```text
 pyproject.toml
 .python-version
 ```
+
+The `pyproject.toml` file describes the Python project.
+
+The `.python-version` file stores the Python version selected for the project.
 
 ## 3. Create the package structure
 
@@ -112,6 +118,20 @@ Add `ruff`:
 uv add --group dev ruff
 ```
 
+### Expected result
+
+The project should now contain development dependencies in `pyproject.toml`.
+
+You should also see or update:
+
+```text
+uv.lock
+```
+
+The `uv.lock` file records the exact resolved dependency versions.
+
+Do not edit `uv.lock` manually.
+
 These tools are development dependencies.
 
 They are needed while working on the project, but they are not runtime dependencies of the package.
@@ -127,6 +147,14 @@ uv add rich
 ```
 
 This adds `rich` to the project dependencies.
+
+### Expected result
+
+The runtime dependency should appear in the `[project]` dependencies section of `pyproject.toml`.
+
+Development tools such as `pytest` and Ruff should stay in the development dependency group.
+
+This separation keeps runtime dependencies and development tools easy to understand.
 
 Use runtime dependencies only when the actual package needs them.
 
@@ -196,6 +224,19 @@ def test_add_returns_sum() -> None:
     assert result == 5
 ```
 
+### Expected result
+
+The project should now contain:
+
+```text
+src/example_project/calculator.py
+tests/test_calculator.py
+```
+
+The source file contains the function.
+
+The test file verifies the expected behavior.
+
 ## 8. Sync the environment
 
 Run:
@@ -203,6 +244,18 @@ Run:
 ```bash
 uv sync
 ```
+
+### Expected result
+
+After syncing, the project should have a local virtual environment:
+
+```text
+.venv/
+```
+
+The `.venv/` directory is generated locally.
+
+It should not be committed to Git.
 
 This creates or updates the local virtual environment.
 
@@ -241,6 +294,22 @@ Format files automatically:
 ```bash
 uv run ruff format .
 ```
+
+### Expected result
+
+If everything is configured correctly:
+
+- `uv run pytest` should pass,
+- `uv run ruff check .` should pass,
+- `uv run ruff format --check .` should pass.
+
+If the formatting check fails, run:
+
+```bash
+uv run ruff format .
+```
+
+Then run the checks again.
 
 ## 10. Lock dependencies
 
