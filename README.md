@@ -80,6 +80,12 @@ Have questions about the project decisions?
 
 Read [Common questions](docs/common_questions.md).
 
+## Glossary
+
+New to project tooling terms?
+
+Read the [Glossary](docs/glossary.md).
+
 ## Why these tools?
 
 This guide uses a small set of tools that cover the basic needs of a modern Python project:
