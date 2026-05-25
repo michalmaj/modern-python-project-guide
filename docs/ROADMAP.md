@@ -1,6 +1,6 @@
 # Project Roadmap
 
-This roadmap describes how the repository will be built step by step.
+This roadmap describes how the repository is built and how it may grow.
 
 The goal is to keep every change small, understandable, and easy to review.
 
@@ -17,85 +17,190 @@ This project should be developed using a clean and realistic workflow:
 
 The repository should be useful both as a tutorial and as an example of a modern Python project.
 
-## Phase 1: Repository foundation
+## Current foundation
 
-The first phase focuses on the basic repository structure.
+The first foundation is now in place.
 
-Planned steps:
+The repository already includes:
 
-- bootstrap the repository,
-- add the project roadmap,
-- add contribution guidelines,
-- add a pull request template,
-- explain the intended development workflow.
+- a clear README landing page,
+- quickstart guides,
+- a step-by-step guide,
+- a small example package,
+- the `src/` layout,
+- pytest tests,
+- Ruff linting and formatting,
+- GitHub Actions CI,
+- a pull request template,
+- contributing guidelines,
+- a glossary,
+- a command cheatsheet,
+- common questions,
+- an example pull request guide,
+- a from-script-to-project guide,
+- EditorConfig.
 
-## Phase 2: Python project setup
+## Done
 
-The second phase introduces the actual Python project.
+These parts are already included in the repository.
 
-Planned steps:
+### Repository foundation
 
-- initialize the project with `uv`,
-- add `pyproject.toml`,
-- use the `src/` layout,
-- create a small example package,
-- add a minimal test suite.
+- [x] Bootstrap the repository
+- [x] Add a project roadmap
+- [x] Add contribution guidelines
+- [x] Add a pull request template
+- [x] Add a README landing page
+- [x] Add GitHub metadata guidance
 
-## Phase 3: Code quality tools
+### Python project setup
 
-The third phase adds tools for maintaining code quality.
+- [x] Initialize the project with `uv`
+- [x] Add `pyproject.toml`
+- [x] Add `.python-version`
+- [x] Add `uv.lock`
+- [x] Use the `src/` layout
+- [x] Create a small example package
+- [x] Clarify the difference between project structure and packaging
 
-Planned steps:
+### Tests and quality tools
 
-- add `ruff` for linting,
-- add `ruff` for formatting,
-- document local quality checks,
-- keep tool configuration inside `pyproject.toml`.
+- [x] Add `pytest`
+- [x] Add a minimal test suite
+- [x] Configure pytest in `pyproject.toml`
+- [x] Add Ruff
+- [x] Configure Ruff in `pyproject.toml`
+- [x] Explain linting and formatting
+- [x] Explain when ignoring linting rules may be reasonable
 
-## Phase 4: Continuous integration
+### Continuous integration
 
-The fourth phase adds automated checks on GitHub.
+- [x] Add a GitHub Actions workflow
+- [x] Run linting in CI
+- [x] Run formatting checks in CI
+- [x] Run tests in CI
+- [x] Add a CI badge to the README
+- [x] Explain how CI supports pull requests
 
-Planned steps:
+### Learning materials
 
-- add a GitHub Actions workflow,
-- run linting in CI,
-- run formatting checks in CI,
-- run tests in CI,
-- explain how CI supports pull requests.
+- [x] Explain why the guide exists
+- [x] Explain project structure
+- [x] Explain `uv`
+- [x] Explain `pyproject.toml`
+- [x] Explain pytest
+- [x] Explain Ruff
+- [x] Explain GitHub Actions and CI
+- [x] Explain Git, commits, branches, and pull requests
+- [x] Add common beginner mistakes
+- [x] Add a project checklist
+- [x] Add quickstarts
+- [x] Add expected results to quickstarts
+- [x] Add common questions
+- [x] Add a glossary
+- [x] Add a command cheatsheet
+- [x] Add an example pull request guide
+- [x] Add a from-script-to-project guide
 
-## Phase 5: Git and pull request workflow
+## Next
 
-The fifth phase documents the development process.
+These are good candidates for upcoming small pull requests.
 
-Planned steps:
+### Documentation polish
 
-- describe branch naming,
-- describe commit message conventions,
-- describe pull request structure,
-- explain how to review a pull request,
-- show common beginner mistakes.
+- [ ] Add a short guide for reviewing Markdown changes
+- [ ] Add a guide for reading GitHub Actions logs
+- [ ] Add a troubleshooting guide for common setup problems
+- [ ] Add a short guide about good commit history
+- [ ] Add a short guide about self-review before opening a pull request
 
-## Possible future chapters
+### Repository polish
 
-These topics are intentionally not part of the first version.
+- [ ] Review README length and navigation
+- [ ] Review all internal links
+- [ ] Review terminology consistency
+- [ ] Add branch protection settings on GitHub
+- [ ] Add issue templates only if the repository starts receiving external feedback
 
-They may be added later as separate chapters:
+### Optional convenience
 
-- static type checking with Pyright or mypy,
-- pre-commit hooks,
-- test coverage,
-- Python build systems and packaging,
-- building wheels and source distributions,
-- publishing packages to PyPI,
-- documentation sites,
+- [ ] Consider a task runner chapter
+- [ ] Consider `Makefile` as an optional convenience layer
+- [ ] Consider `just` as an alternative task runner
+
+Task runners should not replace the basic commands in the first learning path.
+
+They should be introduced only as convenience wrappers after the underlying commands are clear.
+
+## Later
+
+These topics are intentionally not part of the first foundation.
+
+They may be added later as separate chapters.
+
+### Type checking
+
+- [ ] Static type checking with Pyright or mypy
+- [ ] Explaining type hints vs type checking
+- [ ] Running type checks locally
+- [ ] Running type checks in CI
+
+### Test coverage
+
+- [ ] Add coverage tooling
+- [ ] Explain what coverage does and does not mean
+- [ ] Avoid treating coverage percentage as a quality guarantee
+
+### Pre-commit hooks
+
+- [ ] Add pre-commit hooks
+- [ ] Explain what runs before commit
+- [ ] Explain how hooks relate to CI
+
+### Packaging
+
+- [ ] Explain `[build-system]`
+- [ ] Add a build backend
+- [ ] Build wheels
+- [ ] Build source distributions
+- [ ] Explain editable installs
+- [ ] Explain publishing to PyPI
+
+### Documentation site
+
+- [ ] Consider MkDocs or another documentation site generator
+- [ ] Keep Markdown files readable without requiring a generated site
+
+### Release automation
+
+- [ ] Explain versioning
+- [ ] Add release notes
+- [ ] Add GitHub releases
+- [ ] Consider automated release workflows
+
+### Docker
+
+- [ ] Explain when Docker is useful
+- [ ] Add Docker only if it solves a real problem for the guide
+
+## Not planned for the first version
+
+These are deliberately excluded from the first learning path:
+
+- Docker,
+- publishing to PyPI,
 - release automation,
-- Docker for Python projects.
+- documentation site generation,
+- strict type checking,
+- pre-commit hooks,
+- coverage gates,
+- complex multi-job CI,
+- template generation.
 
-These topics should be introduced only after the basic workflow is clear.
+These tools can be useful, but adding them too early would make the foundation harder to understand.
 
-## Current focus
+## Rule of thumb
 
-The current focus is the project foundation.
+The project should grow only when a new addition teaches something useful.
 
-Advanced tooling should be added only after the basic workflow is clear.
+A smaller setup that readers understand is better than a large template copied without context.
