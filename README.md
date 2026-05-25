@@ -92,6 +92,12 @@ Need commands only?
 
 Read the [Command cheatsheet](docs/cheatsheet.md).
 
+## Example pull request
+
+Want to see what a clear pull request looks like?
+
+Read [Example pull request](docs/example_pull_request.md).
+
 ## Why these tools?
 
 This guide uses a small set of tools that cover the basic needs of a modern Python project:
