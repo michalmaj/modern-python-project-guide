@@ -104,6 +104,12 @@ CI failed and the logs look scary?
 
 Read [Reading GitHub Actions logs](docs/github_actions_logs.md).
 
+## Markdown review
+
+Reviewing documentation changes?
+
+Read [Reviewing Markdown changes](docs/markdown_review.md).
+
 ## Example pull request
 
 Want to see what a clear pull request looks like?
