@@ -98,6 +98,12 @@ Something does not work?
 
 Read the [Troubleshooting guide](docs/troubleshooting.md).
 
+## GitHub Actions logs
+
+CI failed and the logs look scary?
+
+Read [Reading GitHub Actions logs](docs/github_actions_logs.md).
+
 ## Example pull request
 
 Want to see what a clear pull request looks like?
