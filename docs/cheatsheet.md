@@ -64,6 +64,7 @@ uv add --group dev ruff
 uv add --group dev mypy
 uv add --group dev pytest-cov
 uv add --group dev pre-commit
+uv add --group dev rumdl
 ```
 
 Sync the local environment:
@@ -116,6 +117,12 @@ Format files:
 uv run ruff format .
 ```
 
+Lint Markdown files:
+
+```bash
+uv run rumdl check .
+```
+
 Install pre-commit hooks in the current clone:
 
 ```bash
@@ -139,6 +146,7 @@ Run all local checks:
 ```bash
 uv run ruff check .
 uv run ruff format --check .
+uv run rumdl check .
 uv run pytest --cov=text_toolkit --cov-report=term-missing
 uv run mypy
 uv build --no-sources
@@ -162,6 +170,7 @@ If formatting fails:
 uv run ruff format .
 uv run ruff check .
 uv run ruff format --check .
+uv run rumdl check .
 uv run pytest --cov=text_toolkit --cov-report=term-missing
 uv run mypy
 uv build --no-sources
@@ -180,6 +189,7 @@ Then run:
 ```bash
 uv run ruff check .
 uv run ruff format --check .
+uv run rumdl check .
 uv run pytest --cov=text_toolkit --cov-report=term-missing
 uv run mypy
 ```
@@ -276,6 +286,7 @@ uv python install
 uv sync --locked --group dev
 uv run ruff check .
 uv run ruff format --check .
+uv run rumdl check .
 uv run pytest --cov=text_toolkit --cov-report=term-missing
 uv run mypy
 uv build --no-sources
@@ -331,6 +342,7 @@ git status
 uv sync
 uv run ruff check .
 uv run ruff format --check .
+uv run rumdl check .
 uv run pytest --cov=text_toolkit --cov-report=term-missing
 uv run mypy
 ```

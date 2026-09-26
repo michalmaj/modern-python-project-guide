@@ -14,6 +14,7 @@ uv --version
 uv sync
 uv run ruff check .
 uv run ruff format --check .
+uv run rumdl check .
 uv run pytest --cov=text_toolkit --cov-report=term-missing
 uv run mypy
 ```
@@ -261,6 +262,7 @@ Then check again:
 ```bash
 uv run ruff check .
 uv run ruff format --check .
+uv run rumdl check .
 uv run pytest --cov=text_toolkit --cov-report=term-missing
 uv run mypy
 ```
@@ -302,6 +304,7 @@ Then run all checks again:
 ```bash
 uv run ruff check .
 uv run ruff format --check .
+uv run rumdl check .
 uv run pytest --cov=text_toolkit --cov-report=term-missing
 uv run mypy
 ```
@@ -388,6 +391,7 @@ Then run:
 ```bash
 uv run ruff check .
 uv run ruff format --check .
+uv run rumdl check .
 uv run pytest --cov=text_toolkit --cov-report=term-missing
 uv run mypy
 ```
@@ -421,6 +425,39 @@ uv run pytest --cov=text_toolkit --cov-report=term-missing
 Check that `pyproject.toml` contains pytest-cov and the `[tool.coverage.run]`
 section. A lower percentage by itself does not fail this project because no
 `fail_under` threshold is configured.
+
+## Markdown linting fails
+
+### Problem
+
+This command reports one or more rule violations:
+
+```bash
+uv run rumdl check .
+```
+
+### Possible causes
+
+- a heading level was skipped,
+- a list or code fence is missing surrounding blank lines,
+- a fenced code block has no language identifier,
+- Markdown structure or style is inconsistent,
+- a deliberate project pattern needs a narrow exception.
+
+### Fix
+
+Read the rule identifier and inspect the reported line. Fix the structure when
+it is genuinely inconsistent.
+
+For automatically fixable issues, you may run:
+
+```bash
+uv run rumdl check --fix .
+git diff
+```
+
+Review every automatic change. Configure an exception only when the existing
+Markdown is intentional and the reason can be explained.
 
 ## A pre-commit hook fails or changes files
 
@@ -498,6 +535,7 @@ Run checks again:
 ```bash
 uv run ruff check .
 uv run ruff format --check .
+uv run rumdl check .
 uv run pytest --cov=text_toolkit --cov-report=term-missing
 uv run mypy
 ```
@@ -689,6 +727,7 @@ git status
 uv sync
 uv run ruff check .
 uv run ruff format --check .
+uv run rumdl check .
 uv run pytest --cov=text_toolkit --cov-report=term-missing
 uv run mypy
 ```
@@ -727,6 +766,7 @@ Run:
 uv sync
 uv run ruff check .
 uv run ruff format --check .
+uv run rumdl check .
 uv run pytest --cov=text_toolkit --cov-report=term-missing
 uv run mypy
 ```
@@ -827,6 +867,7 @@ git status
 uv sync
 uv run ruff check .
 uv run ruff format --check .
+uv run rumdl check .
 uv run pytest --cov=text_toolkit --cov-report=term-missing
 uv run mypy
 ```

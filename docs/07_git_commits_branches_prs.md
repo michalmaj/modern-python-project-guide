@@ -269,7 +269,7 @@ A good pull request description may include:
 
 Example:
 
-```markdown
+````markdown
 ## Summary
 
 Adds tests for the text statistics utilities.
@@ -292,7 +292,7 @@ Local check:
 ```bash
 uv run pytest
 ```
-```
+````
 
 ## Review mindset
 
@@ -334,6 +334,7 @@ For code changes, run:
 ```bash
 uv run ruff check .
 uv run ruff format --check .
+uv run rumdl check .
 uv run pytest --cov=text_toolkit --cov-report=term-missing
 uv run mypy
 ```

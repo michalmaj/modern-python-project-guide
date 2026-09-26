@@ -171,9 +171,9 @@ Delete the corresponding local branch after updating `main`.
 
 ## Documentation terminology
 
-Use the official spelling of tool names: `uv`, pytest, mypy, and `pre-commit`
-are lowercase, while Ruff is capitalized in prose. Keep command names and
-configuration keys in code format.
+Use the official spelling of tool names: `uv`, pytest, mypy, `rumdl`, and
+`pre-commit` are lowercase, while Ruff is capitalized in prose. Keep command
+names and configuration keys in code format.
 
 Call the ordered set of core chapters the **main learning path**. Call the
 supporting quickstarts, troubleshooting pages, and focused guides
@@ -203,6 +203,7 @@ Before opening a pull request with code changes, run the local quality checks:
 ```bash
 uv run ruff check .
 uv run ruff format --check .
+uv run rumdl check .
 uv run pytest --cov=text_toolkit --cov-report=term-missing
 uv run mypy
 uv build --no-sources
@@ -219,6 +220,7 @@ Then repeat the checks:
 ```bash
 uv run ruff check .
 uv run ruff format --check .
+uv run rumdl check .
 uv run pytest --cov=text_toolkit --cov-report=term-missing
 uv run mypy
 uv build --no-sources

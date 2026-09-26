@@ -71,6 +71,7 @@ jobs:
       - name: Install dependencies
       - name: Run Ruff linting
       - name: Check formatting
+      - name: Lint Markdown
       - name: Run tests with coverage
       - name: Run type checking
       - name: Build distributions
@@ -288,6 +289,7 @@ After fixing, run:
 ```bash
 uv run ruff check .
 uv run ruff format --check .
+uv run rumdl check .
 uv run pytest --cov=text_toolkit --cov-report=term-missing
 uv run mypy
 uv build --no-sources
@@ -326,6 +328,7 @@ Then run all checks again:
 ```bash
 uv run ruff check .
 uv run ruff format --check .
+uv run rumdl check .
 uv run pytest --cov=text_toolkit --cov-report=term-missing
 uv run mypy
 ```
@@ -338,6 +341,35 @@ git commit -m "style: format files"
 ```
 
 If the formatting change is part of another small documentation or code PR, it may be better to amend the existing commit instead of adding a separate formatting-only commit.
+
+## Step: Lint Markdown
+
+### What it does
+
+This step runs:
+
+```bash
+uv run rumdl check .
+```
+
+It checks Markdown structure and consistency using the project configuration.
+
+### If it fails
+
+The log shows the file, line, rule identifier, and a short explanation. Read the
+rule before changing the document; some project-specific patterns may need a
+narrow configuration exception.
+
+### How to fix it
+
+Run the check locally:
+
+```bash
+uv run rumdl check .
+```
+
+Some issues can be fixed with `uv run rumdl check --fix .`, but always review
+the resulting diff before committing it.
 
 ## Step: Run tests with coverage
 
@@ -405,6 +437,7 @@ Then run:
 ```bash
 uv run ruff check .
 uv run ruff format --check .
+uv run rumdl check .
 uv run pytest --cov=text_toolkit --cov-report=term-missing
 uv run mypy
 ```
@@ -491,6 +524,7 @@ git status
 uv sync
 uv run ruff check .
 uv run ruff format --check .
+uv run rumdl check .
 uv run pytest --cov=text_toolkit --cov-report=term-missing
 uv run mypy
 uv build --no-sources
@@ -621,6 +655,7 @@ Run quality checks:
 ```bash
 uv run ruff check .
 uv run ruff format --check .
+uv run rumdl check .
 uv run pytest --cov=text_toolkit --cov-report=term-missing
 uv run mypy
 ```
@@ -724,6 +759,7 @@ A green CI run means:
 - dependencies installed,
 - Ruff linting passed,
 - formatting check passed,
+- Markdown linting passed,
 - tests and coverage reporting passed,
 - type checking passed,
 - wheel and source distribution builds passed.

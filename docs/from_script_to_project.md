@@ -252,6 +252,7 @@ dev = [
     "pytest>=9.0.3",
     "pytest-cov>=7.1.0",
     "ruff>=0.15.12",
+    "rumdl>=0.2.77",
 ]
 
 [tool.pytest.ini_options]
@@ -268,6 +269,13 @@ source = ["text_toolkit"]
 
 [tool.coverage.report]
 show_missing = true
+
+[tool.rumdl]
+disable = ["MD013"]
+
+[tool.rumdl.per-file-ignores]
+".github/pull_request_template.md" = ["MD041"]
+"docs/markdown_review.md" = ["MD014"]
 
 [tool.ruff]
 line-length = 88
@@ -319,6 +327,7 @@ In this guide, the main local checks are:
 ```bash
 uv run ruff check .
 uv run ruff format --check .
+uv run rumdl check .
 uv run pytest --cov=text_toolkit --cov-report=term-missing
 uv run mypy
 uv build --no-sources
@@ -359,6 +368,7 @@ uv python install
 uv sync --locked --group dev
 uv run ruff check .
 uv run ruff format --check .
+uv run rumdl check .
 uv run pytest --cov=text_toolkit --cov-report=term-missing
 uv run mypy
 uv build --no-sources
@@ -440,7 +450,7 @@ The project now has:
 - documentation in `docs/`,
 - dependencies described in `pyproject.toml`,
 - exact dependency versions in `uv.lock`,
-- local checks with Ruff, pytest-cov, and mypy,
+- local checks with Ruff, `rumdl`, pytest-cov, and mypy,
 - fast `pre-commit` hooks before commits,
 - CI with GitHub Actions,
 - a branch and pull request workflow.

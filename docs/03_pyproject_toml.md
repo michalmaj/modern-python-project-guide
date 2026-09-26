@@ -44,6 +44,7 @@ dev = [
     "pytest>=9.0.3",
     "pytest-cov>=7.1.0",
     "ruff>=0.15.12",
+    "rumdl>=0.2.77",
 ]
 
 [tool.pytest.ini_options]
@@ -61,6 +62,13 @@ source = ["text_toolkit"]
 [tool.coverage.report]
 show_missing = true
 
+[tool.rumdl]
+disable = ["MD013"]
+
+[tool.rumdl.per-file-ignores]
+".github/pull_request_template.md" = ["MD041"]
+"docs/markdown_review.md" = ["MD014"]
+
 [tool.ruff]
 line-length = 88
 target-version = "py312"
@@ -77,8 +85,8 @@ select = [
 ```
 
 This describes the project, its build system, its development dependencies, and
-the settings used by pytest, mypy, Coverage.py, and Ruff. `pre-commit` is a
-development dependency, but its hooks use the separate
+the settings used by pytest, mypy, Coverage.py, Ruff, and `rumdl`. `pre-commit`
+is a development dependency, but its hooks use the separate
 `.pre-commit-config.yaml` file.
 
 ## The `[project]` section
@@ -147,7 +155,7 @@ This is intentional.
 
 The example package starts with standard library code only.
 
-Development tools such as `pytest`, pytest-cov, mypy, and Ruff are stored
+Development tools such as `pytest`, pytest-cov, mypy, Ruff, and `rumdl` are stored
 separately in the `dev` dependency group.
 
 ## The `[build-system]` section

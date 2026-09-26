@@ -3,7 +3,7 @@
 [![CI](https://github.com/michalmaj/modern-python-project-guide/actions/workflows/ci.yml/badge.svg)](https://github.com/michalmaj/modern-python-project-guide/actions/workflows/ci.yml)
 
 A practical, beginner-friendly guide to building a clean Python project with
-`uv`, `pytest`, Ruff, mypy, `pyproject.toml`, GitHub Actions, and a
+`uv`, `pytest`, Ruff, mypy, `rumdl`, `pyproject.toml`, GitHub Actions, and a
 pull-request-based workflow with `pre-commit` hooks.
 
 This repository is both a tutorial and a working example. It introduces each
@@ -32,6 +32,7 @@ By following the guide, you will learn how to:
 - inspect statement and branch coverage with pytest-cov,
 - lint and format code with Ruff,
 - check type annotations with mypy,
+- lint Markdown documentation with `rumdl`,
 - automate fast checks with `pre-commit` hooks,
 - run automated quality checks in GitHub Actions,
 - work with branches, commits, and pull requests.
@@ -57,7 +58,8 @@ understand why each tool and file is introduced.
 11. [Static type checking with mypy](docs/11_type_checking_with_mypy.md)
 12. [Test coverage with pytest-cov](docs/12_test_coverage.md)
 13. [`pre-commit` hooks](docs/13_pre_commit_hooks.md)
-14. [Project checklist](docs/09_checklist.md)
+14. [Markdown linting with rumdl](docs/14_markdown_linting.md)
+15. [Project checklist](docs/09_checklist.md)
 
 ## Reference material
 
@@ -124,6 +126,7 @@ Run the same quality checks used by CI:
 ```bash
 uv run ruff check .
 uv run ruff format --check .
+uv run rumdl check .
 uv run pytest --cov=text_toolkit --cov-report=term-missing
 uv run mypy
 uv build --no-sources

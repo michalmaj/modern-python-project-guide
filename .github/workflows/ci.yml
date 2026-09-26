@@ -30,6 +30,9 @@ jobs:
       - name: Check formatting
         run: uv run ruff format --check .
 
+      - name: Lint Markdown
+        run: uv run rumdl check .
+
       - name: Run tests with coverage
         run: uv run pytest --cov=text_toolkit --cov-report=term-missing
 
