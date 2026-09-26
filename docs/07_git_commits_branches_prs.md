@@ -357,6 +357,40 @@ It only means the automated checks passed.
 
 Human review is still needed for clarity, design, documentation quality, and project direction.
 
+## Protected main branch
+
+The `main` branch is protected on GitHub.
+
+Changes must go through a pull request. Before merging:
+
+- the branch must include the latest changes from `main`,
+- the `Quality checks` CI check must pass,
+- review conversations must be resolved.
+
+Force pushes and deletion of `main` are blocked.
+
+These rules turn the documented workflow into a repository safeguard. They help
+prevent accidental direct changes without making an approval from another
+person mandatory for this learning project.
+
+## Merge strategy
+
+This repository uses merge commits.
+
+On GitHub, merge a completed pull request with:
+
+```text
+Create a merge commit
+```
+
+This strategy keeps the focused commits made on the branch and adds a merge
+commit that marks the pull request boundary. It fits this repository because
+the history is intended to show how the project was built through small pull
+requests.
+
+Squash merging and rebase merging are disabled. Using one strategy consistently
+makes the history easier to explain.
+
 ## After merging
 
 After the pull request is merged, update the local `main` branch:
@@ -372,7 +406,7 @@ Then delete the local branch:
 git branch -d docs/example-change
 ```
 
-The remote branch can usually be deleted from GitHub after merging.
+GitHub deletes the remote branch automatically after merging.
 
 Deleting merged branches keeps the repository clean.
 

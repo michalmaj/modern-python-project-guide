@@ -146,6 +146,29 @@ When opening a pull request, try to make the reviewer’s job easy:
 - explain non-obvious decisions,
 - mention follow-up work if needed.
 
+## Merging pull requests
+
+The `main` branch is protected.
+
+Before a pull request can be merged:
+
+- the branch must be up to date with `main`,
+- the `Quality checks` CI check must pass,
+- review conversations must be resolved.
+
+This repository uses merge commits. On GitHub, choose:
+
+```text
+Create a merge commit
+```
+
+Merge commits preserve the focused commits from the branch and make the pull
+request boundary visible in the project history. Squash merging and rebase
+merging are disabled to keep that history consistent.
+
+After a pull request is merged, GitHub deletes its remote branch automatically.
+Delete the corresponding local branch after updating `main`.
+
 ## Local checks
 
 Before opening a pull request with code changes, run the local quality checks:
