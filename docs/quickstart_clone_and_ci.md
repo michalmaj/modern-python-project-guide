@@ -298,10 +298,10 @@ Use this locally most of the time:
 uv sync
 ```
 
-Use this in CI:
+Use this in this project's CI:
 
 ```bash
-uv sync --locked
+uv sync --locked --group dev
 ```
 
 The difference is important.
@@ -357,7 +357,7 @@ jobs:
         run: uv python install
 
       - name: Install dependencies
-        run: uv sync --locked
+        run: uv sync --locked --group dev
 
       - name: Run Ruff linting
         run: uv run ruff check .
@@ -502,7 +502,7 @@ For CI:
 
 ```bash
 uv python install
-uv sync --locked
+uv sync --locked --group dev
 uv run ruff check .
 uv run ruff format --check .
 uv run pytest
@@ -527,7 +527,7 @@ uv run pytest
 In CI, use:
 
 ```bash
-uv sync --locked
+uv sync --locked --group dev
 ```
 
 Local development may update the environment.

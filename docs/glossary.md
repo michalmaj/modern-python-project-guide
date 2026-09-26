@@ -354,7 +354,7 @@ uv sync
 In CI, this guide uses:
 
 ```bash
-uv sync --locked
+uv sync --locked --group dev
 ```
 
 ## Virtual environment

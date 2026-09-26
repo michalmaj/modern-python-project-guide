@@ -4,7 +4,7 @@
 
 It describes the project itself and can also store configuration for development tools.
 
-In this guide, `pyproject.toml` will gradually become the main place for project configuration.
+In this guide, `pyproject.toml` is the main place for project configuration.
 
 ## Why this file matters
 
@@ -20,11 +20,11 @@ The `pyproject.toml` file helps answer questions such as:
 
 Instead of spreading configuration across many unrelated files, this guide keeps the basic setup in one place.
 
-## Current minimal version
+## Current configuration
 
-At this stage, the project configuration is intentionally small.
+The project configuration is intentionally small.
 
-The file may look similar to this:
+The current file contains:
 
 ```toml
 [project]
@@ -32,11 +32,34 @@ name = "text-toolkit"
 version = "0.1.0"
 requires-python = ">=3.12"
 dependencies = []
+
+[dependency-groups]
+dev = [
+    "pytest>=9.0.3",
+    "ruff>=0.15.12",
+]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+pythonpath = ["src"]
+
+[tool.ruff]
+line-length = 88
+target-version = "py312"
+src = ["src", "tests"]
+
+[tool.ruff.lint]
+select = [
+    "E",
+    "F",
+    "I",
+    "B",
+    "UP",
+]
 ```
 
-This is enough to describe a minimal Python project.
-
-More configuration will be added later, but only when it becomes useful.
+This describes the project, its development dependencies, and the settings used
+by pytest and Ruff.
 
 ## The `[project]` section
 
@@ -104,7 +127,8 @@ This is intentional.
 
 The example package starts with standard library code only.
 
-Development tools such as `pytest` and `ruff` will be added later as development dependencies.
+Development tools such as `pytest` and Ruff are stored separately in the
+`dev` dependency group.
 
 ## Project structure is not the same as packaging
 
@@ -174,15 +198,14 @@ Examples of development dependencies:
 - type checkers,
 - documentation tools.
 
-This guide will add development dependencies gradually.
-
-The goal is to make each tool understandable before adding the next one.
+The guide introduces development dependencies gradually so that each tool is
+understandable before the next one appears.
 
 ## Tool configuration
 
 Many Python tools can be configured inside `pyproject.toml`.
 
-Later in this guide, this file will also contain sections such as:
+The current file also contains sections such as:
 
 ```toml
 [tool.pytest.ini_options]
@@ -196,13 +219,13 @@ and:
 
 This keeps important project settings close to the project metadata.
 
-## Why not configure everything now?
+## Why configure the project gradually?
 
 It would be possible to add all configuration immediately.
 
 However, that would make the project harder to learn from.
 
-This guide follows a slower approach:
+This guide was built using a slower approach:
 
 1. start with minimal project metadata,
 2. add source code,

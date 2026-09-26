@@ -327,7 +327,7 @@ A minimal CI workflow runs:
 
 ```bash
 uv python install
-uv sync --locked
+uv sync --locked --group dev
 uv run ruff check .
 uv run ruff format --check .
 uv run pytest

@@ -265,7 +265,7 @@ This guide first focuses on writing clear tests that check behavior.
 
 Coverage can be added later after the testing basics are clear.
 
-## Why does CI use uv sync --locked?
+## Why does CI use uv sync --locked --group dev?
 
 Local development usually uses:
 
@@ -276,10 +276,12 @@ uv sync
 CI uses:
 
 ```bash
-uv sync --locked
+uv sync --locked --group dev
 ```
 
-The `--locked` option tells `uv` to use the existing `uv.lock` file without updating it.
+The `--locked` option tells `uv` to use the existing `uv.lock` file without
+updating it. The `--group dev` option explicitly installs the development tools
+used by the quality checks.
 
 This matters because CI should verify the committed project state.
 

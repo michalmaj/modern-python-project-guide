@@ -180,13 +180,13 @@ Example:
 
 ```yaml
 - name: Install dependencies
-  run: uv sync --locked
+  run: uv sync --locked --group dev
 ```
 
 CI uses:
 
 ```bash
-uv sync --locked
+uv sync --locked --group dev
 ```
 
 because it should verify the committed lockfile, not silently update it.
@@ -572,7 +572,7 @@ uv run pytest -v
 Symptom:
 
 ```text
-uv sync --locked
+uv sync --locked --group dev
 ```
 
 fails.

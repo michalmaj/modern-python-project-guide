@@ -38,6 +38,9 @@ The repository already includes:
 - common questions,
 - an example pull request guide,
 - a from-script-to-project guide,
+- a Markdown review guide,
+- a GitHub Actions logs guide,
+- a troubleshooting guide,
 - EditorConfig.
 
 ## Done
@@ -101,6 +104,10 @@ These parts are already included in the repository.
 - [x] Add a command cheatsheet
 - [x] Add an example pull request guide
 - [x] Add a from-script-to-project guide
+- [x] Add a short guide for reviewing Markdown changes
+- [x] Add a guide for reading GitHub Actions logs
+- [x] Add a troubleshooting guide for common setup problems
+- [x] Review internal documentation links
 
 ## Next
 
@@ -108,16 +115,12 @@ These are good candidates for upcoming small pull requests.
 
 ### Documentation polish
 
-- [ ] Add a short guide for reviewing Markdown changes
-- [ ] Add a guide for reading GitHub Actions logs
-- [ ] Add a troubleshooting guide for common setup problems
 - [ ] Add a short guide about good commit history
 - [ ] Add a short guide about self-review before opening a pull request
 
 ### Repository polish
 
 - [ ] Review README length and navigation
-- [ ] Review all internal links
 - [ ] Review terminology consistency
 - [ ] Add branch protection settings on GitHub
 - [ ] Add issue templates only if the repository starts receiving external feedback
