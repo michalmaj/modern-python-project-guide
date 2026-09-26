@@ -185,6 +185,15 @@ For most local development work, this is the command to run after cloning or pul
 uv sync
 ```
 
+Install the repository's fast commit hooks once in this clone:
+
+```bash
+uv run pre-commit install
+```
+
+The hooks check changed files before Git creates a commit. They do not replace
+the complete checks below or the CI workflow.
+
 ## 6. Run local checks
 
 Run tests with coverage:
@@ -519,6 +528,7 @@ git clone https://github.com/your-username/your-project.git
 cd your-project
 
 uv sync
+uv run pre-commit install
 
 uv run ruff check .
 uv run ruff format --check .

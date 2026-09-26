@@ -213,11 +213,11 @@ Docker can be introduced later when there is a clear reason for it.
 
 Adding it too early would make the guide heavier without helping the main learning path.
 
-## Why not add pre-commit?
+## Why was pre-commit added after the foundation?
 
 `pre-commit` is useful for running checks before commits.
 
-However, it adds another tool and another configuration file.
+It also adds another tool and another configuration file.
 
 This guide first teaches the commands directly:
 
@@ -228,9 +228,10 @@ uv run pytest --cov=text_toolkit --cov-report=term-missing
 uv run mypy
 ```
 
-Once readers understand these commands, adding `pre-commit` later will be easier.
+The guide therefore introduces hooks only after these commands are clear.
 
-The guide intentionally avoids too much automation too early.
+The hooks automate fast file checks and Ruff. They do not hide or replace the
+complete local checks and CI workflow.
 
 ## Why was type checking added after the foundation?
 

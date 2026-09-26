@@ -134,6 +134,8 @@ These parts are already included in the repository.
 - [x] Explain type hints and static type checking with mypy
 - [x] Explain what coverage does and does not measure
 - [x] Avoid treating coverage percentage as a quality guarantee
+- [x] Add fast `pre-commit` hooks
+- [x] Explain how local hooks complement complete checks and CI
 
 ## Next
 
@@ -158,12 +160,6 @@ They should be introduced only as convenience wrappers after the underlying comm
 These topics are intentionally not part of the first foundation.
 
 They may be added later as separate chapters.
-
-### Pre-commit hooks
-
-- [ ] Add pre-commit hooks
-- [ ] Explain what runs before commit
-- [ ] Explain how hooks relate to CI
 
 ### Packaging
 

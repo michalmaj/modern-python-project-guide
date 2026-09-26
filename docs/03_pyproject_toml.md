@@ -40,6 +40,7 @@ build-backend = "uv_build"
 [dependency-groups]
 dev = [
     "mypy>=2.3.1",
+    "pre-commit>=4.6.2",
     "pytest>=9.0.3",
     "pytest-cov>=7.1.0",
     "ruff>=0.15.12",
@@ -76,7 +77,9 @@ select = [
 ```
 
 This describes the project, its build system, its development dependencies, and
-the settings used by pytest, mypy, Coverage.py, and Ruff.
+the settings used by pytest, mypy, Coverage.py, and Ruff. `pre-commit` is a
+development dependency, but its hooks use the separate
+`.pre-commit-config.yaml` file.
 
 ## The `[project]` section
 

@@ -8,9 +8,9 @@ Explain why this change is needed.
 
 ## Changes
 
-- 
-- 
-- 
+-
+-
+-
 
 ## Type of change
 

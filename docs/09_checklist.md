@@ -38,6 +38,7 @@ modern-python-project-guide/
 ├── src/
 ├── tests/
 ├── .gitignore
+├── .pre-commit-config.yaml
 ├── CONTRIBUTING.md
 ├── LICENSE
 ├── README.md
@@ -157,6 +158,23 @@ uv run pytest --cov=text_toolkit --cov-report=term-missing
 ```
 
 There is no minimum percentage gate.
+
+## pre-commit hooks
+
+The project may automate fast checks before a commit:
+
+- [ ] `pre-commit` is installed as a development dependency
+- [ ] `.pre-commit-config.yaml` is committed
+- [ ] hooks focus on fast, repeatable checks
+- [ ] contributors know that hooks must be installed in each clone
+- [ ] hooks do not replace the complete local checks or CI
+
+In this guide, install and run the hooks with:
+
+```bash
+uv run pre-commit install
+uv run pre-commit run --all-files
+```
 
 ## Continuous integration
 
@@ -293,5 +311,5 @@ Let the project grow gradually.
 
 ## Continue
 
-- [Previous: Test Coverage with pytest-cov](12_test_coverage.md)
+- [Previous: `pre-commit` Hooks](13_pre_commit_hooks.md)
 - [Back to README](../README.md)
