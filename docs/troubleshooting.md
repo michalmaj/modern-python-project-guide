@@ -357,14 +357,16 @@ uv run pytest
 CI fails during:
 
 ```bash
-uv sync --locked
+uv sync --locked --group dev
 ```
 
 ### Possible cause
 
 `pyproject.toml` changed, but `uv.lock` was not updated.
 
-CI uses `uv sync --locked` because it should verify the committed project state, not silently update files.
+CI uses `uv sync --locked --group dev` because it should verify the committed
+project state and explicitly install the development tools, not silently update
+files.
 
 ### Fix
 
