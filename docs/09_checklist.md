@@ -274,5 +274,5 @@ Let the project grow gradually.
 
 ## Continue
 
-- [Previous: Static Type Checking with mypy](11_type_checking_with_mypy.md)
+- [Previous: Test Coverage with pytest-cov](12_test_coverage.md)
 - [Back to README](../README.md)

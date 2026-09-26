@@ -29,6 +29,7 @@ By following the guide, you will learn how to:
 - configure the project in `pyproject.toml`,
 - install a package in editable mode and build distributions,
 - test code with `pytest`,
+- inspect statement and branch coverage with pytest-cov,
 - lint and format code with Ruff,
 - check type annotations with mypy,
 - run automated quality checks in GitHub Actions,
@@ -53,7 +54,8 @@ understand why each tool and file is introduced.
 9. [Common beginner mistakes](docs/08_common_mistakes.md)
 10. [Building distributions](docs/10_building_distributions.md)
 11. [Static type checking with mypy](docs/11_type_checking_with_mypy.md)
-12. [Project checklist](docs/09_checklist.md)
+12. [Test coverage with pytest-cov](docs/12_test_coverage.md)
+13. [Project checklist](docs/09_checklist.md)
 
 ## Reference material
 

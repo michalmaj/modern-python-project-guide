@@ -47,6 +47,20 @@ uv build --no-sources
 
 CI helps protect the `main` branch from broken changes.
 
+## Coverage
+
+Coverage measures which source statements and branches run while tests execute.
+
+This project generates a terminal report with:
+
+```bash
+uv run pytest --cov=text_toolkit --cov-report=term-missing
+```
+
+A high percentage does not prove that tests use meaningful assertions or cover
+every requirement. Coverage is evidence about execution, not a complete quality
+score.
+
 ## Commit
 
 A commit is a saved change in Git history.

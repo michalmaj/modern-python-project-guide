@@ -88,6 +88,7 @@ These parts are already included in the repository.
 - [x] Add mypy as a development dependency
 - [x] Configure strict local type checking
 - [x] Run type checks against source code and tests
+- [x] Add pytest-cov and local branch coverage reporting
 
 ### Continuous integration
 
@@ -130,10 +131,16 @@ These parts are already included in the repository.
 - [x] Review commit history and self-review coverage in the existing guides
 - [x] Standardize terminology and dependency examples across the documentation
 - [x] Explain type hints and static type checking with mypy
+- [x] Explain what coverage does and does not measure
+- [x] Avoid treating coverage percentage as a quality guarantee
 
 ## Next
 
 These are good candidates for upcoming small pull requests.
+
+### Test coverage
+
+- [ ] Run coverage reporting in CI and align workflow documentation
 
 ### Repository polish
 
@@ -154,12 +161,6 @@ They should be introduced only as convenience wrappers after the underlying comm
 These topics are intentionally not part of the first foundation.
 
 They may be added later as separate chapters.
-
-### Test coverage
-
-- [ ] Add coverage tooling
-- [ ] Explain what coverage does and does not mean
-- [ ] Avoid treating coverage percentage as a quality guarantee
 
 ### Pre-commit hooks
 

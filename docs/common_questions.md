@@ -253,7 +253,7 @@ Readers can now learn those foundations first and then continue to the
 [type-checking chapter](11_type_checking_with_mypy.md). This order keeps type
 hints and the tool that checks them from becoming another unexplained layer.
 
-## Why not add coverage yet?
+## Why was coverage added after the testing basics?
 
 Coverage tools can show which lines are executed by tests.
 
@@ -261,9 +261,12 @@ However, coverage can be misleading if introduced too early.
 
 High coverage does not automatically mean good tests.
 
-This guide first focuses on writing clear tests that check behavior.
+This guide first focuses on writing clear tests that check behavior. It then
+introduces coverage as a diagnostic tool in the
+[coverage chapter](12_test_coverage.md).
 
-Coverage can be added later after the testing basics are clear.
+The project deliberately has no percentage gate. Readers should inspect missing
+behavior instead of treating a high number as proof of test quality.
 
 ## Why does CI use uv sync --locked --group dev?
 
