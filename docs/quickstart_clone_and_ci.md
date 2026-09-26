@@ -187,10 +187,10 @@ uv sync
 
 ## 6. Run local checks
 
-Run tests:
+Run tests with coverage:
 
 ```bash
-uv run pytest
+uv run pytest --cov=text_toolkit --cov-report=term-missing
 ```
 
 Run Ruff linting:
@@ -216,7 +216,7 @@ A useful local check sequence is:
 ```bash
 uv run ruff check .
 uv run ruff format --check .
-uv run pytest
+uv run pytest --cov=text_toolkit --cov-report=term-missing
 uv run mypy
 ```
 
@@ -231,7 +231,7 @@ Then repeat:
 ```bash
 uv run ruff check .
 uv run ruff format --check .
-uv run pytest
+uv run pytest --cov=text_toolkit --cov-report=term-missing
 uv run mypy
 ```
 
@@ -241,7 +241,7 @@ If the project is set up correctly:
 
 - Ruff linting should pass,
 - Ruff formatting check should pass,
-- pytest should pass,
+- pytest and coverage reporting should pass,
 - mypy should report no issues.
 
 If one command fails, read the error message before changing anything.
@@ -375,8 +375,8 @@ jobs:
       - name: Check formatting
         run: uv run ruff format --check .
 
-      - name: Run tests
-        run: uv run pytest
+      - name: Run tests with coverage
+        run: uv run pytest --cov=text_toolkit --cov-report=term-missing
 
       - name: Run type checking
         run: uv run mypy
@@ -416,7 +416,7 @@ The CI workflow should run the same checks that developers run locally:
 ```bash
 uv run ruff check .
 uv run ruff format --check .
-uv run pytest
+uv run pytest --cov=text_toolkit --cov-report=term-missing
 uv run mypy
 uv build --no-sources
 ```
@@ -505,7 +505,7 @@ git status
 uv sync
 uv run ruff check .
 uv run ruff format --check .
-uv run pytest
+uv run pytest --cov=text_toolkit --cov-report=term-missing
 uv run mypy
 uv build --no-sources
 ```
@@ -522,7 +522,7 @@ uv sync
 
 uv run ruff check .
 uv run ruff format --check .
-uv run pytest
+uv run pytest --cov=text_toolkit --cov-report=term-missing
 uv run mypy
 uv build --no-sources
 ```
@@ -534,7 +534,7 @@ uv python install
 uv sync --locked --group dev
 uv run ruff check .
 uv run ruff format --check .
-uv run pytest
+uv run pytest --cov=text_toolkit --cov-report=term-missing
 uv run mypy
 uv build --no-sources
 ```
@@ -552,7 +552,7 @@ Before opening a pull request, run:
 ```bash
 uv run ruff check .
 uv run ruff format --check .
-uv run pytest
+uv run pytest --cov=text_toolkit --cov-report=term-missing
 uv run mypy
 ```
 

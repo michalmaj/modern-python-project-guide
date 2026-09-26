@@ -107,7 +107,7 @@ def add(left: int, right: int) -> int:
     return left + right
 ```
 
-## 4. Add pytest, Ruff, and mypy as development dependencies
+## 4. Add pytest, pytest-cov, Ruff, and mypy as development dependencies
 
 Add `pytest`:
 
@@ -125,6 +125,12 @@ Add `mypy`:
 
 ```bash
 uv add --group dev mypy
+```
+
+Add `pytest-cov`:
+
+```bash
+uv add --group dev pytest-cov
 ```
 
 ### Expected result
@@ -161,8 +167,8 @@ This adds `rich` to the project dependencies.
 
 The runtime dependency should appear in the `[project]` dependencies section of `pyproject.toml`.
 
-Development tools such as `pytest`, Ruff, and mypy should stay in the
-development dependency group.
+Development tools such as `pytest`, pytest-cov, Ruff, and mypy should stay in
+the development dependency group.
 
 This separation keeps runtime dependencies and development tools easy to understand.
 
@@ -170,7 +176,7 @@ Use runtime dependencies only when the actual package needs them.
 
 Do not add test or linting tools as runtime dependencies.
 
-## 6. Configure pytest, Ruff, and mypy
+## 6. Configure pytest, coverage, Ruff, and mypy
 
 Open `pyproject.toml`.
 
@@ -193,6 +199,7 @@ build-backend = "uv_build"
 dev = [
     "mypy>=2.3.1",
     "pytest>=9.0.3",
+    "pytest-cov>=7.1.0",
     "ruff>=0.15.12",
 ]
 
@@ -203,6 +210,13 @@ testpaths = ["tests"]
 python_version = "3.12"
 files = ["src", "tests"]
 strict = true
+
+[tool.coverage.run]
+branch = true
+source = ["example_project"]
+
+[tool.coverage.report]
+show_missing = true
 
 [tool.ruff]
 line-length = 88
@@ -291,10 +305,10 @@ Do not commit `.venv/` to Git.
 
 ## 9. Run commands inside the environment
 
-Run tests:
+Run tests with coverage:
 
 ```bash
-uv run pytest
+uv run pytest --cov=example_project --cov-report=term-missing
 ```
 
 Run Ruff linting:
@@ -325,7 +339,7 @@ uv run ruff format .
 
 If everything is configured correctly:
 
-- `uv run pytest` should pass,
+- `uv run pytest --cov=example_project --cov-report=term-missing` should pass,
 - `uv run ruff check .` should pass,
 - `uv run ruff format --check .` should pass,
 - `uv run mypy` should report no issues.
@@ -367,7 +381,7 @@ For everyday development, use:
 uv sync
 uv run ruff check .
 uv run ruff format --check .
-uv run pytest
+uv run pytest --cov=example_project --cov-report=term-missing
 uv run mypy
 ```
 
@@ -377,7 +391,7 @@ If formatting fails:
 uv run ruff format .
 uv run ruff check .
 uv run ruff format --check .
-uv run pytest
+uv run pytest --cov=example_project --cov-report=term-missing
 uv run mypy
 ```
 
@@ -420,13 +434,14 @@ touch tests/test_calculator.py
 uv add --group dev pytest
 uv add --group dev ruff
 uv add --group dev mypy
+uv add --group dev pytest-cov
 uv add rich
 
 uv sync
 
 uv run ruff check .
 uv run ruff format --check .
-uv run pytest
+uv run pytest --cov=example_project --cov-report=term-missing
 uv run mypy
 ```
 

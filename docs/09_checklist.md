@@ -140,6 +140,24 @@ uv run mypy
 
 Type checking complements tests and Ruff; it does not replace them.
 
+## Test coverage
+
+The project should use coverage as a diagnostic tool:
+
+- [ ] pytest-cov is installed as a development dependency
+- [ ] coverage is limited to production source code
+- [ ] statement and branch coverage are measured
+- [ ] missing lines are visible in the terminal report
+- [ ] a percentage is not treated as proof of test quality
+
+In this guide, tests and coverage run together:
+
+```bash
+uv run pytest --cov=text_toolkit --cov-report=term-missing
+```
+
+There is no minimum percentage gate.
+
 ## Continuous integration
 
 The project should run checks automatically in CI:
@@ -150,7 +168,7 @@ The project should run checks automatically in CI:
 - [ ] CI installs dependencies from the lockfile
 - [ ] CI runs linting
 - [ ] CI checks formatting
-- [ ] CI runs tests
+- [ ] CI runs tests with coverage reporting
 - [ ] CI runs type checking
 - [ ] CI builds a wheel and source distribution
 - [ ] CI status is visible in the README
@@ -198,7 +216,7 @@ For code changes, run:
 ```bash
 uv run ruff check .
 uv run ruff format --check .
-uv run pytest
+uv run pytest --cov=text_toolkit --cov-report=term-missing
 uv run mypy
 uv build --no-sources
 ```
@@ -214,7 +232,7 @@ Then repeat:
 ```bash
 uv run ruff check .
 uv run ruff format --check .
-uv run pytest
+uv run pytest --cov=text_toolkit --cov-report=term-missing
 uv run mypy
 uv build --no-sources
 ```
@@ -250,6 +268,7 @@ How do I install it?
 Where is the code?
 Where are the tests?
 How do I run the tests?
+How do I inspect test coverage?
 How do I check formatting and linting?
 How do I check type annotations?
 How do I build distribution files?

@@ -71,7 +71,7 @@ jobs:
       - name: Install dependencies
       - name: Run Ruff linting
       - name: Check formatting
-      - name: Run tests
+      - name: Run tests with coverage
       - name: Run type checking
       - name: Build distributions
 ```
@@ -288,7 +288,7 @@ After fixing, run:
 ```bash
 uv run ruff check .
 uv run ruff format --check .
-uv run pytest
+uv run pytest --cov=text_toolkit --cov-report=term-missing
 uv run mypy
 uv build --no-sources
 ```
@@ -326,7 +326,7 @@ Then run all checks again:
 ```bash
 uv run ruff check .
 uv run ruff format --check .
-uv run pytest
+uv run pytest --cov=text_toolkit --cov-report=term-missing
 uv run mypy
 ```
 
@@ -339,17 +339,18 @@ git commit -m "style: format files"
 
 If the formatting change is part of another small documentation or code PR, it may be better to amend the existing commit instead of adding a separate formatting-only commit.
 
-## Step: Run tests
+## Step: Run tests with coverage
 
 ### What it does
 
 This step runs:
 
 ```bash
-uv run pytest
+uv run pytest --cov=text_toolkit --cov-report=term-missing
 ```
 
-It checks whether the code behaves as expected.
+It checks whether the code behaves as expected and reports statement and branch
+coverage for `text_toolkit`. There is no minimum percentage gate.
 
 ### If it fails
 
@@ -364,7 +365,7 @@ Pytest usually shows:
 Example:
 
 ```text
-FAILED tests/test_text_stats.py::test_count_words_handles_repeated_whitespace
+FAILED tests/test_text_stats.py::test_count_characters_includes_whitespace_by_default
 ```
 
 This tells you which test failed.
@@ -382,7 +383,7 @@ assertion error
 Then run tests locally:
 
 ```bash
-uv run pytest
+uv run pytest --cov=text_toolkit --cov-report=term-missing
 ```
 
 For more detail:
@@ -404,7 +405,7 @@ Then run:
 ```bash
 uv run ruff check .
 uv run ruff format --check .
-uv run pytest
+uv run pytest --cov=text_toolkit --cov-report=term-missing
 uv run mypy
 ```
 
@@ -490,7 +491,7 @@ git status
 uv sync
 uv run ruff check .
 uv run ruff format --check .
-uv run pytest
+uv run pytest --cov=text_toolkit --cov-report=term-missing
 uv run mypy
 uv build --no-sources
 ```
@@ -620,7 +621,7 @@ Run quality checks:
 ```bash
 uv run ruff check .
 uv run ruff format --check .
-uv run pytest
+uv run pytest --cov=text_toolkit --cov-report=term-missing
 uv run mypy
 ```
 
@@ -723,7 +724,7 @@ A green CI run means:
 - dependencies installed,
 - Ruff linting passed,
 - formatting check passed,
-- tests passed,
+- tests and coverage reporting passed,
 - type checking passed,
 - wheel and source distribution builds passed.
 

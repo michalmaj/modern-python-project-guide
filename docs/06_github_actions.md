@@ -47,7 +47,7 @@ In this project, the local checks are:
 ```bash
 uv run ruff check .
 uv run ruff format --check .
-uv run pytest
+uv run pytest --cov=text_toolkit --cov-report=term-missing
 uv run mypy
 uv build --no-sources
 ```
@@ -169,6 +169,7 @@ This is important in CI because the workflow should check the project using the 
 The `--group dev` option installs development dependencies such as:
 
 - `pytest`,
+- `pytest-cov`,
 - `mypy`,
 - `ruff`.
 
@@ -213,16 +214,18 @@ The developer can fix formatting locally with:
 uv run ruff format .
 ```
 
-## Tests
+## Tests and coverage
 
-The workflow runs tests:
+The workflow runs tests and prints a coverage report:
 
 ```yaml
-- name: Run tests
-  run: uv run pytest
+- name: Run tests with coverage
+  run: uv run pytest --cov=text_toolkit --cov-report=term-missing
 ```
 
-This verifies the behavior of the example package.
+This verifies the behavior of the example package while measuring statement and
+branch coverage. The terminal report shows missing source lines, but the project
+does not fail the workflow based on a coverage percentage.
 
 At this stage, the tests check:
 
