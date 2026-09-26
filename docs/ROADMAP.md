@@ -55,6 +55,9 @@ These parts are already included in the repository.
 - [x] Add a pull request template
 - [x] Add a README landing page
 - [x] Add GitHub metadata guidance
+- [x] Protect `main` with pull request and CI requirements
+- [x] Enable automatic deletion of merged branches
+- [x] Choose and document the merge commit strategy
 
 ### Python project setup
 
@@ -123,7 +126,6 @@ These are good candidates for upcoming small pull requests.
 
 - [ ] Review README length and navigation
 - [ ] Review terminology consistency
-- [ ] Add branch protection settings on GitHub
 - [ ] Add issue templates only if the repository starts receiving external feedback
 
 ### Optional convenience
