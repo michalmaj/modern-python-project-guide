@@ -125,16 +125,16 @@ ModuleNotFoundError: No module named 'text_toolkit'
 
 ### Possible cause
 
-The project uses a `src/` layout, but pytest cannot find the package.
+The project uses a `src/` layout, but it was not installed into the environment.
 
 ### Fix
 
-Check that `pyproject.toml` contains:
+Check that `pyproject.toml` contains a build system:
 
 ```toml
-[tool.pytest.ini_options]
-testpaths = ["tests"]
-pythonpath = ["src"]
+[build-system]
+requires = ["uv_build>=0.12.19,<0.13"]
+build-backend = "uv_build"
 ```
 
 Then run:
@@ -143,6 +143,9 @@ Then run:
 uv sync
 uv run pytest
 ```
+
+The sync output should show that `text-toolkit` was built and installed from the
+local project.
 
 ## pytest is not found
 

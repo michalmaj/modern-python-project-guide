@@ -125,24 +125,19 @@ The project configures pytest in `pyproject.toml`:
 ```toml
 [tool.pytest.ini_options]
 testpaths = ["tests"]
-pythonpath = ["src"]
 ```
 
 The `testpaths` option tells pytest where tests are located.
 
-The `pythonpath` option allows tests to import the package from the `src/` directory.
+### How tests import the package
 
-This keeps the project structure clean while still making imports straightforward.
+The project defines a build system in `pyproject.toml`. When you run:
 
-### Why `pythonpath = ["src"]` is used here
-
-The project currently uses:
-
-```toml
-pythonpath = ["src"]
+```bash
+uv sync
 ```
 
-This lets pytest import the example package from the `src/` directory.
+`uv` installs the project into its environment in editable mode.
 
 For example, tests can import:
 
@@ -150,13 +145,9 @@ For example, tests can import:
 from text_toolkit import count_words
 ```
 
-This is an educational simplification.
-
-It keeps the guide focused on tests and project structure before introducing packaging, build systems, or editable installs.
-
-In a more complete packaging workflow, the project may instead be installed into the environment as an editable package.
-
-That topic is intentionally left for a later stage.
+No pytest-specific `pythonpath` shortcut is needed. Tests use the installed
+package, while editable installation keeps changes in `src/` immediately
+available during development.
 
 ## Running tests
 

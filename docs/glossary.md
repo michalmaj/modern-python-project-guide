@@ -24,13 +24,10 @@ Branches help keep changes focused and make pull requests easier to review.
 
 A build system tells Python tools how to build and install a project as a distribution.
 
-Build systems are usually configured through a `[build-system]` section in `pyproject.toml`.
+Build systems are usually configured through a `[build-system]` section in
+`pyproject.toml`.
 
-This guide does not introduce a build system in the first version.
-
-That is intentional.
-
-The first version focuses on project structure, tests, linting, formatting, CI, and pull requests.
+This guide uses `uv_build` to install the package from its `src/` layout.
 
 ## CI
 
@@ -116,6 +113,14 @@ Files can be formatted automatically with:
 uv run ruff format .
 ```
 
+## Editable installation
+
+An editable installation connects an installed package to its source directory.
+
+When source code changes, the installed package uses the updated code without a
+manual reinstall. `uv sync` installs the current project in editable mode by
+default when the project defines a build system.
+
 ## GitHub Actions
 
 GitHub Actions is GitHub's automation system.
@@ -174,7 +179,8 @@ They should go through branches and pull requests.
 
 The word “package” can mean different things in Python.
 
-In this guide, “package” means an importable Python package inside `src/`.
+In this guide, “package” usually means the importable Python package inside
+`src/`.
 
 Example:
 
@@ -182,9 +188,8 @@ Example:
 src/text_toolkit/
 ```
 
-This guide does not yet cover building and publishing installable Python distributions.
-
-That is a separate topic.
+The project installs this package into its development environment. Building
+distribution files and publishing them are later topics.
 
 ## Pull request
 

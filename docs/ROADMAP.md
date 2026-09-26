@@ -68,6 +68,9 @@ These parts are already included in the repository.
 - [x] Use the `src/` layout
 - [x] Create a small example package
 - [x] Clarify the difference between project structure and packaging
+- [x] Add the `uv_build` build backend
+- [x] Install the project in editable mode with `uv sync`
+- [x] Remove the pytest `pythonpath` shortcut
 
 ### Tests and quality tools
 
@@ -165,11 +168,8 @@ They may be added later as separate chapters.
 
 ### Packaging
 
-- [ ] Explain `[build-system]`
-- [ ] Add a build backend
 - [ ] Build wheels
 - [ ] Build source distributions
-- [ ] Explain editable installs
 - [ ] Explain publishing to PyPI
 
 ### Documentation site

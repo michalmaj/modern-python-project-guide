@@ -112,6 +112,7 @@ In this guide, it contains:
 
 - project metadata,
 - Python version requirements,
+- build system configuration,
 - dependency configuration,
 - pytest configuration,
 - Ruff configuration.
