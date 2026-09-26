@@ -170,6 +170,7 @@ Good:
 uv run ruff check .
 uv run ruff format --check .
 uv run pytest
+uv run mypy
 ```
 
 Avoid mixing shell prompts into commands:
@@ -382,6 +383,7 @@ However, if the repository has existing quality checks, it is still fine to run:
 uv run ruff check .
 uv run ruff format --check .
 uv run pytest
+uv run mypy
 ```
 
 At minimum, review:

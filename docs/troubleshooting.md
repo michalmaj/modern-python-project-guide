@@ -15,6 +15,7 @@ uv sync
 uv run ruff check .
 uv run ruff format --check .
 uv run pytest
+uv run mypy
 ```
 
 Do not change many things at once.
@@ -261,6 +262,7 @@ Then check again:
 uv run ruff check .
 uv run ruff format --check .
 uv run pytest
+uv run mypy
 ```
 
 ## Ruff linting fails
@@ -301,6 +303,7 @@ Then run all checks again:
 uv run ruff check .
 uv run ruff format --check .
 uv run pytest
+uv run mypy
 ```
 
 Do not blindly apply fixes without reviewing the diff.
@@ -310,6 +313,41 @@ Check:
 ```bash
 git diff
 ```
+
+## mypy is missing or type checking fails
+
+### Problem
+
+This command is unavailable or reports a type error:
+
+```bash
+uv run mypy
+```
+
+### Possible causes
+
+- the local environment is out of sync,
+- mypy is missing from the development dependency group,
+- code does not match its type annotations.
+
+### Fix
+
+Sync the environment first:
+
+```bash
+uv sync
+uv run mypy
+```
+
+When adding mypy to a different project, record it as a development dependency:
+
+```bash
+uv add --group dev mypy
+```
+
+For a type error, read the file path, line number, and error code. Fix the code
+or its annotation instead of adding a broad ignore without understanding the
+problem.
 
 ## Tests fail
 
@@ -351,6 +389,7 @@ Then run:
 uv run ruff check .
 uv run ruff format --check .
 uv run pytest
+uv run mypy
 ```
 
 ## `uv.lock` is out of sync
@@ -398,6 +437,7 @@ Run checks again:
 uv run ruff check .
 uv run ruff format --check .
 uv run pytest
+uv run mypy
 ```
 
 ## `.venv/` was committed by mistake
@@ -449,6 +489,7 @@ The pull request contains files such as:
 __pycache__/
 .pytest_cache/
 .ruff_cache/
+.mypy_cache/
 ```
 
 ### Possible cause
@@ -463,12 +504,13 @@ Make sure `.gitignore` contains:
 __pycache__/
 .pytest_cache/
 .ruff_cache/
+.mypy_cache/
 ```
 
 Remove cached files from Git tracking if needed:
 
 ```bash
-git rm -r --cached __pycache__ .pytest_cache .ruff_cache
+git rm -r --cached __pycache__ .pytest_cache .ruff_cache .mypy_cache
 ```
 
 Some directories may not exist. That is fine.
@@ -586,6 +628,7 @@ uv sync
 uv run ruff check .
 uv run ruff format --check .
 uv run pytest
+uv run mypy
 ```
 
 Then check whether these files were committed if they changed:
@@ -623,6 +666,7 @@ uv sync
 uv run ruff check .
 uv run ruff format --check .
 uv run pytest
+uv run mypy
 ```
 
 If dependencies changed, `uv sync` is the important first step.
@@ -722,6 +766,7 @@ uv sync
 uv run ruff check .
 uv run ruff format --check .
 uv run pytest
+uv run mypy
 ```
 
 Then:

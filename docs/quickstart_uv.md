@@ -107,7 +107,7 @@ def add(left: int, right: int) -> int:
     return left + right
 ```
 
-## 4. Add pytest and Ruff as development dependencies
+## 4. Add pytest, Ruff, and mypy as development dependencies
 
 Add `pytest`:
 
@@ -119,6 +119,12 @@ Add `ruff`:
 
 ```bash
 uv add --group dev ruff
+```
+
+Add `mypy`:
+
+```bash
+uv add --group dev mypy
 ```
 
 ### Expected result
@@ -155,7 +161,8 @@ This adds `rich` to the project dependencies.
 
 The runtime dependency should appear in the `[project]` dependencies section of `pyproject.toml`.
 
-Development tools such as `pytest` and Ruff should stay in the development dependency group.
+Development tools such as `pytest`, Ruff, and mypy should stay in the
+development dependency group.
 
 This separation keeps runtime dependencies and development tools easy to understand.
 
@@ -163,7 +170,7 @@ Use runtime dependencies only when the actual package needs them.
 
 Do not add test or linting tools as runtime dependencies.
 
-## 6. Configure pytest and Ruff
+## 6. Configure pytest, Ruff, and mypy
 
 Open `pyproject.toml`.
 
@@ -184,12 +191,18 @@ build-backend = "uv_build"
 
 [dependency-groups]
 dev = [
+    "mypy>=2.3.1",
     "pytest>=9.0.3",
     "ruff>=0.15.12",
 ]
 
 [tool.pytest.ini_options]
 testpaths = ["tests"]
+
+[tool.mypy]
+python_version = "3.12"
+files = ["src", "tests"]
+strict = true
 
 [tool.ruff]
 line-length = 88
@@ -296,6 +309,12 @@ Check formatting:
 uv run ruff format --check .
 ```
 
+Run type checking:
+
+```bash
+uv run mypy
+```
+
 Format files automatically:
 
 ```bash
@@ -308,7 +327,8 @@ If everything is configured correctly:
 
 - `uv run pytest` should pass,
 - `uv run ruff check .` should pass,
-- `uv run ruff format --check .` should pass.
+- `uv run ruff format --check .` should pass,
+- `uv run mypy` should report no issues.
 
 If the formatting check fails, run:
 
@@ -348,6 +368,7 @@ uv sync
 uv run ruff check .
 uv run ruff format --check .
 uv run pytest
+uv run mypy
 ```
 
 If formatting fails:
@@ -357,6 +378,7 @@ uv run ruff format .
 uv run ruff check .
 uv run ruff format --check .
 uv run pytest
+uv run mypy
 ```
 
 ## 12. What to commit
@@ -378,6 +400,7 @@ Do not commit:
 __pycache__/
 .pytest_cache/
 .ruff_cache/
+.mypy_cache/
 ```
 
 ## Quick command summary
@@ -396,6 +419,7 @@ touch tests/test_calculator.py
 
 uv add --group dev pytest
 uv add --group dev ruff
+uv add --group dev mypy
 uv add rich
 
 uv sync
@@ -403,6 +427,7 @@ uv sync
 uv run ruff check .
 uv run ruff format --check .
 uv run pytest
+uv run mypy
 ```
 
 ## Rule of thumb

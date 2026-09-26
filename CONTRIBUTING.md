@@ -190,6 +190,7 @@ Before opening a pull request with code changes, run the local quality checks:
 uv run ruff check .
 uv run ruff format --check .
 uv run pytest
+uv run mypy
 uv build --no-sources
 ```
 
@@ -205,6 +206,7 @@ Then repeat the checks:
 uv run ruff check .
 uv run ruff format --check .
 uv run pytest
+uv run mypy
 uv build --no-sources
 ```
 

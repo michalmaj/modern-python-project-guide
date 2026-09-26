@@ -72,6 +72,7 @@ jobs:
       - name: Run Ruff linting
       - name: Check formatting
       - name: Run tests
+      - name: Run type checking
       - name: Build distributions
 ```
 
@@ -288,6 +289,7 @@ After fixing, run:
 uv run ruff check .
 uv run ruff format --check .
 uv run pytest
+uv run mypy
 uv build --no-sources
 ```
 
@@ -325,6 +327,7 @@ Then run all checks again:
 uv run ruff check .
 uv run ruff format --check .
 uv run pytest
+uv run mypy
 ```
 
 Commit the formatting changes:
@@ -402,7 +405,41 @@ Then run:
 uv run ruff check .
 uv run ruff format --check .
 uv run pytest
+uv run mypy
 ```
+
+## Step: Run type checking
+
+### What it does
+
+This step runs:
+
+```bash
+uv run mypy
+```
+
+mypy checks whether code in `src/` and `tests/` follows the project's type
+annotations and strict configuration.
+
+### If it fails
+
+The message usually includes:
+
+- a file path,
+- a line number,
+- an explanation,
+- an error code in square brackets.
+
+### How to fix it
+
+Run the same command locally:
+
+```bash
+uv run mypy
+```
+
+Fix the code or its annotation. Avoid broad ignores that hide unrelated type
+errors. Then run the full local checks again.
 
 ## Step: Build distributions
 
@@ -454,6 +491,7 @@ uv sync
 uv run ruff check .
 uv run ruff format --check .
 uv run pytest
+uv run mypy
 uv build --no-sources
 ```
 
@@ -583,6 +621,7 @@ Run quality checks:
 uv run ruff check .
 uv run ruff format --check .
 uv run pytest
+uv run mypy
 ```
 
 Format files:
@@ -685,6 +724,7 @@ A green CI run means:
 - Ruff linting passed,
 - formatting check passed,
 - tests passed,
+- type checking passed,
 - wheel and source distribution builds passed.
 
 It does not mean:

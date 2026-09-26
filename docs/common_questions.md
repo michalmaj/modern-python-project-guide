@@ -225,6 +225,7 @@ This guide first teaches the commands directly:
 uv run ruff check .
 uv run ruff format --check .
 uv run pytest
+uv run mypy
 ```
 
 Once readers understand these commands, adding `pre-commit` later will be easier.
@@ -302,6 +303,7 @@ Then run the local checks:
 uv run ruff check .
 uv run ruff format --check .
 uv run pytest
+uv run mypy
 ```
 
 If formatting fails, run:
@@ -335,6 +337,7 @@ Do not commit generated local files such as:
 __pycache__/
 .pytest_cache/
 .ruff_cache/
+.mypy_cache/
 .coverage
 ```
 

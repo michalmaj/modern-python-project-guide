@@ -205,12 +205,19 @@ Check formatting:
 uv run ruff format --check .
 ```
 
+Run type checking:
+
+```bash
+uv run mypy
+```
+
 A useful local check sequence is:
 
 ```bash
 uv run ruff check .
 uv run ruff format --check .
 uv run pytest
+uv run mypy
 ```
 
 If formatting fails, run:
@@ -225,6 +232,7 @@ Then repeat:
 uv run ruff check .
 uv run ruff format --check .
 uv run pytest
+uv run mypy
 ```
 
 ### Expected result
@@ -233,7 +241,8 @@ If the project is set up correctly:
 
 - Ruff linting should pass,
 - Ruff formatting check should pass,
-- pytest should pass.
+- pytest should pass,
+- mypy should report no issues.
 
 If one command fails, read the error message before changing anything.
 
@@ -369,6 +378,9 @@ jobs:
       - name: Run tests
         run: uv run pytest
 
+      - name: Run type checking
+        run: uv run mypy
+
       - name: Build distributions
         run: uv build --no-sources
 ```
@@ -390,6 +402,7 @@ A successful run means that GitHub was able to:
 - run Ruff linting,
 - check formatting,
 - run tests,
+- run type checking,
 - build a wheel and source distribution.
 
 A green CI check does not replace review.
@@ -404,6 +417,7 @@ The CI workflow should run the same checks that developers run locally:
 uv run ruff check .
 uv run ruff format --check .
 uv run pytest
+uv run mypy
 uv build --no-sources
 ```
 
@@ -492,6 +506,7 @@ uv sync
 uv run ruff check .
 uv run ruff format --check .
 uv run pytest
+uv run mypy
 uv build --no-sources
 ```
 
@@ -508,6 +523,7 @@ uv sync
 uv run ruff check .
 uv run ruff format --check .
 uv run pytest
+uv run mypy
 uv build --no-sources
 ```
 
@@ -519,6 +535,7 @@ uv sync --locked --group dev
 uv run ruff check .
 uv run ruff format --check .
 uv run pytest
+uv run mypy
 uv build --no-sources
 ```
 
@@ -536,6 +553,7 @@ Before opening a pull request, run:
 uv run ruff check .
 uv run ruff format --check .
 uv run pytest
+uv run mypy
 ```
 
 In CI, use:
