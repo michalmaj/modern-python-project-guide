@@ -249,6 +249,7 @@ build-backend = "uv_build"
 dev = [
     "mypy>=2.3.1",
     "pytest>=9.0.3",
+    "pytest-cov>=7.1.0",
     "ruff>=0.15.12",
 ]
 
@@ -259,6 +260,13 @@ testpaths = ["tests"]
 python_version = "3.12"
 files = ["src", "tests"]
 strict = true
+
+[tool.coverage.run]
+branch = true
+source = ["text_toolkit"]
+
+[tool.coverage.report]
+show_missing = true
 
 [tool.ruff]
 line-length = 88
@@ -308,7 +316,7 @@ In this guide, the main local checks are:
 ```bash
 uv run ruff check .
 uv run ruff format --check .
-uv run pytest
+uv run pytest --cov=text_toolkit --cov-report=term-missing
 uv run mypy
 uv build --no-sources
 ```
@@ -317,7 +325,7 @@ These commands check:
 
 - linting,
 - formatting,
-- behavior,
+- behavior and test coverage,
 - type annotations,
 - package distribution builds.
 
@@ -348,7 +356,7 @@ uv python install
 uv sync --locked --group dev
 uv run ruff check .
 uv run ruff format --check .
-uv run pytest
+uv run pytest --cov=text_toolkit --cov-report=term-missing
 uv run mypy
 uv build --no-sources
 ```
@@ -429,7 +437,7 @@ The project now has:
 - documentation in `docs/`,
 - dependencies described in `pyproject.toml`,
 - exact dependency versions in `uv.lock`,
-- local checks with Ruff, pytest, and mypy,
+- local checks with Ruff, pytest-cov, and mypy,
 - CI with GitHub Actions,
 - a branch and pull request workflow.
 

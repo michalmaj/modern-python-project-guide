@@ -62,6 +62,7 @@ Examples:
 uv add --group dev pytest
 uv add --group dev ruff
 uv add --group dev mypy
+uv add --group dev pytest-cov
 ```
 
 Sync the local environment:
@@ -82,6 +83,12 @@ Run tests:
 
 ```bash
 uv run pytest
+```
+
+Run tests with coverage:
+
+```bash
+uv run pytest --cov=text_toolkit --cov-report=term-missing
 ```
 
 Run type checking:
@@ -113,7 +120,7 @@ Run all local checks:
 ```bash
 uv run ruff check .
 uv run ruff format --check .
-uv run pytest
+uv run pytest --cov=text_toolkit --cov-report=term-missing
 uv run mypy
 uv build --no-sources
 ```
@@ -136,7 +143,7 @@ If formatting fails:
 uv run ruff format .
 uv run ruff check .
 uv run ruff format --check .
-uv run pytest
+uv run pytest --cov=text_toolkit --cov-report=term-missing
 uv run mypy
 uv build --no-sources
 ```
@@ -154,7 +161,7 @@ Then run:
 ```bash
 uv run ruff check .
 uv run ruff format --check .
-uv run pytest
+uv run pytest --cov=text_toolkit --cov-report=term-missing
 uv run mypy
 ```
 
@@ -250,7 +257,7 @@ uv python install
 uv sync --locked --group dev
 uv run ruff check .
 uv run ruff format --check .
-uv run pytest
+uv run pytest --cov=text_toolkit --cov-report=term-missing
 uv run mypy
 uv build --no-sources
 ```
@@ -305,7 +312,7 @@ git status
 uv sync
 uv run ruff check .
 uv run ruff format --check .
-uv run pytest
+uv run pytest --cov=text_toolkit --cov-report=term-missing
 uv run mypy
 ```
 

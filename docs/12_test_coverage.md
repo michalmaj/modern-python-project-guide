@@ -97,6 +97,17 @@ The important columns are:
 
 The exact counts will change when the package changes.
 
+## Coverage in CI
+
+The `Quality checks` job runs the same command:
+
+```bash
+uv run pytest --cov=text_toolkit --cov-report=term-missing
+```
+
+The report is visible in the GitHub Actions log. CI fails when tests or coverage
+collection fail, but it does not fail because the percentage decreases.
+
 ## Why there is no percentage gate
 
 This project intentionally does not configure `fail_under`.

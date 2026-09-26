@@ -224,7 +224,7 @@ This guide first teaches the commands directly:
 ```bash
 uv run ruff check .
 uv run ruff format --check .
-uv run pytest
+uv run pytest --cov=text_toolkit --cov-report=term-missing
 uv run mypy
 ```
 
@@ -305,7 +305,7 @@ Then run the local checks:
 ```bash
 uv run ruff check .
 uv run ruff format --check .
-uv run pytest
+uv run pytest --cov=text_toolkit --cov-report=term-missing
 uv run mypy
 ```
 

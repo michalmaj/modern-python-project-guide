@@ -289,7 +289,7 @@ For code changes, run:
 ```bash
 uv run ruff check .
 uv run ruff format --check .
-uv run pytest
+uv run pytest --cov=text_toolkit --cov-report=term-missing
 uv run mypy
 ```
 

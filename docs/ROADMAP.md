@@ -96,6 +96,7 @@ These parts are already included in the repository.
 - [x] Run linting in CI
 - [x] Run formatting checks in CI
 - [x] Run tests in CI
+- [x] Run coverage reporting in CI
 - [x] Run type checking in CI
 - [x] Build distributions in CI
 - [x] Add a CI badge to the README
@@ -137,10 +138,6 @@ These parts are already included in the repository.
 ## Next
 
 These are good candidates for upcoming small pull requests.
-
-### Test coverage
-
-- [ ] Run coverage reporting in CI and align workflow documentation
 
 ### Repository polish
 

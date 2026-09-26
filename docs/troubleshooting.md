@@ -14,7 +14,7 @@ uv --version
 uv sync
 uv run ruff check .
 uv run ruff format --check .
-uv run pytest
+uv run pytest --cov=text_toolkit --cov-report=term-missing
 uv run mypy
 ```
 
@@ -261,7 +261,7 @@ Then check again:
 ```bash
 uv run ruff check .
 uv run ruff format --check .
-uv run pytest
+uv run pytest --cov=text_toolkit --cov-report=term-missing
 uv run mypy
 ```
 
@@ -302,7 +302,7 @@ Then run all checks again:
 ```bash
 uv run ruff check .
 uv run ruff format --check .
-uv run pytest
+uv run pytest --cov=text_toolkit --cov-report=term-missing
 uv run mypy
 ```
 
@@ -388,9 +388,39 @@ Then run:
 ```bash
 uv run ruff check .
 uv run ruff format --check .
-uv run pytest
+uv run pytest --cov=text_toolkit --cov-report=term-missing
 uv run mypy
 ```
+
+## Coverage reporting fails
+
+### Problem
+
+Tests may pass without coverage, but this command fails:
+
+```bash
+uv run pytest --cov=text_toolkit --cov-report=term-missing
+```
+
+### Possible causes
+
+- pytest-cov is missing from the development dependency group,
+- the local environment is out of sync,
+- the package name passed to `--cov` is incorrect,
+- coverage configuration is invalid.
+
+### Fix
+
+Sync dependencies and retry:
+
+```bash
+uv sync
+uv run pytest --cov=text_toolkit --cov-report=term-missing
+```
+
+Check that `pyproject.toml` contains pytest-cov and the `[tool.coverage.run]`
+section. A lower percentage by itself does not fail this project because no
+`fail_under` threshold is configured.
 
 ## `uv.lock` is out of sync
 
@@ -436,7 +466,7 @@ Run checks again:
 ```bash
 uv run ruff check .
 uv run ruff format --check .
-uv run pytest
+uv run pytest --cov=text_toolkit --cov-report=term-missing
 uv run mypy
 ```
 
@@ -627,7 +657,7 @@ git status
 uv sync
 uv run ruff check .
 uv run ruff format --check .
-uv run pytest
+uv run pytest --cov=text_toolkit --cov-report=term-missing
 uv run mypy
 ```
 
@@ -665,7 +695,7 @@ Run:
 uv sync
 uv run ruff check .
 uv run ruff format --check .
-uv run pytest
+uv run pytest --cov=text_toolkit --cov-report=term-missing
 uv run mypy
 ```
 
@@ -765,7 +795,7 @@ git status
 uv sync
 uv run ruff check .
 uv run ruff format --check .
-uv run pytest
+uv run pytest --cov=text_toolkit --cov-report=term-missing
 uv run mypy
 ```
 
