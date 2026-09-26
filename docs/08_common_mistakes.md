@@ -84,6 +84,7 @@ Examples:
 __pycache__/
 .pytest_cache/
 .ruff_cache/
+.mypy_cache/
 .coverage
 ```
 
@@ -145,6 +146,7 @@ For code changes, run:
 uv run ruff check .
 uv run ruff format --check .
 uv run pytest
+uv run mypy
 ```
 
 This reduces avoidable CI failures.

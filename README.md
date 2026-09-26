@@ -120,6 +120,7 @@ Run the same quality checks used by CI:
 uv run ruff check .
 uv run ruff format --check .
 uv run pytest
+uv run mypy
 uv build --no-sources
 ```
 

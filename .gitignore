@@ -18,8 +18,9 @@ dist/
 .coverage
 htmlcov/
 
-# Ruff cache
+# Tool caches
 .ruff_cache/
+.mypy_cache/
 
 # IDE settings
 .vscode/

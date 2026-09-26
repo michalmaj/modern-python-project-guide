@@ -41,6 +41,8 @@ The CI workflow runs:
 uv run ruff check .
 uv run ruff format --check .
 uv run pytest
+uv run mypy
+uv build --no-sources
 ```
 
 CI helps protect the `main` branch from broken changes.

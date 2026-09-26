@@ -290,6 +290,7 @@ For code changes, run:
 uv run ruff check .
 uv run ruff format --check .
 uv run pytest
+uv run mypy
 ```
 
 ## Keep pull requests small

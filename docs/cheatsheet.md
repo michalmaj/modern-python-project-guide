@@ -61,6 +61,7 @@ Examples:
 ```bash
 uv add --group dev pytest
 uv add --group dev ruff
+uv add --group dev mypy
 ```
 
 Sync the local environment:
@@ -81,6 +82,12 @@ Run tests:
 
 ```bash
 uv run pytest
+```
+
+Run type checking:
+
+```bash
+uv run mypy
 ```
 
 Run Ruff linting:
@@ -107,6 +114,7 @@ Run all local checks:
 uv run ruff check .
 uv run ruff format --check .
 uv run pytest
+uv run mypy
 uv build --no-sources
 ```
 
@@ -129,6 +137,7 @@ uv run ruff format .
 uv run ruff check .
 uv run ruff format --check .
 uv run pytest
+uv run mypy
 uv build --no-sources
 ```
 
@@ -146,6 +155,7 @@ Then run:
 uv run ruff check .
 uv run ruff format --check .
 uv run pytest
+uv run mypy
 ```
 
 ## Git workflow
@@ -241,6 +251,7 @@ uv sync --locked --group dev
 uv run ruff check .
 uv run ruff format --check .
 uv run pytest
+uv run mypy
 uv build --no-sources
 ```
 
@@ -280,6 +291,7 @@ Do not commit:
 __pycache__/
 .pytest_cache/
 .ruff_cache/
+.mypy_cache/
 .coverage
 htmlcov/
 ```
@@ -294,6 +306,7 @@ uv sync
 uv run ruff check .
 uv run ruff format --check .
 uv run pytest
+uv run mypy
 ```
 
 Before merging:

@@ -48,6 +48,7 @@ In this project, the local checks are:
 uv run ruff check .
 uv run ruff format --check .
 uv run pytest
+uv run mypy
 uv build --no-sources
 ```
 
@@ -168,6 +169,7 @@ This is important in CI because the workflow should check the project using the 
 The `--group dev` option installs development dependencies such as:
 
 - `pytest`,
+- `mypy`,
 - `ruff`.
 
 These tools are needed for checks, but they are not runtime dependencies of the package.
@@ -228,6 +230,21 @@ At this stage, the tests check:
 - word counting,
 - character counting.
 
+## Type checking
+
+The workflow runs mypy after the tests:
+
+```yaml
+- name: Run type checking
+  run: uv run mypy
+```
+
+The command reads `[tool.mypy]` from `pyproject.toml` and checks the configured
+`src/` and `tests/` directories in strict mode.
+
+Running the same command locally and in CI prevents type-checking results from
+depending on a developer remembering an extra manual step.
+
 ## Distribution build
 
 The workflow builds the package distributions:
@@ -253,6 +270,7 @@ The job is simple and readable.
 Later, a larger project might split checks into separate jobs, for example:
 
 - linting,
+- type checking,
 - tests,
 - documentation,
 - packaging.

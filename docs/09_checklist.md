@@ -122,6 +122,24 @@ The goal is not to satisfy tools blindly.
 
 The goal is to keep the project clean and consistent.
 
+## Type checking
+
+The project should check whether code follows its type annotations:
+
+- [ ] mypy is installed as a development dependency
+- [ ] mypy is configured in `pyproject.toml`
+- [ ] source code and tests use readable type annotations
+- [ ] type checking can be run locally
+- [ ] strictness settings are understood rather than copied blindly
+
+In this guide, type checking runs with:
+
+```bash
+uv run mypy
+```
+
+Type checking complements tests and Ruff; it does not replace them.
+
 ## Continuous integration
 
 The project should run checks automatically in CI:
@@ -133,6 +151,7 @@ The project should run checks automatically in CI:
 - [ ] CI runs linting
 - [ ] CI checks formatting
 - [ ] CI runs tests
+- [ ] CI runs type checking
 - [ ] CI builds a wheel and source distribution
 - [ ] CI status is visible in the README
 
@@ -180,6 +199,7 @@ For code changes, run:
 uv run ruff check .
 uv run ruff format --check .
 uv run pytest
+uv run mypy
 uv build --no-sources
 ```
 
@@ -195,6 +215,7 @@ Then repeat:
 uv run ruff check .
 uv run ruff format --check .
 uv run pytest
+uv run mypy
 uv build --no-sources
 ```
 
@@ -230,6 +251,7 @@ Where is the code?
 Where are the tests?
 How do I run the tests?
 How do I check formatting and linting?
+How do I check type annotations?
 How do I build distribution files?
 What happens before code is merged?
 ```
