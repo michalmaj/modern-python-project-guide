@@ -116,6 +116,7 @@ In this guide, it contains:
 - dependency configuration,
 - pytest configuration,
 - mypy configuration,
+- coverage configuration,
 - Ruff configuration.
 
 Keeping these settings together makes the project easier to inspect and maintain.

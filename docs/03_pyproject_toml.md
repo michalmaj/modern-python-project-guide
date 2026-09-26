@@ -41,6 +41,7 @@ build-backend = "uv_build"
 dev = [
     "mypy>=2.3.1",
     "pytest>=9.0.3",
+    "pytest-cov>=7.1.0",
     "ruff>=0.15.12",
 ]
 
@@ -51,6 +52,13 @@ testpaths = ["tests"]
 python_version = "3.12"
 files = ["src", "tests"]
 strict = true
+
+[tool.coverage.run]
+branch = true
+source = ["text_toolkit"]
+
+[tool.coverage.report]
+show_missing = true
 
 [tool.ruff]
 line-length = 88
@@ -68,7 +76,7 @@ select = [
 ```
 
 This describes the project, its build system, its development dependencies, and
-the settings used by pytest, mypy, and Ruff.
+the settings used by pytest, mypy, Coverage.py, and Ruff.
 
 ## The `[project]` section
 
@@ -136,8 +144,8 @@ This is intentional.
 
 The example package starts with standard library code only.
 
-Development tools such as `pytest`, mypy, and Ruff are stored separately in the
-`dev` dependency group.
+Development tools such as `pytest`, pytest-cov, mypy, and Ruff are stored
+separately in the `dev` dependency group.
 
 ## The `[build-system]` section
 
@@ -182,6 +190,7 @@ Development dependencies are needed only while developing the project.
 Examples of development dependencies:
 
 - `pytest`,
+- `pytest-cov`,
 - `mypy`,
 - `ruff`,
 - test coverage tools,
@@ -210,6 +219,12 @@ and:
 and:
 
 ```toml
+[tool.coverage.run]
+```
+
+and:
+
+```toml
 [tool.ruff]
 ```
 
@@ -231,7 +246,8 @@ This guide was built using a slower approach:
 6. configure linting and formatting,
 7. add continuous integration,
 8. add a build system and install the project,
-9. add static type checking.
+9. add static type checking,
+10. add test coverage reporting.
 
 Each step should explain one idea clearly.
 

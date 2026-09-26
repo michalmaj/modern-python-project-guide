@@ -12,6 +12,7 @@ build-backend = "uv_build"
 dev = [
     "mypy>=2.3.1",
     "pytest>=9.0.3",
+    "pytest-cov>=7.1.0",
     "ruff>=0.15.12",
 ]
 
@@ -22,6 +23,13 @@ testpaths = ["tests"]
 python_version = "3.12"
 files = ["src", "tests"]
 strict = true
+
+[tool.coverage.run]
+branch = true
+source = ["text_toolkit"]
+
+[tool.coverage.report]
+show_missing = true
 
 [tool.ruff]
 line-length = 88
