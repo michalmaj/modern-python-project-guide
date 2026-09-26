@@ -298,3 +298,9 @@ A good linting configuration should help the project stay clean without making t
 The goal is not to satisfy the tool.
 
 The goal is to make the project easier to maintain.
+
+## Continue
+
+- [Previous: pytest](04_pytest.md)
+- [Next: GitHub Actions and CI](06_github_actions.md)
+- [Back to README](../README.md)

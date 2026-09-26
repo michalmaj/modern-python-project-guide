@@ -211,3 +211,9 @@ Tests are not something added at the end of a project.
 They are part of how the project grows.
 
 A small project with a few clear tests is better than a large project that nobody can safely change.
+
+## Continue
+
+- [Previous: pyproject.toml](03_pyproject_toml.md)
+- [Next: Ruff](05_ruff.md)
+- [Back to README](../README.md)

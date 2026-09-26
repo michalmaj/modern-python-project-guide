@@ -309,3 +309,9 @@ A good CI workflow should be:
 The goal is not to create a complicated automation system.
 
 The goal is to make every pull request safer.
+
+## Continue
+
+- [Previous: Ruff](05_ruff.md)
+- [Next: Git, Commits, Branches, and Pull Requests](07_git_commits_branches_prs.md)
+- [Back to README](../README.md)

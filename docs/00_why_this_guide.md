@@ -101,3 +101,8 @@ Every part of the repository should answer one question:
 If the answer is yes, it belongs here.
 
 If the answer is no, it should probably wait.
+
+## Continue
+
+- [Next: Project Structure](01_project_structure.md)
+- [Back to README](../README.md)

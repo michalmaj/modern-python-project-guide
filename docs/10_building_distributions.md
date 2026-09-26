@@ -159,3 +159,9 @@ Build distribution files with `uv build --no-sources` when checking whether the
 project is ready to be packaged.
 
 Treat publishing as a separate, deliberate operation.
+
+## Continue
+
+- [Previous: Common Beginner Mistakes](08_common_mistakes.md)
+- [Next: Project Checklist](09_checklist.md)
+- [Back to README](../README.md)

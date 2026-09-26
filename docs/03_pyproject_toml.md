@@ -234,3 +234,9 @@ It should be:
 - easy to explain.
 
 If a configuration option cannot be explained yet, it probably does not belong in the first version.
+
+## Continue
+
+- [Previous: uv](02_uv.md)
+- [Next: pytest](04_pytest.md)
+- [Back to README](../README.md)
