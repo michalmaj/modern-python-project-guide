@@ -174,6 +174,7 @@ uv.lock
 In practice, this means:
 
 - creating `.venv/` if needed,
+- installing the current project in editable mode,
 - installing project dependencies,
 - installing development dependencies included by default,
 - making the local environment match the project configuration.
@@ -448,12 +449,16 @@ This uses the Python version requested by the project.
 
 ### Tests cannot import the package
 
-Check whether `pyproject.toml` contains pytest configuration similar to:
+Check whether `pyproject.toml` contains a build system and pytest configuration
+similar to:
 
 ```toml
+[build-system]
+requires = ["uv_build>=0.12.19,<0.13"]
+build-backend = "uv_build"
+
 [tool.pytest.ini_options]
 testpaths = ["tests"]
-pythonpath = ["src"]
 ```
 
 Then run:

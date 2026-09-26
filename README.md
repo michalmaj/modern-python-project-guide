@@ -25,6 +25,7 @@ After this guide, you will know how to:
 - create a small Python project with `uv`,
 - manage dependencies in `pyproject.toml`,
 - separate source code and tests,
+- install a `src/` package in editable mode,
 - run tests with `pytest`,
 - check and format code with Ruff,
 - run the same checks in GitHub Actions,
@@ -144,9 +145,11 @@ The repository contains a small example package:
 src/text_toolkit/
 ```
 
-In this guide, “package” means an importable Python package inside `src/`.
+The package is installed into the project environment by `uv sync`. During
+development, `uv` uses an editable installation, so source changes are available
+without reinstalling the package manually.
 
-Building and publishing installable Python distributions is a separate topic and is intentionally not covered in the first version of this guide.
+Building distributions and publishing them to PyPI are separate topics.
 
 The package is intentionally simple.
 
@@ -330,7 +333,6 @@ Possible future chapters may include:
 - static type checking with Pyright or mypy,
 - pre-commit hooks,
 - test coverage,
-- Python build systems and packaging,
 - building wheels and source distributions,
 - publishing packages to PyPI,
 - documentation sites,

@@ -33,6 +33,10 @@ version = "0.1.0"
 requires-python = ">=3.12"
 dependencies = []
 
+[build-system]
+requires = ["uv_build>=0.12.19,<0.13"]
+build-backend = "uv_build"
+
 [dependency-groups]
 dev = [
     "pytest>=9.0.3",
@@ -41,7 +45,6 @@ dev = [
 
 [tool.pytest.ini_options]
 testpaths = ["tests"]
-pythonpath = ["src"]
 
 [tool.ruff]
 line-length = 88
@@ -58,8 +61,8 @@ select = [
 ]
 ```
 
-This describes the project, its development dependencies, and the settings used
-by pytest and Ruff.
+This describes the project, its build system, its development dependencies, and
+the settings used by pytest and Ruff.
 
 ## The `[project]` section
 
@@ -130,57 +133,36 @@ The example package starts with standard library code only.
 Development tools such as `pytest` and Ruff are stored separately in the
 `dev` dependency group.
 
-## Project structure is not the same as packaging
+## The `[build-system]` section
 
-This guide currently uses a `src/` layout and an importable package:
+A build system tells Python tools how to build and install the project.
+
+This project uses:
+
+```toml
+[build-system]
+requires = ["uv_build>=0.12.19,<0.13"]
+build-backend = "uv_build"
+```
+
+`uv_build` is a small build backend designed for Python projects managed with
+`uv`. It supports this project's pure Python package and its standard `src/`
+layout:
 
 ```text
 src/text_toolkit/
 ```
 
-However, this guide does not yet cover Python packaging in the distribution sense.
+The upper version bound protects the project from incompatible future backend
+releases. It should move deliberately when the project updates `uv_build`.
 
-That means it does not yet explain how to:
+When a build system is present, `uv sync` installs the current project into the
+environment. By default, the installation is editable: changes inside `src/`
+are visible without reinstalling the package.
 
-- define a build backend,
-- build wheels,
-- build source distributions,
-- publish packages to PyPI,
-- configure package metadata for distribution.
-
-For that reason, this project does not define a `[build-system]` section yet.
-
-This is intentional.
-
-The first version of the guide focuses on:
-
-- project structure,
-- dependency management,
-- tests,
-- linting,
-- formatting,
-- CI,
-- pull requests.
-
-Packaging, building, and publishing can be added later as a separate chapter.
-
-## Why there is no `[build-system]` yet
-
-A `[build-system]` section tells Python tooling how the project should be built and installed.
-
-In this guide, leaving out `[build-system]` keeps the first version focused on project workflow instead of distribution mechanics.
-
-The project still has useful Python code in `src/text_toolkit/`.
-
-However, the current setup should be understood as a learning project structure, not a complete packaging tutorial.
-
-A future version of the guide may introduce a build backend and commands such as:
-
-```bash
-uv build
-```
-
-but that is intentionally outside the first foundation.
+This is enough to test the package through the same import name its users see.
+Building wheels, building source distributions, and publishing to PyPI remain
+separate topics.
 
 ## Runtime dependencies vs development dependencies
 
@@ -233,7 +215,8 @@ This guide was built using a slower approach:
 4. configure pytest,
 5. add Ruff,
 6. configure linting and formatting,
-7. add continuous integration.
+7. add continuous integration,
+8. add a build system and install the project.
 
 Each step should explain one idea clearly.
 

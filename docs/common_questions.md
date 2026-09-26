@@ -65,19 +65,17 @@ It also avoids some import confusion that can happen when Python accidentally im
 
 In this guide, `src/` is used to teach clean project structure.
 
-Packaging and publishing are separate topics.
+Building and publishing distributions are separate topics.
 
 ## Is this a complete Python packaging guide?
 
 No.
 
-This guide uses an importable package inside `src/`, but it does not yet cover the full packaging workflow.
+This guide uses a build system and installs the package from `src/`, but it does
+not cover the full packaging and publishing workflow.
 
 It does not currently explain:
 
-- build backends,
-- `[build-system]`,
-- editable installs,
 - wheels,
 - source distributions,
 - publishing to PyPI.
@@ -94,19 +92,19 @@ The first version focuses on:
 - CI,
 - pull requests.
 
-Packaging can be added later as a separate topic.
+Building distributions and publishing can be added later as separate topics.
 
-## Why does pytest use pythonpath = ["src"]?
+## Why does pytest not use pythonpath = ["src"]?
 
 The pytest configuration includes:
 
 ```toml
 [tool.pytest.ini_options]
 testpaths = ["tests"]
-pythonpath = ["src"]
 ```
 
-The `pythonpath = ["src"]` setting lets tests import the example package from the `src/` directory.
+The project has a `[build-system]`, so `uv sync` installs it into the project
+environment in editable mode.
 
 For example:
 
@@ -114,9 +112,9 @@ For example:
 from text_toolkit import count_words
 ```
 
-This keeps the guide simple before introducing packaging or editable installs.
-
-In a more complete packaging workflow, the project may instead be installed into the environment as an editable package.
+This verifies that imports work through the installed project instead of a
+pytest-only path modification. Editable installation means that source changes
+are still available immediately during development.
 
 ## Why use Ruff?
 

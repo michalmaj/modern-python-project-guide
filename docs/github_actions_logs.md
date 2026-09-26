@@ -635,13 +635,15 @@ ModuleNotFoundError
 
 Likely fix:
 
-Check project structure and pytest configuration:
+Check the project structure and build system:
 
 ```toml
-[tool.pytest.ini_options]
-testpaths = ["tests"]
-pythonpath = ["src"]
+[build-system]
+requires = ["uv_build>=0.12.19,<0.13"]
+build-backend = "uv_build"
 ```
+
+Then confirm that the dependency installation step completed successfully.
 
 ## What green CI means
 

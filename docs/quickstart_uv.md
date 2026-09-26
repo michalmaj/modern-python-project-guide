@@ -46,7 +46,7 @@ Create a new minimal project:
 ```bash
 mkdir example-python-project
 cd example-python-project
-uv init --bare --name example-python-project --python 3.12
+uv init --bare --package --name example-python-project --python 3.12
 ```
 
 Pin the Python version:
@@ -65,6 +65,9 @@ pyproject.toml
 ```
 
 The `pyproject.toml` file describes the Python project.
+
+The `--package` option adds a build system so that `uv` can install the project
+into its environment.
 
 The `.python-version` file stores the Python version selected for the project.
 
@@ -175,6 +178,10 @@ dependencies = [
     "rich>=14.0.0",
 ]
 
+[build-system]
+requires = ["uv_build>=0.12.19,<0.13"]
+build-backend = "uv_build"
+
 [dependency-groups]
 dev = [
     "pytest>=8.0.0",
@@ -183,7 +190,6 @@ dev = [
 
 [tool.pytest.ini_options]
 testpaths = ["tests"]
-pythonpath = ["src"]
 
 [tool.ruff]
 line-length = 88
@@ -259,7 +265,8 @@ It should not be committed to Git.
 
 This creates or updates the local virtual environment.
 
-It installs the project dependencies and development dependencies needed for the current project setup.
+It installs the project itself in editable mode, together with the runtime and
+development dependencies needed for the current setup.
 
 The local virtual environment is usually stored in:
 
