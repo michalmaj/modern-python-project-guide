@@ -4,7 +4,7 @@ This page is a quick command reference.
 
 It does not explain every concept in detail.
 
-For explanations, use the full guide and quickstarts.
+For explanations, use the main learning path and quickstarts.
 
 ## Project setup
 

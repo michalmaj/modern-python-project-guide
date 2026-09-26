@@ -169,6 +169,19 @@ merging are disabled to keep that history consistent.
 After a pull request is merged, GitHub deletes its remote branch automatically.
 Delete the corresponding local branch after updating `main`.
 
+## Documentation terminology
+
+Use the official spelling of tool names: `uv` and pytest are lowercase, while
+Ruff is capitalized in prose. Keep command names and configuration keys in code
+format.
+
+Call the ordered set of core chapters the **main learning path**. Call the
+supporting quickstarts, troubleshooting pages, and focused guides
+**reference material**.
+
+When a documentation example reproduces this repository's `pyproject.toml`,
+keep its dependency constraints aligned with the real configuration.
+
 ## Local checks
 
 Before opening a pull request with code changes, run the local quality checks:

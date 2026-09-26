@@ -122,14 +122,11 @@ These parts are already included in the repository.
 - [x] Separate the main learning path from reference material
 - [x] Add previous and next navigation to the core chapters
 - [x] Review commit history and self-review coverage in the existing guides
+- [x] Standardize terminology and dependency examples across the documentation
 
 ## Next
 
 These are good candidates for upcoming small pull requests.
-
-### Documentation polish
-
-- [ ] Review terminology consistency
 
 ### Repository polish
 
@@ -141,7 +138,7 @@ These are good candidates for upcoming small pull requests.
 - [ ] Consider `Makefile` as an optional convenience layer
 - [ ] Consider `just` as an alternative task runner
 
-Task runners should not replace the basic commands in the first learning path.
+Task runners should not replace the basic commands in the main learning path.
 
 They should be introduced only as convenience wrappers after the underlying commands are clear.
 
@@ -193,7 +190,7 @@ They may be added later as separate chapters.
 
 ## Not planned for the first version
 
-These are deliberately excluded from the first learning path:
+These are deliberately excluded from the main learning path:
 
 - Docker,
 - publishing to PyPI,

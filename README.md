@@ -3,7 +3,7 @@
 [![CI](https://github.com/michalmaj/modern-python-project-guide/actions/workflows/ci.yml/badge.svg)](https://github.com/michalmaj/modern-python-project-guide/actions/workflows/ci.yml)
 
 A practical, beginner-friendly guide to building a clean Python project with
-`uv`, `pytest`, Ruff, `pyproject.toml`, GitHub Actions, and a pull request based
+`uv`, `pytest`, Ruff, `pyproject.toml`, GitHub Actions, and a pull-request-based
 workflow.
 
 This repository is both a tutorial and a working example. It introduces each

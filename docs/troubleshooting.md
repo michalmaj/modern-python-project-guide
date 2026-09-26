@@ -170,8 +170,8 @@ Check that `pyproject.toml` contains something similar to:
 ```toml
 [dependency-groups]
 dev = [
-    "pytest>=8.0.0",
-    "ruff>=0.11.0",
+    "pytest>=9.0.3",
+    "ruff>=0.15.12",
 ]
 ```
 
