@@ -143,5 +143,5 @@ Do not use the percentage as a substitute for those questions.
 ## Continue
 
 - [Previous: Static Type Checking with mypy](11_type_checking_with_mypy.md)
-- [Next: Project Checklist](09_checklist.md)
+- [Next: `pre-commit` Hooks](13_pre_commit_hooks.md)
 - [Back to README](../README.md)

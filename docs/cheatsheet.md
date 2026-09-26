@@ -63,6 +63,7 @@ uv add --group dev pytest
 uv add --group dev ruff
 uv add --group dev mypy
 uv add --group dev pytest-cov
+uv add --group dev pre-commit
 ```
 
 Sync the local environment:
@@ -113,6 +114,24 @@ Format files:
 
 ```bash
 uv run ruff format .
+```
+
+Install pre-commit hooks in the current clone:
+
+```bash
+uv run pre-commit install
+```
+
+Run every configured hook manually:
+
+```bash
+uv run pre-commit run --all-files
+```
+
+Remove the installed hook from the current clone:
+
+```bash
+uv run pre-commit uninstall
 ```
 
 Run all local checks:

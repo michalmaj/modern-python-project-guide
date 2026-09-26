@@ -422,6 +422,38 @@ Check that `pyproject.toml` contains pytest-cov and the `[tool.coverage.run]`
 section. A lower percentage by itself does not fail this project because no
 `fail_under` threshold is configured.
 
+## A pre-commit hook fails or changes files
+
+### Problem
+
+Git stops a commit because a hook failed or modified a file.
+
+### Possible causes
+
+- a file contains trailing whitespace or invalid YAML or TOML,
+- unresolved merge conflict markers remain,
+- Ruff found or fixed a Python issue,
+- a hook changed a file that must be staged again.
+
+### Fix
+
+Review both the hook output and the resulting diff:
+
+```bash
+git diff
+uv run pre-commit run --all-files
+```
+
+If a hook fixed a file, stage the reviewed change and try the commit again.
+Do not bypass the hook merely because it changed a file.
+
+If pre-commit itself is missing, sync the development environment:
+
+```bash
+uv sync
+uv run pre-commit install
+```
+
 ## `uv.lock` is out of sync
 
 ### Problem

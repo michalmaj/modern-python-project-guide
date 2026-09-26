@@ -208,6 +208,19 @@ src/text_toolkit/
 The project installs this package into its development environment. Building
 distribution files and publishing them are later topics.
 
+## pre-commit
+
+`pre-commit` is a framework for running configured hooks around Git commits.
+
+This guide uses it for fast file hygiene and Ruff checks. Hooks provide early
+local feedback, but they do not replace the complete checks or CI.
+
+Install the hooks separately in each clone:
+
+```bash
+uv run pre-commit install
+```
+
 ## Pull request
 
 A pull request is a proposal to merge changes from one branch into another branch.

@@ -4,7 +4,7 @@
 
 A practical, beginner-friendly guide to building a clean Python project with
 `uv`, `pytest`, Ruff, mypy, `pyproject.toml`, GitHub Actions, and a
-pull-request-based workflow.
+pull-request-based workflow with `pre-commit` hooks.
 
 This repository is both a tutorial and a working example. It introduces each
 tool gradually and shows how the pieces fit together in a maintainable project.
@@ -32,6 +32,7 @@ By following the guide, you will learn how to:
 - inspect statement and branch coverage with pytest-cov,
 - lint and format code with Ruff,
 - check type annotations with mypy,
+- automate fast checks with `pre-commit` hooks,
 - run automated quality checks in GitHub Actions,
 - work with branches, commits, and pull requests.
 
@@ -55,7 +56,8 @@ understand why each tool and file is introduced.
 10. [Building distributions](docs/10_building_distributions.md)
 11. [Static type checking with mypy](docs/11_type_checking_with_mypy.md)
 12. [Test coverage with pytest-cov](docs/12_test_coverage.md)
-13. [Project checklist](docs/09_checklist.md)
+13. [`pre-commit` hooks](docs/13_pre_commit_hooks.md)
+14. [Project checklist](docs/09_checklist.md)
 
 ## Reference material
 
@@ -96,6 +98,7 @@ tooling, tests, packaging, and CI.
 modern-python-project-guide/
 ├── .github/
 │   └── workflows/
+├── .pre-commit-config.yaml
 ├── docs/
 ├── src/
 │   └── text_toolkit/

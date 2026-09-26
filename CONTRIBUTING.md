@@ -171,9 +171,9 @@ Delete the corresponding local branch after updating `main`.
 
 ## Documentation terminology
 
-Use the official spelling of tool names: `uv`, pytest, and mypy are lowercase,
-while Ruff is capitalized in prose. Keep command names and configuration keys
-in code format.
+Use the official spelling of tool names: `uv`, pytest, mypy, and `pre-commit`
+are lowercase, while Ruff is capitalized in prose. Keep command names and
+configuration keys in code format.
 
 Call the ordered set of core chapters the **main learning path**. Call the
 supporting quickstarts, troubleshooting pages, and focused guides
@@ -183,6 +183,20 @@ When a documentation example reproduces this repository's `pyproject.toml`,
 keep its dependency constraints aligned with the real configuration.
 
 ## Local checks
+
+Install the repository's fast pre-commit hooks once in each clone:
+
+```bash
+uv run pre-commit install
+```
+
+To check every tracked file manually, run:
+
+```bash
+uv run pre-commit run --all-files
+```
+
+Hooks provide quick feedback, but they do not replace the complete checks below.
 
 Before opening a pull request with code changes, run the local quality checks:
 
