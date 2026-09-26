@@ -1,5 +1,7 @@
 """Tests for basic text statistics utilities."""
 
+import pytest
+
 from text_toolkit import (
     count_characters,
     count_words,
@@ -7,34 +9,34 @@ from text_toolkit import (
 )
 
 
-def test_normalize_whitespace_replaces_repeated_spaces() -> None:
-    text = "Python    is   fun"
-
+@pytest.mark.parametrize(
+    ("text", "expected"),
+    [
+        ("Python    is   fun", "Python is fun"),
+        ("Python\tis\nfun", "Python is fun"),
+        (" \t\n ", ""),
+        ("  Python project  ", "Python project"),
+    ],
+)
+def test_normalize_whitespace_handles_common_inputs(text: str, expected: str) -> None:
     result = normalize_whitespace(text)
 
-    assert result == "Python is fun"
+    assert result == expected
 
 
-def test_normalize_whitespace_handles_tabs_and_newlines() -> None:
-    text = "Python\tis\nfun"
-
-    result = normalize_whitespace(text)
-
-    assert result == "Python is fun"
-
-
-def test_count_words_returns_zero_for_empty_text() -> None:
-    result = count_words("")
-
-    assert result == 0
-
-
-def test_count_words_handles_repeated_whitespace() -> None:
-    text = "Python    project\nworkflow"
-
+@pytest.mark.parametrize(
+    ("text", "expected"),
+    [
+        ("", 0),
+        (" \t\n ", 0),
+        ("  Python project  ", 2),
+        ("Python    project\nworkflow", 3),
+    ],
+)
+def test_count_words_handles_common_whitespace(text: str, expected: int) -> None:
     result = count_words(text)
 
-    assert result == 3
+    assert result == expected
 
 
 def test_count_characters_includes_whitespace_by_default() -> None:

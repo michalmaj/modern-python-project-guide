@@ -79,10 +79,10 @@ Inside those files, test functions usually start with `test_`.
 Example:
 
 ```python
-def test_count_words_returns_zero_for_empty_text() -> None:
-    result = count_words("")
+def test_count_characters_includes_whitespace_by_default() -> None:
+    result = count_characters("hello world")
 
-    assert result == 0
+    assert result == 11
 ```
 
 The function name describes the expected behavior.
@@ -108,15 +108,48 @@ This means:
 Example:
 
 ```python
-def test_normalize_whitespace_replaces_repeated_spaces() -> None:
-    text = "Python    is   fun"
+def test_count_characters_can_ignore_whitespace() -> None:
+    result = count_characters("hello world", include_whitespace=False)
 
-    result = normalize_whitespace(text)
-
-    assert result == "Python is fun"
+    assert result == 10
 ```
 
 This style makes tests easier to read and review.
+
+## Parametrizing related cases
+
+Sometimes several inputs should follow the same behavior. Copying the entire
+test for each input would make the test file repetitive.
+
+pytest can run one test function with several sets of values:
+
+```python
+import pytest
+
+
+@pytest.mark.parametrize(
+    ("text", "expected"),
+    [
+        ("Python    is   fun", "Python is fun"),
+        ("Python\tis\nfun", "Python is fun"),
+        (" \t\n ", ""),
+        ("  Python project  ", "Python project"),
+    ],
+)
+def test_normalize_whitespace_handles_common_inputs(text: str, expected: str) -> None:
+    result = normalize_whitespace(text)
+
+    assert result == expected
+```
+
+The names `text` and `expected` match the two values in every tuple. pytest
+runs the function once for each tuple and reports every case separately.
+
+This example covers repeated spaces, tabs and newlines, whitespace-only text,
+and leading or trailing spaces without duplicating the test logic.
+
+Parametrization is useful when the action and assertion stay the same. Use
+separate tests when cases describe different behavior or need different setup.
 
 ## pytest configuration
 

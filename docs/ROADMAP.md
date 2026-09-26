@@ -83,6 +83,8 @@ These parts are already included in the repository.
 - [x] Explain linting and formatting
 - [x] Explain when ignoring linting rules may be reasonable
 - [x] Check internal Markdown links with pytest
+- [x] Add whitespace edge cases to the example test suite
+- [x] Demonstrate pytest parametrization with related inputs
 
 ### Continuous integration
 
