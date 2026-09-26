@@ -303,13 +303,15 @@ In this guide, the main local checks are:
 uv run ruff check .
 uv run ruff format --check .
 uv run pytest
+uv build --no-sources
 ```
 
 These commands check:
 
 - linting,
 - formatting,
-- behavior.
+- behavior,
+- package distribution builds.
 
 If formatting fails, run:
 
@@ -339,6 +341,7 @@ uv sync --locked --group dev
 uv run ruff check .
 uv run ruff format --check .
 uv run pytest
+uv build --no-sources
 ```
 
 This gives every pull request a basic safety net.

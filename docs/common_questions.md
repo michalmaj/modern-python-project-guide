@@ -71,14 +71,10 @@ Building and publishing distributions are separate topics.
 
 No.
 
-This guide uses a build system and installs the package from `src/`, but it does
-not cover the full packaging and publishing workflow.
+This guide uses a build system, installs the package from `src/`, and builds
+standard distribution files. It does not cover the full publishing workflow.
 
-It does not currently explain:
-
-- wheels,
-- source distributions,
-- publishing to PyPI.
+It does not currently explain publishing to PyPI.
 
 That is intentional.
 
@@ -92,7 +88,10 @@ The first version focuses on:
 - CI,
 - pull requests.
 
-Building distributions and publishing can be added later as separate topics.
+Publishing can be added later as a separate topic.
+
+See [Building distributions](10_building_distributions.md) for the wheel and
+source distribution workflow.
 
 ## Why does pytest not use pythonpath = ["src"]?
 

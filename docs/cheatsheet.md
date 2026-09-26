@@ -107,7 +107,18 @@ Run all local checks:
 uv run ruff check .
 uv run ruff format --check .
 uv run pytest
+uv build --no-sources
 ```
+
+## Build distributions
+
+Build a wheel and source distribution:
+
+```bash
+uv build --no-sources
+```
+
+Generated files appear in `dist/` and should stay uncommitted.
 
 ## Fix formatting and recheck
 
@@ -118,6 +129,7 @@ uv run ruff format .
 uv run ruff check .
 uv run ruff format --check .
 uv run pytest
+uv build --no-sources
 ```
 
 ## Clone an existing project
@@ -229,6 +241,7 @@ uv sync --locked --group dev
 uv run ruff check .
 uv run ruff format --check .
 uv run pytest
+uv build --no-sources
 ```
 
 CI should use:

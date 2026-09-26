@@ -368,6 +368,9 @@ jobs:
 
       - name: Run tests
         run: uv run pytest
+
+      - name: Build distributions
+        run: uv build --no-sources
 ```
 
 This workflow runs on:
@@ -386,7 +389,8 @@ A successful run means that GitHub was able to:
 - sync dependencies from the lockfile,
 - run Ruff linting,
 - check formatting,
-- run tests.
+- run tests,
+- build a wheel and source distribution.
 
 A green CI check does not replace review.
 
@@ -400,6 +404,7 @@ The CI workflow should run the same checks that developers run locally:
 uv run ruff check .
 uv run ruff format --check .
 uv run pytest
+uv build --no-sources
 ```
 
 This makes the workflow easier to understand.
@@ -413,7 +418,8 @@ A green CI check means:
 - dependencies installed successfully,
 - Ruff linting passed,
 - formatting check passed,
-- tests passed.
+- tests passed,
+- package distributions built successfully.
 
 It does not mean the pull request is automatically good.
 
@@ -486,6 +492,7 @@ uv sync
 uv run ruff check .
 uv run ruff format --check .
 uv run pytest
+uv build --no-sources
 ```
 
 ## Quick command summary
@@ -501,6 +508,7 @@ uv sync
 uv run ruff check .
 uv run ruff format --check .
 uv run pytest
+uv build --no-sources
 ```
 
 For CI:
@@ -511,6 +519,7 @@ uv sync --locked --group dev
 uv run ruff check .
 uv run ruff format --check .
 uv run pytest
+uv build --no-sources
 ```
 
 ## Rule of thumb

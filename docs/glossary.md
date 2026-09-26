@@ -292,6 +292,19 @@ This separates source code from:
 - repository metadata,
 - GitHub configuration.
 
+## Source distribution
+
+A source distribution, often shortened to `sdist`, is an archive containing the
+project source and the metadata needed to build it.
+
+This project creates one with:
+
+```bash
+uv build --no-sources
+```
+
+Its filename ends with `.tar.gz`.
+
 ## Test
 
 A test checks whether code behaves as expected.
@@ -375,3 +388,13 @@ In this guide, `uv` creates the local virtual environment in:
 The `.venv/` directory should not be committed to Git.
 
 It is generated locally.
+
+## Wheel
+
+A wheel is a built Python distribution designed for installation.
+
+Wheel filenames end with `.whl`. This project builds a pure Python wheel with:
+
+```bash
+uv build --no-sources
+```

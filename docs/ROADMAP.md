@@ -41,6 +41,7 @@ The repository already includes:
 - a Markdown review guide,
 - a GitHub Actions logs guide,
 - a troubleshooting guide,
+- a guide to building distributions,
 - EditorConfig.
 
 ## Done
@@ -89,6 +90,7 @@ These parts are already included in the repository.
 - [x] Run linting in CI
 - [x] Run formatting checks in CI
 - [x] Run tests in CI
+- [x] Build distributions in CI
 - [x] Add a CI badge to the README
 - [x] Explain how CI supports pull requests
 
@@ -115,6 +117,7 @@ These parts are already included in the repository.
 - [x] Add a guide for reading GitHub Actions logs
 - [x] Add a troubleshooting guide for common setup problems
 - [x] Review internal documentation links
+- [x] Explain how to build wheels and source distributions
 
 ## Next
 
@@ -168,8 +171,6 @@ They may be added later as separate chapters.
 
 ### Packaging
 
-- [ ] Build wheels
-- [ ] Build source distributions
 - [ ] Explain publishing to PyPI
 
 ### Documentation site
