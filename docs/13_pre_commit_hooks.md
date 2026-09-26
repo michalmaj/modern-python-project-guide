@@ -60,6 +60,9 @@ The Ruff hooks:
 - apply safe lint fixes,
 - format changed Python files.
 
+The local `rumdl` hook lints changed Markdown files using the project's locked
+development environment.
+
 These checks are deliberately fast. Tests, coverage, mypy, and distribution
 builds remain part of the complete local and CI checks.
 
@@ -113,5 +116,5 @@ Keep the complete quality checks visible and understandable.
 ## Continue
 
 - [Previous: Test Coverage with pytest-cov](12_test_coverage.md)
-- [Next: Project Checklist](09_checklist.md)
+- [Next: Markdown Linting with rumdl](14_markdown_linting.md)
 - [Back to README](../README.md)

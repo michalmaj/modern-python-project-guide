@@ -214,6 +214,12 @@ Check formatting:
 uv run ruff format --check .
 ```
 
+Lint Markdown:
+
+```bash
+uv run rumdl check .
+```
+
 Run type checking:
 
 ```bash
@@ -225,6 +231,7 @@ A useful local check sequence is:
 ```bash
 uv run ruff check .
 uv run ruff format --check .
+uv run rumdl check .
 uv run pytest --cov=text_toolkit --cov-report=term-missing
 uv run mypy
 ```
@@ -240,6 +247,7 @@ Then repeat:
 ```bash
 uv run ruff check .
 uv run ruff format --check .
+uv run rumdl check .
 uv run pytest --cov=text_toolkit --cov-report=term-missing
 uv run mypy
 ```
@@ -250,6 +258,7 @@ If the project is set up correctly:
 
 - Ruff linting should pass,
 - Ruff formatting check should pass,
+- Markdown linting should pass,
 - pytest and coverage reporting should pass,
 - mypy should report no issues.
 
@@ -384,6 +393,9 @@ jobs:
       - name: Check formatting
         run: uv run ruff format --check .
 
+      - name: Lint Markdown
+        run: uv run rumdl check .
+
       - name: Run tests with coverage
         run: uv run pytest --cov=text_toolkit --cov-report=term-missing
 
@@ -425,6 +437,7 @@ The CI workflow should run the same checks that developers run locally:
 ```bash
 uv run ruff check .
 uv run ruff format --check .
+uv run rumdl check .
 uv run pytest --cov=text_toolkit --cov-report=term-missing
 uv run mypy
 uv build --no-sources
@@ -441,7 +454,9 @@ A green CI check means:
 - dependencies installed successfully,
 - Ruff linting passed,
 - formatting check passed,
-- tests passed,
+- Markdown linting passed,
+- tests and coverage reporting passed,
+- type checking passed,
 - package distributions built successfully.
 
 It does not mean the pull request is automatically good.
@@ -514,6 +529,7 @@ git status
 uv sync
 uv run ruff check .
 uv run ruff format --check .
+uv run rumdl check .
 uv run pytest --cov=text_toolkit --cov-report=term-missing
 uv run mypy
 uv build --no-sources
@@ -532,6 +548,7 @@ uv run pre-commit install
 
 uv run ruff check .
 uv run ruff format --check .
+uv run rumdl check .
 uv run pytest --cov=text_toolkit --cov-report=term-missing
 uv run mypy
 uv build --no-sources
@@ -544,6 +561,7 @@ uv python install
 uv sync --locked --group dev
 uv run ruff check .
 uv run ruff format --check .
+uv run rumdl check .
 uv run pytest --cov=text_toolkit --cov-report=term-missing
 uv run mypy
 uv build --no-sources
@@ -562,6 +580,7 @@ Before opening a pull request, run:
 ```bash
 uv run ruff check .
 uv run ruff format --check .
+uv run rumdl check .
 uv run pytest --cov=text_toolkit --cov-report=term-missing
 uv run mypy
 ```

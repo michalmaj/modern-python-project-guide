@@ -176,6 +176,22 @@ uv run pre-commit install
 uv run pre-commit run --all-files
 ```
 
+## Markdown linting
+
+Documentation should have lightweight automated checks:
+
+- [ ] `rumdl` is installed as a development dependency
+- [ ] Markdown rules are configured deliberately
+- [ ] project-specific exceptions are narrow and explained
+- [ ] linting runs locally, in pre-commit, and in CI
+- [ ] link checking and human review remain separate checks
+
+In this guide, Markdown linting runs with:
+
+```bash
+uv run rumdl check .
+```
+
 ## Continuous integration
 
 The project should run checks automatically in CI:
@@ -186,6 +202,7 @@ The project should run checks automatically in CI:
 - [ ] CI installs dependencies from the lockfile
 - [ ] CI runs linting
 - [ ] CI checks formatting
+- [ ] CI lints Markdown
 - [ ] CI runs tests with coverage reporting
 - [ ] CI runs type checking
 - [ ] CI builds a wheel and source distribution
@@ -234,6 +251,7 @@ For code changes, run:
 ```bash
 uv run ruff check .
 uv run ruff format --check .
+uv run rumdl check .
 uv run pytest --cov=text_toolkit --cov-report=term-missing
 uv run mypy
 uv build --no-sources
@@ -250,6 +268,7 @@ Then repeat:
 ```bash
 uv run ruff check .
 uv run ruff format --check .
+uv run rumdl check .
 uv run pytest --cov=text_toolkit --cov-report=term-missing
 uv run mypy
 uv build --no-sources
@@ -288,6 +307,7 @@ Where are the tests?
 How do I run the tests?
 How do I inspect test coverage?
 How do I check formatting and linting?
+How do I lint Markdown documentation?
 How do I check type annotations?
 How do I build distribution files?
 What happens before code is merged?
@@ -311,5 +331,5 @@ Let the project grow gradually.
 
 ## Continue
 
-- [Previous: `pre-commit` Hooks](13_pre_commit_hooks.md)
+- [Previous: Markdown Linting with rumdl](14_markdown_linting.md)
 - [Back to README](../README.md)

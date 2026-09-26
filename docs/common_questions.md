@@ -193,6 +193,21 @@ If a rule is too strict only for tests, prefer a narrow exception:
 
 The important thing is to know why a rule is disabled.
 
+## Why use rumdl instead of formatting every Markdown file?
+
+`rumdl` can report structural and consistency problems without rewriting the
+documentation by default.
+
+That suits this guide because prose layout is part of the teaching material. A
+fully opinionated formatter could create a large diff without improving the
+meaning of the text.
+
+The project disables the noisy line-length rule and keeps two narrow per-file
+exceptions for intentional examples. All other default checks remain active.
+
+The local link test and human review still have separate responsibilities.
+Linting cannot confirm that an explanation is correct or useful.
+
 ## Why not add Docker?
 
 Docker is useful in many projects.
@@ -224,6 +239,7 @@ This guide first teaches the commands directly:
 ```bash
 uv run ruff check .
 uv run ruff format --check .
+uv run rumdl check .
 uv run pytest --cov=text_toolkit --cov-report=term-missing
 uv run mypy
 ```
@@ -306,6 +322,7 @@ Then run the local checks:
 ```bash
 uv run ruff check .
 uv run ruff format --check .
+uv run rumdl check .
 uv run pytest --cov=text_toolkit --cov-report=term-missing
 uv run mypy
 ```

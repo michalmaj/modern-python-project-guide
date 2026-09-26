@@ -136,6 +136,8 @@ These parts are already included in the repository.
 - [x] Avoid treating coverage percentage as a quality guarantee
 - [x] Add fast `pre-commit` hooks
 - [x] Explain how local hooks complement complete checks and CI
+- [x] Add focused Markdown linting locally and in CI
+- [x] Keep Markdown linting separate from link checks and human review
 
 ## Next
 

@@ -47,6 +47,7 @@ In this project, the local checks are:
 ```bash
 uv run ruff check .
 uv run ruff format --check .
+uv run rumdl check .
 uv run pytest --cov=text_toolkit --cov-report=term-missing
 uv run mypy
 uv build --no-sources
@@ -171,7 +172,8 @@ The `--group dev` option installs development dependencies such as:
 - `pytest`,
 - `pytest-cov`,
 - `mypy`,
-- `ruff`.
+- `ruff`,
+- `rumdl`.
 
 These tools are needed for checks, but they are not runtime dependencies of the package.
 
@@ -213,6 +215,18 @@ The developer can fix formatting locally with:
 ```bash
 uv run ruff format .
 ```
+
+## Markdown linting
+
+The workflow checks Markdown structure and consistency:
+
+```yaml
+- name: Lint Markdown
+  run: uv run rumdl check .
+```
+
+The command uses the `[tool.rumdl]` configuration in `pyproject.toml`. It does
+not replace the pytest check for local documentation links or human review.
 
 ## Tests and coverage
 

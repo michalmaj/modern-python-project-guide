@@ -40,6 +40,7 @@ The CI workflow runs:
 ```bash
 uv run ruff check .
 uv run ruff format --check .
+uv run rumdl check .
 uv run pytest --cov=text_toolkit --cov-report=term-missing
 uv run mypy
 uv build --no-sources
@@ -268,6 +269,18 @@ The tests live in:
 ```text
 tests/
 ```
+
+## rumdl
+
+`rumdl` is the Markdown linter used in this guide.
+
+It checks documentation structure and consistency with:
+
+```bash
+uv run rumdl check .
+```
+
+It complements the local link test and human documentation review.
 
 ## Runtime dependency
 

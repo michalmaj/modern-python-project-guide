@@ -21,6 +21,7 @@ htmlcov/
 # Tool caches
 .ruff_cache/
 .mypy_cache/
+.rumdl_cache/
 
 # IDE settings
 .vscode/

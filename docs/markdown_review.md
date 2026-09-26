@@ -169,6 +169,7 @@ Good:
 ```bash
 uv run ruff check .
 uv run ruff format --check .
+uv run rumdl check .
 uv run pytest --cov=text_toolkit --cov-report=term-missing
 uv run mypy
 ```
@@ -366,6 +367,7 @@ Before asking for review, check:
 - [ ] Headings are readable
 - [ ] Code fences are closed
 - [ ] Commands are copy-paste friendly
+- [ ] `uv run rumdl check .` passes
 - [ ] Links work
 - [ ] File paths are correct
 - [ ] The rendered Markdown looks good on GitHub
@@ -373,7 +375,7 @@ Before asking for review, check:
 - [ ] No unrelated files are included
 - [ ] The PR description explains what changed and why
 
-Useful local checks
+## Useful local checks
 
 For documentation-only changes, code checks may not always be necessary.
 
@@ -382,6 +384,7 @@ However, if the repository has existing quality checks, it is still fine to run:
 ```bash
 uv run ruff check .
 uv run ruff format --check .
+uv run rumdl check .
 uv run pytest --cov=text_toolkit --cov-report=term-missing
 uv run mypy
 ```

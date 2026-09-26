@@ -8,9 +8,7 @@ Explain why this change is needed.
 
 ## Changes
 
--
--
--
+List the most important changes.
 
 ## Type of change
 

@@ -107,7 +107,7 @@ def add(left: int, right: int) -> int:
     return left + right
 ```
 
-## 4. Add pytest, pytest-cov, Ruff, and mypy as development dependencies
+## 4. Add pytest, pytest-cov, Ruff, mypy, and rumdl as development dependencies
 
 Add `pytest`:
 
@@ -131,6 +131,12 @@ Add `pytest-cov`:
 
 ```bash
 uv add --group dev pytest-cov
+```
+
+Add `rumdl`:
+
+```bash
+uv add --group dev rumdl
 ```
 
 ### Expected result
@@ -167,8 +173,8 @@ This adds `rich` to the project dependencies.
 
 The runtime dependency should appear in the `[project]` dependencies section of `pyproject.toml`.
 
-Development tools such as `pytest`, pytest-cov, Ruff, and mypy should stay in
-the development dependency group.
+Development tools such as `pytest`, pytest-cov, Ruff, mypy, and `rumdl` should
+stay in the development dependency group.
 
 This separation keeps runtime dependencies and development tools easy to understand.
 
@@ -176,7 +182,7 @@ Use runtime dependencies only when the actual package needs them.
 
 Do not add test or linting tools as runtime dependencies.
 
-## 6. Configure pytest, coverage, Ruff, and mypy
+## 6. Configure pytest, coverage, Ruff, mypy, and rumdl
 
 Open `pyproject.toml`.
 
@@ -201,6 +207,7 @@ dev = [
     "pytest>=9.0.3",
     "pytest-cov>=7.1.0",
     "ruff>=0.15.12",
+    "rumdl>=0.2.77",
 ]
 
 [tool.pytest.ini_options]
@@ -217,6 +224,9 @@ source = ["example_project"]
 
 [tool.coverage.report]
 show_missing = true
+
+[tool.rumdl]
+disable = ["MD013"]
 
 [tool.ruff]
 line-length = 88
@@ -323,6 +333,12 @@ Check formatting:
 uv run ruff format --check .
 ```
 
+Lint Markdown:
+
+```bash
+uv run rumdl check .
+```
+
 Run type checking:
 
 ```bash
@@ -342,6 +358,7 @@ If everything is configured correctly:
 - `uv run pytest --cov=example_project --cov-report=term-missing` should pass,
 - `uv run ruff check .` should pass,
 - `uv run ruff format --check .` should pass,
+- `uv run rumdl check .` should pass,
 - `uv run mypy` should report no issues.
 
 If the formatting check fails, run:
@@ -381,6 +398,7 @@ For everyday development, use:
 uv sync
 uv run ruff check .
 uv run ruff format --check .
+uv run rumdl check .
 uv run pytest --cov=example_project --cov-report=term-missing
 uv run mypy
 ```
@@ -391,6 +409,7 @@ If formatting fails:
 uv run ruff format .
 uv run ruff check .
 uv run ruff format --check .
+uv run rumdl check .
 uv run pytest --cov=example_project --cov-report=term-missing
 uv run mypy
 ```
@@ -435,12 +454,14 @@ uv add --group dev pytest
 uv add --group dev ruff
 uv add --group dev mypy
 uv add --group dev pytest-cov
+uv add --group dev rumdl
 uv add rich
 
 uv sync
 
 uv run ruff check .
 uv run ruff format --check .
+uv run rumdl check .
 uv run pytest --cov=example_project --cov-report=term-missing
 uv run mypy
 ```
