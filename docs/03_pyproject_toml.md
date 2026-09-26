@@ -161,8 +161,9 @@ environment. By default, the installation is editable: changes inside `src/`
 are visible without reinstalling the package.
 
 This is enough to test the package through the same import name its users see.
-Building wheels, building source distributions, and publishing to PyPI remain
-separate topics.
+The [building distributions](10_building_distributions.md) chapter explains how
+the same backend creates a wheel and source distribution. Publishing to PyPI
+remains a separate topic.
 
 ## Runtime dependencies vs development dependencies
 

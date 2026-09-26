@@ -26,6 +26,7 @@ After this guide, you will know how to:
 - manage dependencies in `pyproject.toml`,
 - separate source code and tests,
 - install a `src/` package in editable mode,
+- build a wheel and source distribution,
 - run tests with `pytest`,
 - check and format code with Ruff,
 - run the same checks in GitHub Actions,
@@ -73,7 +74,8 @@ Start from the beginning if you want to understand why each tool and file is int
 7. [GitHub Actions and CI](docs/06_github_actions.md)
 8. [Git, commits, branches, and pull requests](docs/07_git_commits_branches_prs.md)
 9. [Common beginner mistakes](docs/08_common_mistakes.md)
-10. [Project checklist](docs/09_checklist.md)
+10. [Building distributions](docs/10_building_distributions.md)
+11. [Project checklist](docs/09_checklist.md)
 
 ## Common questions
 
@@ -149,7 +151,8 @@ The package is installed into the project environment by `uv sync`. During
 development, `uv` uses an editable installation, so source changes are available
 without reinstalling the package manually.
 
-Building distributions and publishing them to PyPI are separate topics.
+The guide also shows how to build a wheel and source distribution. Publishing
+them to PyPI is a separate topic.
 
 The package is intentionally simple.
 
@@ -233,6 +236,7 @@ Before opening a pull request with code changes, run:
 uv run ruff check .
 uv run ruff format --check .
 uv run pytest
+uv build --no-sources
 ```
 
 If formatting fails, run:
@@ -333,7 +337,6 @@ Possible future chapters may include:
 - static type checking with Pyright or mypy,
 - pre-commit hooks,
 - test coverage,
-- building wheels and source distributions,
 - publishing packages to PyPI,
 - documentation sites,
 - release automation,

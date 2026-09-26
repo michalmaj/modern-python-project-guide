@@ -177,6 +177,7 @@ Before opening a pull request with code changes, run the local quality checks:
 uv run ruff check .
 uv run ruff format --check .
 uv run pytest
+uv build --no-sources
 ```
 
 If formatting fails, run:
@@ -191,6 +192,7 @@ Then repeat the checks:
 uv run ruff check .
 uv run ruff format --check .
 uv run pytest
+uv build --no-sources
 ```
 
 For documentation-only changes, code checks may not always be necessary.

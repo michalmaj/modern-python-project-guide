@@ -25,6 +25,10 @@ htmlcov/
 .vscode/
 .idea/
 
+# Local planning notes
+AGENTS.md
+plans/
+
 # Operating system files
 .DS_Store
 Thumbs.db

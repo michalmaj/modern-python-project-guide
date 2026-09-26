@@ -12,7 +12,8 @@ In this guide, CI runs:
 
 - linting,
 - formatting checks,
-- tests.
+- tests,
+- distribution builds.
 
 The goal is simple:
 
@@ -47,6 +48,7 @@ In this project, the local checks are:
 uv run ruff check .
 uv run ruff format --check .
 uv run pytest
+uv build --no-sources
 ```
 
 The GitHub Actions workflow runs the same commands.
@@ -226,6 +228,20 @@ At this stage, the tests check:
 - word counting,
 - character counting.
 
+## Distribution build
+
+The workflow builds the package distributions:
+
+```yaml
+- name: Build distributions
+  run: uv build --no-sources
+```
+
+This creates a wheel and source distribution. The command verifies that the
+package metadata and included files are sufficient for a standard build.
+
+The workflow does not publish or upload the generated files.
+
 ## Why one job?
 
 This project currently uses one job called `quality`.
@@ -267,6 +283,9 @@ A green CI check means that the automated checks passed.
 It does not mean the pull request is automatically good.
 
 It means the pull request passed the basic mechanical checks.
+
+For this project, that also means a wheel and source distribution were built
+successfully.
 
 A human review is still needed for questions such as:
 

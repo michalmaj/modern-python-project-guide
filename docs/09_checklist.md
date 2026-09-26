@@ -57,6 +57,7 @@ The project should clearly define how Python and dependencies are managed:
 - [ ] project name is defined
 - [ ] project version is defined
 - [ ] supported Python version is defined
+- [ ] a build system is defined when the project is installable
 - [ ] runtime dependencies are listed
 - [ ] development dependencies are separated from runtime dependencies
 - [ ] `uv.lock` is committed
@@ -132,6 +133,7 @@ The project should run checks automatically in CI:
 - [ ] CI runs linting
 - [ ] CI checks formatting
 - [ ] CI runs tests
+- [ ] CI builds a wheel and source distribution
 - [ ] CI status is visible in the README
 
 CI helps protect the main branch from broken changes.
@@ -178,6 +180,7 @@ For code changes, run:
 uv run ruff check .
 uv run ruff format --check .
 uv run pytest
+uv build --no-sources
 ```
 
 If formatting fails, run:
@@ -192,6 +195,7 @@ Then repeat:
 uv run ruff check .
 uv run ruff format --check .
 uv run pytest
+uv build --no-sources
 ```
 
 For documentation-only changes, code checks may not always be necessary.
@@ -226,6 +230,7 @@ Where is the code?
 Where are the tests?
 How do I run the tests?
 How do I check formatting and linting?
+How do I build distribution files?
 What happens before code is merged?
 ```
 

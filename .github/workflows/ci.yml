@@ -32,3 +32,6 @@ jobs:
 
       - name: Run tests
         run: uv run pytest
+
+      - name: Build distributions
+        run: uv build --no-sources

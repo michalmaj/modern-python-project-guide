@@ -72,6 +72,7 @@ jobs:
       - name: Run Ruff linting
       - name: Check formatting
       - name: Run tests
+      - name: Build distributions
 ```
 
 When CI fails, one of these steps usually failed.
@@ -287,6 +288,7 @@ After fixing, run:
 uv run ruff check .
 uv run ruff format --check .
 uv run pytest
+uv build --no-sources
 ```
 
 ## Step: Check formatting
@@ -402,6 +404,35 @@ uv run ruff format --check .
 uv run pytest
 ```
 
+## Step: Build distributions
+
+### What it does
+
+This step runs:
+
+```bash
+uv build --no-sources
+```
+
+It builds a wheel and source distribution from the project's standard metadata.
+
+### If it fails
+
+Start with the first build backend error. Common causes include:
+
+- invalid project metadata,
+- a missing package directory,
+- a package name that does not match the source layout,
+- a required file missing from the source distribution.
+
+Run the same command locally:
+
+```bash
+uv build --no-sources
+```
+
+The generated `dist/` directory is ignored by Git and should not be committed.
+
 ## Local checks pass, but CI fails
 
 This can happen.
@@ -423,6 +454,7 @@ uv sync
 uv run ruff check .
 uv run ruff format --check .
 uv run pytest
+uv build --no-sources
 ```
 
 If `git status` shows changes, check whether they should be committed.
@@ -652,7 +684,8 @@ A green CI run means:
 - dependencies installed,
 - Ruff linting passed,
 - formatting check passed,
-- tests passed.
+- tests passed,
+- wheel and source distribution builds passed.
 
 It does not mean:
 
