@@ -93,6 +93,7 @@ In this guide, development dependencies are added with:
 ```bash
 uv add --group dev pytest
 uv add --group dev ruff
+uv add --group dev mypy
 ```
 
 ## Formatting
@@ -329,6 +330,33 @@ and are run with:
 ```bash
 uv run pytest
 ```
+
+## Type hint
+
+A type hint describes the kind of value expected by part of a Python program.
+
+Example:
+
+```python
+def count_words(text: str) -> int:
+    ...
+```
+
+Here, `text` is expected to be a string and the function is expected to return
+an integer. Python does not normally enforce these hints while running code.
+
+## Type checker
+
+A type checker analyzes code and reports operations that conflict with its type
+hints without running the program.
+
+This project uses mypy:
+
+```bash
+uv run mypy
+```
+
+Type checking complements tests; it does not replace them.
 
 ## uv
 

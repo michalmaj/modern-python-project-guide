@@ -115,6 +115,7 @@ In this guide, it contains:
 - build system configuration,
 - dependency configuration,
 - pytest configuration,
+- mypy configuration,
 - Ruff configuration.
 
 Keeping these settings together makes the project easier to inspect and maintain.

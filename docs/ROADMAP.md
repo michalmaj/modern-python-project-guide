@@ -85,6 +85,9 @@ These parts are already included in the repository.
 - [x] Check internal Markdown links with pytest
 - [x] Add whitespace edge cases to the example test suite
 - [x] Demonstrate pytest parametrization with related inputs
+- [x] Add mypy as a development dependency
+- [x] Configure strict local type checking
+- [x] Run type checks against source code and tests
 
 ### Continuous integration
 
@@ -125,10 +128,15 @@ These parts are already included in the repository.
 - [x] Add previous and next navigation to the core chapters
 - [x] Review commit history and self-review coverage in the existing guides
 - [x] Standardize terminology and dependency examples across the documentation
+- [x] Explain type hints and static type checking with mypy
 
 ## Next
 
 These are good candidates for upcoming small pull requests.
+
+### Type checking
+
+- [ ] Run mypy in CI and align workflow documentation
 
 ### Repository polish
 
@@ -149,13 +157,6 @@ They should be introduced only as convenience wrappers after the underlying comm
 These topics are intentionally not part of the first foundation.
 
 They may be added later as separate chapters.
-
-### Type checking
-
-- [ ] Static type checking with Pyright or mypy
-- [ ] Explaining type hints vs type checking
-- [ ] Running type checks locally
-- [ ] Running type checks in CI
 
 ### Test coverage
 
@@ -190,15 +191,14 @@ They may be added later as separate chapters.
 - [ ] Explain when Docker is useful
 - [ ] Add Docker only if it solves a real problem for the guide
 
-## Not planned for the first version
+## Not part of the original foundation
 
-These are deliberately excluded from the main learning path:
+These topics were deliberately excluded from the original foundation:
 
 - Docker,
 - publishing to PyPI,
 - release automation,
 - documentation site generation,
-- strict type checking,
 - pre-commit hooks,
 - coverage gates,
 - complex multi-job CI,

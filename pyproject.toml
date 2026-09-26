@@ -10,12 +10,18 @@ build-backend = "uv_build"
 
 [dependency-groups]
 dev = [
+    "mypy>=2.3.1",
     "pytest>=9.0.3",
     "ruff>=0.15.12",
 ]
 
 [tool.pytest.ini_options]
 testpaths = ["tests"]
+
+[tool.mypy]
+python_version = "3.12"
+files = ["src", "tests"]
+strict = true
 
 [tool.ruff]
 line-length = 88

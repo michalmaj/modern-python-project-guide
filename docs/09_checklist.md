@@ -252,5 +252,5 @@ Let the project grow gradually.
 
 ## Continue
 
-- [Previous: Building Distributions](10_building_distributions.md)
+- [Previous: Static Type Checking with mypy](11_type_checking_with_mypy.md)
 - [Back to README](../README.md)
