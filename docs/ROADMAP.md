@@ -75,6 +75,7 @@ These parts are already included in the repository.
 - [x] Configure Ruff in `pyproject.toml`
 - [x] Explain linting and formatting
 - [x] Explain when ignoring linting rules may be reasonable
+- [x] Check internal Markdown links with pytest
 
 ### Continuous integration
 

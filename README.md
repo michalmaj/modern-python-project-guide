@@ -55,7 +55,7 @@ In a hurry? Start here:
 
 - I want to create a new project from scratch → read [uv quickstart](docs/quickstart_uv.md).
 - I cloned this repository and want to run it locally → read [Clone and CI quickstart](docs/quickstart_clone_and_ci.md).
-- I want to understand each file and tool step by step → start with the [full guide](#recommended-path).
+- I want to understand each file and tool step by step → start with the [full guide](#full-guide).
 
 ## Full guide
 
