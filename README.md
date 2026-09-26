@@ -3,8 +3,8 @@
 [![CI](https://github.com/michalmaj/modern-python-project-guide/actions/workflows/ci.yml/badge.svg)](https://github.com/michalmaj/modern-python-project-guide/actions/workflows/ci.yml)
 
 A practical, beginner-friendly guide to building a clean Python project with
-`uv`, `pytest`, Ruff, `pyproject.toml`, GitHub Actions, and a pull-request-based
-workflow.
+`uv`, `pytest`, Ruff, mypy, `pyproject.toml`, GitHub Actions, and a
+pull-request-based workflow.
 
 This repository is both a tutorial and a working example. It introduces each
 tool gradually and shows how the pieces fit together in a maintainable project.
@@ -30,7 +30,8 @@ By following the guide, you will learn how to:
 - install a package in editable mode and build distributions,
 - test code with `pytest`,
 - lint and format code with Ruff,
-- run the same checks in GitHub Actions,
+- check type annotations with mypy,
+- run automated quality checks in GitHub Actions,
 - work with branches, commits, and pull requests.
 
 You should already know basic Python, terminal usage, Git, and GitHub. Packaging,
@@ -51,7 +52,8 @@ understand why each tool and file is introduced.
 8. [Git, commits, branches, and pull requests](docs/07_git_commits_branches_prs.md)
 9. [Common beginner mistakes](docs/08_common_mistakes.md)
 10. [Building distributions](docs/10_building_distributions.md)
-11. [Project checklist](docs/09_checklist.md)
+11. [Static type checking with mypy](docs/11_type_checking_with_mypy.md)
+12. [Project checklist](docs/09_checklist.md)
 
 ## Reference material
 

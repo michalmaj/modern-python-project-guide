@@ -163,5 +163,5 @@ Treat publishing as a separate, deliberate operation.
 ## Continue
 
 - [Previous: Common Beginner Mistakes](08_common_mistakes.md)
-- [Next: Project Checklist](09_checklist.md)
+- [Next: Static Type Checking with mypy](11_type_checking_with_mypy.md)
 - [Back to README](../README.md)

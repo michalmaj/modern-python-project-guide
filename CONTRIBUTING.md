@@ -171,9 +171,9 @@ Delete the corresponding local branch after updating `main`.
 
 ## Documentation terminology
 
-Use the official spelling of tool names: `uv` and pytest are lowercase, while
-Ruff is capitalized in prose. Keep command names and configuration keys in code
-format.
+Use the official spelling of tool names: `uv`, pytest, and mypy are lowercase,
+while Ruff is capitalized in prose. Keep command names and configuration keys
+in code format.
 
 Call the ordered set of core chapters the **main learning path**. Call the
 supporting quickstarts, troubleshooting pages, and focused guides

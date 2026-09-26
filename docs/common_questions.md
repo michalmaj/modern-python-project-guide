@@ -231,11 +231,11 @@ Once readers understand these commands, adding `pre-commit` later will be easier
 
 The guide intentionally avoids too much automation too early.
 
-## Why not add type checking yet?
+## Why was type checking added after the foundation?
 
 Type checking with tools such as Pyright or mypy can be valuable.
 
-The example code already uses type hints, but this guide does not add a type checker in the first version.
+The example code used type hints before the guide introduced mypy.
 
 That is intentional.
 
@@ -248,7 +248,9 @@ Before adding type checking, the guide first explains:
 - formatting,
 - CI.
 
-Type checking is a good candidate for a future chapter.
+Readers can now learn those foundations first and then continue to the
+[type-checking chapter](11_type_checking_with_mypy.md). This order keeps type
+hints and the tool that checks them from becoming another unexplained layer.
 
 ## Why not add coverage yet?
 
