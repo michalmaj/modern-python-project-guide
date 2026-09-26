@@ -249,3 +249,8 @@ Keep changes small.
 Explain decisions.
 
 Let the project grow gradually.
+
+## Continue
+
+- [Previous: Building Distributions](10_building_distributions.md)
+- [Back to README](../README.md)

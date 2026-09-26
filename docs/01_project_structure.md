@@ -150,3 +150,9 @@ A good project structure should help answer these questions:
 - How can another person run and check the project?
 
 If the structure answers these questions clearly, it is doing its job.
+
+## Continue
+
+- [Previous: Why This Guide Exists](00_why_this_guide.md)
+- [Next: uv](02_uv.md)
+- [Back to README](../README.md)

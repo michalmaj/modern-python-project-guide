@@ -118,6 +118,10 @@ These parts are already included in the repository.
 - [x] Add a troubleshooting guide for common setup problems
 - [x] Review internal documentation links
 - [x] Explain how to build wheels and source distributions
+- [x] Keep the README focused as a landing page
+- [x] Separate the main learning path from reference material
+- [x] Add previous and next navigation to the core chapters
+- [x] Review commit history and self-review coverage in the existing guides
 
 ## Next
 
@@ -125,13 +129,10 @@ These are good candidates for upcoming small pull requests.
 
 ### Documentation polish
 
-- [ ] Add a short guide about good commit history
-- [ ] Add a short guide about self-review before opening a pull request
+- [ ] Review terminology consistency
 
 ### Repository polish
 
-- [ ] Review README length and navigation
-- [ ] Review terminology consistency
 - [ ] Add issue templates only if the repository starts receiving external feedback
 
 ### Optional convenience

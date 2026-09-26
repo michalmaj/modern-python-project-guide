@@ -340,3 +340,9 @@ Explain decisions.
 A clean project is not created by one perfect setup command.
 
 It is created by many small, understandable decisions.
+
+## Continue
+
+- [Previous: Git, Commits, Branches, and Pull Requests](07_git_commits_branches_prs.md)
+- [Next: Building Distributions](10_building_distributions.md)
+- [Back to README](../README.md)

@@ -442,3 +442,9 @@ Use CI to check repetitive things automatically.
 The goal is not bureaucracy.
 
 The goal is clarity.
+
+## Continue
+
+- [Previous: GitHub Actions and CI](06_github_actions.md)
+- [Next: Common Beginner Mistakes](08_common_mistakes.md)
+- [Back to README](../README.md)
