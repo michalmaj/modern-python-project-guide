@@ -336,7 +336,7 @@ Examples of topics that should not be pushed into the foundation too early:
 
 These topics may be useful later.
 
-They should not distract from the first learning path.
+They should not distract from the main learning path.
 
 ## Check tone
 

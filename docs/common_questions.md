@@ -211,7 +211,7 @@ This repository focuses on the Python project foundation first:
 
 Docker can be introduced later when there is a clear reason for it.
 
-Adding it too early would make the guide heavier without helping the core learning path.
+Adding it too early would make the guide heavier without helping the main learning path.
 
 ## Why not add pre-commit?
 

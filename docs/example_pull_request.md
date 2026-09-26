@@ -120,7 +120,7 @@ The `Why` section explains the motivation.
 Good example:
 
 ```text
-Readers who already understand the concepts may want a compact command reference instead of searching through the full guide.
+Readers who already understand the concepts may want a compact command reference instead of searching through the main learning path.
 ```
 
 Bad example:
@@ -217,7 +217,7 @@ Summary:
 Adds a command cheatsheet for common project, uv, Ruff, pytest, Git, and CI commands.
 
 Why:
-Readers who already understand the concepts may want a compact command reference instead of searching through the full guide and quickstarts.
+Readers who already understand the concepts may want a compact command reference instead of searching through the main learning path and quickstarts.
 
 Changes:
 - Adds docs/cheatsheet.md

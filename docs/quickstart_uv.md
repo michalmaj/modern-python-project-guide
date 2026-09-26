@@ -184,8 +184,8 @@ build-backend = "uv_build"
 
 [dependency-groups]
 dev = [
-    "pytest>=8.0.0",
-    "ruff>=0.11.0",
+    "pytest>=9.0.3",
+    "ruff>=0.15.12",
 ]
 
 [tool.pytest.ini_options]
