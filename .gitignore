@@ -11,6 +11,7 @@ env/
 # Build artifacts
 build/
 dist/
+site/
 *.egg-info/
 
 # Test and coverage outputs

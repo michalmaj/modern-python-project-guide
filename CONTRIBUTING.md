@@ -172,8 +172,8 @@ Delete the corresponding local branch after updating `main`.
 ## Documentation terminology
 
 Use the official spelling of tool names: `uv`, pytest, mypy, `rumdl`, and
-`pre-commit` are lowercase, while Ruff is capitalized in prose. Keep command
-names and configuration keys in code format.
+`pre-commit` are lowercase, while Ruff and MkDocs are capitalized in prose.
+Keep command names and configuration keys in code format.
 
 Call the ordered set of core chapters the **main learning path**. Call the
 supporting quickstarts, troubleshooting pages, and focused guides
@@ -198,12 +198,16 @@ uv run pre-commit run --all-files
 
 Hooks provide quick feedback, but they do not replace the complete checks below.
 
+Preview documentation changes with `uv run mkdocs serve` when navigation or
+rendering matters. Stop the local server with `Ctrl+C`.
+
 Before opening a pull request with code changes, run the local quality checks:
 
 ```bash
 uv run ruff check .
 uv run ruff format --check .
 uv run rumdl check .
+uv run mkdocs build --strict
 uv run pytest --cov=text_toolkit --cov-report=term-missing
 uv run mypy
 uv build --no-sources
@@ -221,6 +225,7 @@ Then repeat the checks:
 uv run ruff check .
 uv run ruff format --check .
 uv run rumdl check .
+uv run mkdocs build --strict
 uv run pytest --cov=text_toolkit --cov-report=term-missing
 uv run mypy
 uv build --no-sources

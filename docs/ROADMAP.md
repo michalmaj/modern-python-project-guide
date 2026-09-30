@@ -138,6 +138,8 @@ These parts are already included in the repository.
 - [x] Explain how local hooks complement complete checks and CI
 - [x] Add focused Markdown linting locally and in CI
 - [x] Keep Markdown linting separate from link checks and human review
+- [x] Add an MkDocs site with explicit navigation and strict CI builds
+- [x] Keep documentation sources readable without the generated site
 
 ## Next
 
@@ -169,8 +171,7 @@ They may be added later as separate chapters.
 
 ### Documentation site
 
-- [ ] Consider MkDocs or another documentation site generator
-- [ ] Keep Markdown files readable without requiring a generated site
+- [ ] Decide whether to publish the MkDocs site with GitHub Pages
 
 ### Release automation
 

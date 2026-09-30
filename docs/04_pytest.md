@@ -249,4 +249,4 @@ A small project with a few clear tests is better than a large project that nobod
 
 - [Previous: pyproject.toml](03_pyproject_toml.md)
 - [Next: Ruff](05_ruff.md)
-- [Back to README](../README.md)
+- [Back to documentation home](index.md)

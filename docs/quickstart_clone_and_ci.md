@@ -128,6 +128,9 @@ If one of these files is missing, check the project documentation.
 
 Not every repository uses the same setup, but this guide relies on these files.
 
+This repository also contains `mkdocs.yml` and `docs/index.md` for its optional
+documentation-site view.
+
 ## 4. Sync the local environment
 
 After cloning a project, run:
@@ -220,6 +223,12 @@ Lint Markdown:
 uv run rumdl check .
 ```
 
+Build the documentation site:
+
+```bash
+uv run mkdocs build --strict
+```
+
 Run type checking:
 
 ```bash
@@ -232,6 +241,7 @@ A useful local check sequence is:
 uv run ruff check .
 uv run ruff format --check .
 uv run rumdl check .
+uv run mkdocs build --strict
 uv run pytest --cov=text_toolkit --cov-report=term-missing
 uv run mypy
 ```
@@ -248,6 +258,7 @@ Then repeat:
 uv run ruff check .
 uv run ruff format --check .
 uv run rumdl check .
+uv run mkdocs build --strict
 uv run pytest --cov=text_toolkit --cov-report=term-missing
 uv run mypy
 ```
@@ -259,6 +270,7 @@ If the project is set up correctly:
 - Ruff linting should pass,
 - Ruff formatting check should pass,
 - Markdown linting should pass,
+- documentation site build should pass,
 - pytest and coverage reporting should pass,
 - mypy should report no issues.
 
@@ -396,6 +408,9 @@ jobs:
       - name: Lint Markdown
         run: uv run rumdl check .
 
+      - name: Build documentation site
+        run: uv run mkdocs build --strict
+
       - name: Run tests with coverage
         run: uv run pytest --cov=text_toolkit --cov-report=term-missing
 
@@ -438,6 +453,7 @@ The CI workflow should run the same checks that developers run locally:
 uv run ruff check .
 uv run ruff format --check .
 uv run rumdl check .
+uv run mkdocs build --strict
 uv run pytest --cov=text_toolkit --cov-report=term-missing
 uv run mypy
 uv build --no-sources
@@ -455,6 +471,7 @@ A green CI check means:
 - Ruff linting passed,
 - formatting check passed,
 - Markdown linting passed,
+- documentation site build passed,
 - tests and coverage reporting passed,
 - type checking passed,
 - package distributions built successfully.
@@ -530,6 +547,7 @@ uv sync
 uv run ruff check .
 uv run ruff format --check .
 uv run rumdl check .
+uv run mkdocs build --strict
 uv run pytest --cov=text_toolkit --cov-report=term-missing
 uv run mypy
 uv build --no-sources
@@ -549,6 +567,7 @@ uv run pre-commit install
 uv run ruff check .
 uv run ruff format --check .
 uv run rumdl check .
+uv run mkdocs build --strict
 uv run pytest --cov=text_toolkit --cov-report=term-missing
 uv run mypy
 uv build --no-sources
@@ -562,6 +581,7 @@ uv sync --locked --group dev
 uv run ruff check .
 uv run ruff format --check .
 uv run rumdl check .
+uv run mkdocs build --strict
 uv run pytest --cov=text_toolkit --cov-report=term-missing
 uv run mypy
 uv build --no-sources
@@ -581,6 +601,7 @@ Before opening a pull request, run:
 uv run ruff check .
 uv run ruff format --check .
 uv run rumdl check .
+uv run mkdocs build --strict
 uv run pytest --cov=text_toolkit --cov-report=term-missing
 uv run mypy
 ```

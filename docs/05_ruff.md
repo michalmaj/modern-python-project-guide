@@ -303,4 +303,4 @@ The goal is to make the project easier to maintain.
 
 - [Previous: pytest](04_pytest.md)
 - [Next: GitHub Actions and CI](06_github_actions.md)
-- [Back to README](../README.md)
+- [Back to documentation home](index.md)

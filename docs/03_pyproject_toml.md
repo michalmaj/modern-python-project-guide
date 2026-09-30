@@ -39,6 +39,7 @@ build-backend = "uv_build"
 
 [dependency-groups]
 dev = [
+    "mkdocs>=1.6.1",
     "mypy>=2.3.1",
     "pre-commit>=4.6.2",
     "pytest>=9.0.3",
@@ -85,9 +86,9 @@ select = [
 ```
 
 This describes the project, its build system, its development dependencies, and
-the settings used by pytest, mypy, Coverage.py, Ruff, and `rumdl`. `pre-commit`
-is a development dependency, but its hooks use the separate
-`.pre-commit-config.yaml` file.
+the settings used by pytest, mypy, Coverage.py, Ruff, and `rumdl`. MkDocs and
+`pre-commit` are development dependencies, but their settings use the separate
+`mkdocs.yml` and `.pre-commit-config.yaml` files.
 
 ## The `[project]` section
 
@@ -155,8 +156,8 @@ This is intentional.
 
 The example package starts with standard library code only.
 
-Development tools such as `pytest`, pytest-cov, mypy, Ruff, and `rumdl` are stored
-separately in the `dev` dependency group.
+Development tools such as `pytest`, pytest-cov, mypy, Ruff, `rumdl`, and MkDocs
+are stored separately in the `dev` dependency group.
 
 ## The `[build-system]` section
 
@@ -280,4 +281,4 @@ If a configuration option cannot be explained yet, it probably does not belong i
 
 - [Previous: uv](02_uv.md)
 - [Next: pytest](04_pytest.md)
-- [Back to README](../README.md)
+- [Back to documentation home](index.md)

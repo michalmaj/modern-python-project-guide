@@ -105,4 +105,4 @@ If the answer is no, it should probably wait.
 ## Continue
 
 - [Next: Project Structure](01_project_structure.md)
-- [Back to README](../README.md)
+- [Back to documentation home](index.md)

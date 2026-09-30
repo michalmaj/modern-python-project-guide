@@ -41,6 +41,7 @@ The CI workflow runs:
 uv run ruff check .
 uv run ruff format --check .
 uv run rumdl check .
+uv run mkdocs build --strict
 uv run pytest --cov=text_toolkit --cov-report=term-missing
 uv run mypy
 uv build --no-sources
@@ -192,6 +193,25 @@ It should represent the current stable state of the project.
 In this guide, meaningful changes should not be committed directly to `main`.
 
 They should go through branches and pull requests.
+
+## MkDocs
+
+MkDocs is the documentation site generator used in this guide.
+
+Preview the site locally with:
+
+```bash
+uv run mkdocs serve
+```
+
+Build it with strict validation using:
+
+```bash
+uv run mkdocs build --strict
+```
+
+The build reads `mkdocs.yml` and the Markdown files in `docs/`. It writes
+generated HTML to the ignored `site/` directory.
 
 ## Package
 

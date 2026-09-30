@@ -121,4 +121,4 @@ Use pytest to check what the code actually does when it runs.
 
 - [Previous: Building Distributions](10_building_distributions.md)
 - [Next: Test Coverage with pytest-cov](12_test_coverage.md)
-- [Back to README](../README.md)
+- [Back to documentation home](index.md)
