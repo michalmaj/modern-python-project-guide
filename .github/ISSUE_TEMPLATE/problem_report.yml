@@ -1,0 +1,92 @@
+name: Problem report
+description: Report an incorrect instruction, broken command, link, example, or site behavior.
+title: "[Problem]: "
+labels:
+  - bug
+  - documentation
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Thanks for reporting a problem. Please include enough detail to reproduce it.
+
+  - type: dropdown
+    id: area
+    attributes:
+      label: Affected area
+      options:
+        - Documentation text or navigation
+        - Installation or dependency setup
+        - Command shown in the guide
+        - Example Python code or tests
+        - GitHub Actions workflow
+        - Published documentation site
+        - Something else
+    validations:
+      required: true
+
+  - type: input
+    id: page
+    attributes:
+      label: Relevant page
+      description: Add the chapter name, file path, or URL where you found the problem.
+      placeholder: "Example: docs/02_uv.md"
+
+  - type: textarea
+    id: problem
+    attributes:
+      label: What happened?
+      description: Include the exact error or incorrect result when possible.
+    validations:
+      required: true
+
+  - type: textarea
+    id: expected
+    attributes:
+      label: What did you expect?
+      description: Explain what the guide, command, or example should do instead.
+    validations:
+      required: true
+
+  - type: textarea
+    id: reproduction
+    attributes:
+      label: Steps to reproduce
+      value: |
+        1.
+        2.
+        3.
+
+  - type: dropdown
+    id: operating_system
+    attributes:
+      label: Operating system
+      options:
+        - macOS
+        - Linux
+        - Windows
+        - Another or not applicable
+
+  - type: input
+    id: versions
+    attributes:
+      label: Relevant versions
+      description: Include Python, uv, or tool versions if they may matter.
+      placeholder: "Example: Python 3.12.7, uv 0.8.0"
+
+  - type: textarea
+    id: logs
+    attributes:
+      label: Relevant output
+      description: Paste terminal or workflow output without surrounding backticks.
+      render: shell
+
+  - type: checkboxes
+    id: checks
+    attributes:
+      label: Final checks
+      options:
+        - label: I searched the existing issues for the same problem.
+          required: true
+        - label: I removed passwords, tokens, and private personal information.
+          required: true
