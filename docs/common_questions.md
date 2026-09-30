@@ -389,14 +389,22 @@ They point readers toward the same material, but they appear in different
 contexts. Keeping the site landing page inside `docs/` also follows MkDocs'
 normal source layout.
 
-## Why does CI build the site without publishing it?
+## Why does pull request CI build the site without publishing it?
 
 A strict build verifies configuration, navigation, links, anchors, and
 rendering without changing external state.
 
 Publishing requires a separate deployment workflow, permissions, and GitHub
-Pages settings. Those decisions should be reviewed independently after the
-local site has proved useful.
+Pages settings. In this repository, that workflow runs only after relevant
+changes reach `main`, so a pull request cannot update the public site.
+
+## Where is the documentation site published?
+
+The site is available at
+<https://michalmaj.github.io/modern-python-project-guide/>.
+
+The `Documentation` workflow builds it from the same Markdown sources and
+deploys a generated artifact. The generated `site/` directory is not committed.
 
 ## Rule of thumb
 

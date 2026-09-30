@@ -84,6 +84,17 @@ Do not debug everything at once.
 
 Start with the failed step.
 
+The separate `Documentation` workflow runs after relevant changes reach `main`.
+It has two jobs:
+
+```text
+Build documentation
+Deploy documentation
+```
+
+The build job creates and uploads the site artifact. The deploy job publishes
+that artifact to the `github-pages` environment.
+
 ## Step: Checkout repository
 
 ### What it does
@@ -810,6 +821,22 @@ It does not mean:
 CI checks repetitive things.
 
 Humans still review meaning and quality.
+
+## What a green documentation deployment means
+
+A green `Documentation` workflow means:
+
+- the site was built strictly from locked dependencies,
+- the generated `site/` directory was uploaded as an artifact,
+- GitHub Pages accepted the deployment,
+- GitHub reported a public deployment URL.
+
+It does not prove that every page looks or reads as intended. Open the published
+site and inspect the changed page after deployment.
+
+If `Build documentation` fails, reproduce the strict build locally. If `Deploy
+documentation` fails, inspect Pages settings, workflow permissions, the
+`github-pages` environment, and the first useful deployment error.
 
 ## Rule of thumb
 

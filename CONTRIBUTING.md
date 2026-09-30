@@ -169,6 +169,10 @@ merging are disabled to keep that history consistent.
 After a pull request is merged, GitHub deletes its remote branch automatically.
 Delete the corresponding local branch after updating `main`.
 
+When relevant documentation files change, the separate `Documentation`
+workflow publishes the reviewed site after the merge. This deployment is not a
+pull request check and does not replace the required `Quality checks` status.
+
 ## Documentation terminology
 
 Use the official spelling of tool names: `uv`, pytest, mypy, `rumdl`, and

@@ -204,6 +204,10 @@ When the documentation set grows, a generated site can improve navigation:
 - [ ] generated `site/` files are ignored
 - [ ] strict site builds run locally and in CI
 - [ ] building and publishing are treated as separate operations
+- [ ] a dedicated deployment workflow publishes only from `main`
+- [ ] generated output is uploaded as an artifact instead of committed
+- [ ] deployment permissions are limited to the deployment job
+- [ ] the public site contains no secrets or private material
 
 Preview and validate the site with:
 
@@ -228,6 +232,17 @@ The project should run checks automatically in CI:
 - [ ] CI runs type checking
 - [ ] CI builds a wheel and source distribution
 - [ ] CI status is visible in the README
+
+## Continuous deployment
+
+If the documentation is published automatically:
+
+- [ ] GitHub Pages uses **GitHub Actions** as its source
+- [ ] the deployment workflow runs after relevant changes reach `main`
+- [ ] pull requests validate the site without publishing it
+- [ ] build and deploy jobs pass the generated site as an artifact
+- [ ] the deployment uses the `github-pages` environment
+- [ ] the published site is checked after deployment
 
 CI helps protect the main branch from broken changes.
 
@@ -355,5 +370,5 @@ Let the project grow gradually.
 
 ## Continue
 
-- [Previous: Documentation Site with MkDocs](15_documentation_site_with_mkdocs.md)
+- [Previous: Publishing with GitHub Pages](16_publishing_with_github_pages.md)
 - [Back to documentation home](index.md)

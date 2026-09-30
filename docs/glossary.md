@@ -213,6 +213,14 @@ uv run mkdocs build --strict
 The build reads `mkdocs.yml` and the Markdown files in `docs/`. It writes
 generated HTML to the ignored `site/` directory.
 
+## GitHub Pages
+
+GitHub Pages hosts static websites generated from repository content.
+
+In this guide, a dedicated GitHub Actions workflow builds the MkDocs site after
+relevant changes reach `main`, uploads `site/` as an artifact, and deploys it to
+the `github-pages` environment.
+
 ## Package
 
 The word “package” can mean different things in Python.

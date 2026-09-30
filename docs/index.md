@@ -5,6 +5,7 @@ modern tools and a pull-request-based workflow.
 
 The same Markdown files remain readable directly on GitHub. MkDocs adds site
 navigation, search, and a local preview without replacing the repository README.
+Reviewed changes are published here from the protected `main` branch.
 
 ## Choose your path
 
@@ -24,9 +25,10 @@ The generated site provides:
 - navigation across the complete guide,
 - full-text search,
 - a consistent reading layout,
-- strict build validation in continuous integration.
+- strict build validation in continuous integration,
+- automatic publication after relevant changes reach `main`.
 
-The site is built locally and in CI. Publishing it is a separate, later step.
+Building and publishing remain separate operations with different permissions.
 
 ## Start learning
 

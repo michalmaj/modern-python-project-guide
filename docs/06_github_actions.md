@@ -242,6 +242,11 @@ The workflow builds the MkDocs site with strict validation:
 The step validates navigation and rendering without publishing the generated
 site. The `site/` output directory remains an ignored local artifact.
 
+Publishing is handled by the separate `.github/workflows/pages.yml` workflow
+after relevant changes reach `main`. Pull requests never receive deployment
+permissions. See [Publishing with GitHub Pages](16_publishing_with_github_pages.md)
+for the build, artifact, environment, and permission flow.
+
 ## Tests and coverage
 
 The workflow runs tests and prints a coverage report:

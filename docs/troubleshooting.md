@@ -497,6 +497,32 @@ If port 8000 is already in use, choose another address:
 uv run mkdocs serve --dev-addr 127.0.0.1:8001
 ```
 
+## GitHub Pages deployment fails
+
+### Problem
+
+The `Documentation` workflow builds the site but cannot deploy it.
+
+### Possible causes
+
+- Pages is not configured to use **GitHub Actions** as its source,
+- the deploy job is missing `pages: write` or `id-token: write`,
+- the build job did not upload the `github-pages` artifact,
+- an environment protection rule is waiting for approval,
+- GitHub Pages or Actions is temporarily unavailable.
+
+### Fix
+
+Open **Settings → Pages** and confirm that **Source** is **GitHub Actions**.
+Then inspect the first useful error in the failed `Deploy documentation` job.
+
+Do not commit `site/` or create a `gh-pages` branch to work around this workflow.
+Fix the configuration in a new pull request and rerun the deployment after it
+reaches `main`.
+
+If the workflow passed but the site still shows old content, open the deployment
+URL reported by the job and confirm that the expected commit triggered the run.
+
 ## A pre-commit hook fails or changes files
 
 ### Problem
