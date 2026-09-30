@@ -13,6 +13,9 @@ The repository currently uses this structure:
 ```text
 modern-python-project-guide/
 ├── .github/
+│   ├── ISSUE_TEMPLATE/
+│   │   ├── learning_feedback.yml
+│   │   └── problem_report.yml
 │   ├── workflows/
 │   │   ├── ci.yml
 │   │   └── pages.yml
@@ -107,12 +110,16 @@ Example:
 
 ```text
 .github/pull_request_template.md
+.github/ISSUE_TEMPLATE/learning_feedback.yml
+.github/ISSUE_TEMPLATE/problem_report.yml
 .github/workflows/ci.yml
 .github/workflows/pages.yml
 ```
 
 The CI workflow validates pull requests and `main`. The Pages workflow publishes
-the documentation after relevant changes reach `main`.
+the documentation after relevant changes reach `main`. The issue forms help
+learners provide structured feedback without needing to design an issue report
+from scratch.
 
 ## mkdocs.yml
 

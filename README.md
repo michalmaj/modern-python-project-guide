@@ -2,6 +2,17 @@
 
 [![CI](https://github.com/michalmaj/modern-python-project-guide/actions/workflows/ci.yml/badge.svg)](https://github.com/michalmaj/modern-python-project-guide/actions/workflows/ci.yml)
 [![Documentation](https://github.com/michalmaj/modern-python-project-guide/actions/workflows/pages.yml/badge.svg)](https://michalmaj.github.io/modern-python-project-guide/)
+[![GitHub release](https://img.shields.io/github/v/release/michalmaj/modern-python-project-guide?display_name=tag&sort=semver)](https://github.com/michalmaj/modern-python-project-guide/releases)
+[![Python 3.12+](https://img.shields.io/badge/Python-3.12%2B-3776AB?logo=python&logoColor=white)](https://www.python.org/)
+[![uv](https://img.shields.io/badge/managed%20with-uv-DE5FE9)](https://docs.astral.sh/uv/)
+[![pytest](https://img.shields.io/badge/tested%20with-pytest-0A9EDC?logo=pytest&logoColor=white)](https://docs.pytest.org/)
+[![Ruff](https://img.shields.io/badge/lint%20%26%20format-Ruff-D7FF64)](https://docs.astral.sh/ruff/)
+[![mypy](https://img.shields.io/badge/type%20checked-mypy-2A6DB2)](https://mypy.readthedocs.io/)
+[![MkDocs](https://img.shields.io/badge/docs-MkDocs-526CFE)](https://www.mkdocs.org/)
+[![pre-commit](https://img.shields.io/badge/hooks-pre--commit-FAB040?logo=pre-commit&logoColor=white)](https://pre-commit.com/)
+[![License: MIT](https://img.shields.io/github/license/michalmaj/modern-python-project-guide)](LICENSE)
+[![Open issues](https://img.shields.io/github/issues/michalmaj/modern-python-project-guide)](https://github.com/michalmaj/modern-python-project-guide/issues)
+[![Student feedback welcome](https://img.shields.io/badge/student%20feedback-welcome-brightgreen)](https://github.com/michalmaj/modern-python-project-guide/issues/new/choose)
 
 A practical, beginner-friendly guide to building a clean Python project with
 `uv`, `pytest`, Ruff, mypy, `rumdl`, MkDocs, `pyproject.toml`, GitHub Actions,
@@ -106,6 +117,7 @@ tooling, tests, packaging, and CI.
 ```text
 modern-python-project-guide/
 ├── .github/
+│   ├── ISSUE_TEMPLATE/
 │   └── workflows/
 ├── .pre-commit-config.yaml
 ├── docs/
@@ -151,6 +163,18 @@ uv run mkdocs serve
 
 For explanations and expected results, use the
 [clone and CI quickstart](docs/quickstart_clone_and_ci.md).
+
+## Share feedback
+
+This guide is ready to be tested with students and other learners. You do not
+need to propose a solution or write code to help improve it.
+
+- Share your learning experience with the
+  [learning feedback form](https://github.com/michalmaj/modern-python-project-guide/issues/new?template=learning_feedback.yml).
+- Report an incorrect instruction, broken command, or site problem with the
+  [problem report form](https://github.com/michalmaj/modern-python-project-guide/issues/new?template=problem_report.yml).
+- Browse [existing issues](https://github.com/michalmaj/modern-python-project-guide/issues)
+  before reporting the same problem again.
 
 ## Contributing
 

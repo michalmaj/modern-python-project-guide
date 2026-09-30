@@ -142,14 +142,11 @@ These parts are already included in the repository.
 - [x] Keep documentation sources readable without the generated site
 - [x] Publish the documentation site with GitHub Pages
 - [x] Keep validation and deployment in separate workflows
+- [x] Add structured forms for learner feedback and problem reports
 
 ## Next
 
 These are good candidates for upcoming small pull requests.
-
-### Repository polish
-
-- [ ] Add issue templates only if the repository starts receiving external feedback
 
 ### Optional convenience
 
