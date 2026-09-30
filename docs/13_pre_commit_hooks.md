@@ -63,8 +63,8 @@ The Ruff hooks:
 The local `rumdl` hook lints changed Markdown files using the project's locked
 development environment.
 
-These checks are deliberately fast. Tests, coverage, mypy, and distribution
-builds remain part of the complete local and CI checks.
+These checks are deliberately fast. The MkDocs build, tests, coverage, mypy,
+and distribution builds remain part of the complete local and CI checks.
 
 ## When a hook changes a file
 
@@ -117,4 +117,4 @@ Keep the complete quality checks visible and understandable.
 
 - [Previous: Test Coverage with pytest-cov](12_test_coverage.md)
 - [Next: Markdown Linting with rumdl](14_markdown_linting.md)
-- [Back to README](../README.md)
+- [Back to documentation home](index.md)

@@ -85,7 +85,9 @@ __pycache__/
 .pytest_cache/
 .ruff_cache/
 .mypy_cache/
+.rumdl_cache/
 .coverage
+site/
 ```
 
 These files usually do not belong in Git.
@@ -146,6 +148,7 @@ For code changes, run:
 uv run ruff check .
 uv run ruff format --check .
 uv run rumdl check .
+uv run mkdocs build --strict
 uv run pytest --cov=text_toolkit --cov-report=term-missing
 uv run mypy
 ```
@@ -348,4 +351,4 @@ It is created by many small, understandable decisions.
 
 - [Previous: Git, Commits, Branches, and Pull Requests](07_git_commits_branches_prs.md)
 - [Next: Building Distributions](10_building_distributions.md)
-- [Back to README](../README.md)
+- [Back to documentation home](index.md)

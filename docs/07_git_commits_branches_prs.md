@@ -335,6 +335,7 @@ For code changes, run:
 uv run ruff check .
 uv run ruff format --check .
 uv run rumdl check .
+uv run mkdocs build --strict
 uv run pytest --cov=text_toolkit --cov-report=term-missing
 uv run mypy
 ```
@@ -449,4 +450,4 @@ The goal is clarity.
 
 - [Previous: GitHub Actions and CI](06_github_actions.md)
 - [Next: Common Beginner Mistakes](08_common_mistakes.md)
-- [Back to README](../README.md)
+- [Back to documentation home](index.md)

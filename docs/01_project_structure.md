@@ -19,6 +19,7 @@ modern-python-project-guide/
 ├── docs/
 │   ├── 00_why_this_guide.md
 │   ├── 01_project_structure.md
+│   ├── index.md
 │   └── ...
 ├── src/
 │   └── text_toolkit/
@@ -32,6 +33,7 @@ modern-python-project-guide/
 ├── CONTRIBUTING.md
 ├── LICENSE
 ├── README.md
+├── mkdocs.yml
 ├── pyproject.toml
 └── uv.lock
 ```
@@ -57,7 +59,10 @@ Examples:
 docs/00_why_this_guide.md
 docs/01_project_structure.md
 docs/02_uv.md
+docs/index.md
 ```
+
+The `index.md` file is the landing page for the generated documentation site.
 
 ## src/
 
@@ -104,6 +109,14 @@ Example:
 .github/workflows/ci.yml
 ```
 
+## mkdocs.yml
+
+The `mkdocs.yml` file defines the documentation site, including its navigation,
+theme, and validation settings.
+
+MkDocs reads the Markdown sources from `docs/` and writes generated HTML to the
+ignored `site/` directory.
+
 ## pyproject.toml
 
 The `pyproject.toml` file is the central configuration file for a modern Python project.
@@ -117,6 +130,7 @@ In this guide, it contains:
 - pytest configuration,
 - mypy configuration,
 - coverage configuration,
+- `rumdl` configuration,
 - Ruff configuration.
 
 Keeping these settings together makes the project easier to inspect and maintain.
@@ -157,4 +171,4 @@ If the structure answers these questions clearly, it is doing its job.
 
 - [Previous: Why This Guide Exists](00_why_this_guide.md)
 - [Next: uv](02_uv.md)
-- [Back to README](../README.md)
+- [Back to documentation home](index.md)

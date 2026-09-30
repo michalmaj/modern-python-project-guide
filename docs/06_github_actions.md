@@ -48,6 +48,7 @@ In this project, the local checks are:
 uv run ruff check .
 uv run ruff format --check .
 uv run rumdl check .
+uv run mkdocs build --strict
 uv run pytest --cov=text_toolkit --cov-report=term-missing
 uv run mypy
 uv build --no-sources
@@ -171,6 +172,7 @@ The `--group dev` option installs development dependencies such as:
 
 - `pytest`,
 - `pytest-cov`,
+- `mkdocs`,
 - `mypy`,
 - `ruff`,
 - `rumdl`.
@@ -227,6 +229,18 @@ The workflow checks Markdown structure and consistency:
 
 The command uses the `[tool.rumdl]` configuration in `pyproject.toml`. It does
 not replace the pytest check for local documentation links or human review.
+
+## Documentation site build
+
+The workflow builds the MkDocs site with strict validation:
+
+```yaml
+- name: Build documentation site
+  run: uv run mkdocs build --strict
+```
+
+The step validates navigation and rendering without publishing the generated
+site. The `site/` output directory remains an ignored local artifact.
 
 ## Tests and coverage
 
@@ -319,8 +333,8 @@ It does not mean the pull request is automatically good.
 
 It means the pull request passed the basic mechanical checks.
 
-For this project, that also means a wheel and source distribution were built
-successfully.
+For this project, that also means the documentation site, wheel, and source
+distribution were built successfully.
 
 A human review is still needed for questions such as:
 
@@ -349,4 +363,4 @@ The goal is to make every pull request safer.
 
 - [Previous: Ruff](05_ruff.md)
 - [Next: Git, Commits, Branches, and Pull Requests](07_git_commits_branches_prs.md)
-- [Back to README](../README.md)
+- [Back to documentation home](index.md)

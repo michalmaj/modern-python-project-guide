@@ -240,6 +240,7 @@ This guide first teaches the commands directly:
 uv run ruff check .
 uv run ruff format --check .
 uv run rumdl check .
+uv run mkdocs build --strict
 uv run pytest --cov=text_toolkit --cov-report=term-missing
 uv run mypy
 ```
@@ -323,6 +324,7 @@ Then run the local checks:
 uv run ruff check .
 uv run ruff format --check .
 uv run rumdl check .
+uv run mkdocs build --strict
 uv run pytest --cov=text_toolkit --cov-report=term-missing
 uv run mypy
 ```
@@ -359,7 +361,9 @@ __pycache__/
 .pytest_cache/
 .ruff_cache/
 .mypy_cache/
+.rumdl_cache/
 .coverage
+site/
 ```
 
 These files are local artifacts and should stay ignored.
@@ -375,6 +379,24 @@ It explains why each file and tool exists.
 The goal is not only to copy the final structure.
 
 The goal is to understand how the structure grows step by step.
+
+## Why keep both README.md and docs/index.md?
+
+The root `README.md` introduces the repository to people browsing its source on
+GitHub. `docs/index.md` introduces the generated documentation site.
+
+They point readers toward the same material, but they appear in different
+contexts. Keeping the site landing page inside `docs/` also follows MkDocs'
+normal source layout.
+
+## Why does CI build the site without publishing it?
+
+A strict build verifies configuration, navigation, links, anchors, and
+rendering without changing external state.
+
+Publishing requires a separate deployment workflow, permissions, and GitHub
+Pages settings. Those decisions should be reviewed independently after the
+local site has proved useful.
 
 ## Rule of thumb
 

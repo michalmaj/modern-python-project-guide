@@ -15,6 +15,7 @@ uv sync
 uv run ruff check .
 uv run ruff format --check .
 uv run rumdl check .
+uv run mkdocs build --strict
 uv run pytest --cov=text_toolkit --cov-report=term-missing
 uv run mypy
 ```
@@ -263,6 +264,7 @@ Then check again:
 uv run ruff check .
 uv run ruff format --check .
 uv run rumdl check .
+uv run mkdocs build --strict
 uv run pytest --cov=text_toolkit --cov-report=term-missing
 uv run mypy
 ```
@@ -305,6 +307,7 @@ Then run all checks again:
 uv run ruff check .
 uv run ruff format --check .
 uv run rumdl check .
+uv run mkdocs build --strict
 uv run pytest --cov=text_toolkit --cov-report=term-missing
 uv run mypy
 ```
@@ -392,6 +395,7 @@ Then run:
 uv run ruff check .
 uv run ruff format --check .
 uv run rumdl check .
+uv run mkdocs build --strict
 uv run pytest --cov=text_toolkit --cov-report=term-missing
 uv run mypy
 ```
@@ -458,6 +462,40 @@ git diff
 
 Review every automatic change. Configure an exception only when the existing
 Markdown is intentional and the reason can be explained.
+
+## MkDocs build fails
+
+### Problem
+
+The strict documentation build exits with an error:
+
+```bash
+uv run mkdocs build --strict
+```
+
+### Possible causes
+
+- a page is missing from `mkdocs.yml`,
+- a navigation target does not exist,
+- a document link or heading anchor is incorrect,
+- MkDocs emitted a warning that strict mode treats as an error.
+
+### Fix
+
+Read the first warning, correct the referenced page or navigation entry, and run
+the strict build again.
+
+For visual review, start the local server:
+
+```bash
+uv run mkdocs serve
+```
+
+If port 8000 is already in use, choose another address:
+
+```bash
+uv run mkdocs serve --dev-addr 127.0.0.1:8001
+```
 
 ## A pre-commit hook fails or changes files
 
@@ -536,6 +574,7 @@ Run checks again:
 uv run ruff check .
 uv run ruff format --check .
 uv run rumdl check .
+uv run mkdocs build --strict
 uv run pytest --cov=text_toolkit --cov-report=term-missing
 uv run mypy
 ```
@@ -728,6 +767,7 @@ uv sync
 uv run ruff check .
 uv run ruff format --check .
 uv run rumdl check .
+uv run mkdocs build --strict
 uv run pytest --cov=text_toolkit --cov-report=term-missing
 uv run mypy
 ```
@@ -767,6 +807,7 @@ uv sync
 uv run ruff check .
 uv run ruff format --check .
 uv run rumdl check .
+uv run mkdocs build --strict
 uv run pytest --cov=text_toolkit --cov-report=term-missing
 uv run mypy
 ```
@@ -868,6 +909,7 @@ uv sync
 uv run ruff check .
 uv run ruff format --check .
 uv run rumdl check .
+uv run mkdocs build --strict
 uv run pytest --cov=text_toolkit --cov-report=term-missing
 uv run mypy
 ```

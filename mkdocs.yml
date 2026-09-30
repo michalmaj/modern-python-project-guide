@@ -1,0 +1,51 @@
+site_name: Modern Python Project Guide
+site_description: A beginner-friendly guide to modern Python project tooling.
+repo_name: michalmaj/modern-python-project-guide
+repo_url: https://github.com/michalmaj/modern-python-project-guide
+
+theme:
+  name: mkdocs
+  locale: en
+
+nav:
+  - Home: index.md
+  - Main learning path:
+      - Why this guide exists: 00_why_this_guide.md
+      - Project structure: 01_project_structure.md
+      - uv and dependency management: 02_uv.md
+      - pyproject.toml: 03_pyproject_toml.md
+      - Testing with pytest: 04_pytest.md
+      - Code quality with Ruff: 05_ruff.md
+      - GitHub Actions and CI: 06_github_actions.md
+      - Git, commits, branches, and pull requests: 07_git_commits_branches_prs.md
+      - Common beginner mistakes: 08_common_mistakes.md
+      - Building distributions: 10_building_distributions.md
+      - Static type checking with mypy: 11_type_checking_with_mypy.md
+      - Test coverage with pytest-cov: 12_test_coverage.md
+      - pre-commit hooks: 13_pre_commit_hooks.md
+      - Markdown linting with rumdl: 14_markdown_linting.md
+      - Documentation site with MkDocs: 15_documentation_site_with_mkdocs.md
+      - Project checklist: 09_checklist.md
+  - Quickstarts:
+      - Create a project with uv: quickstart_uv.md
+      - Clone and run this repository: quickstart_clone_and_ci.md
+      - From script to project: from_script_to_project.md
+  - Reference:
+      - Command cheatsheet: cheatsheet.md
+      - Glossary: glossary.md
+      - Common questions: common_questions.md
+      - Troubleshooting: troubleshooting.md
+      - Reading GitHub Actions logs: github_actions_logs.md
+  - Collaboration and review:
+      - Example pull request: example_pull_request.md
+      - Reviewing Markdown changes: markdown_review.md
+  - Project direction:
+      - Roadmap: ROADMAP.md
+
+validation:
+  nav:
+    omitted_files: warn
+    not_found: warn
+  links:
+    not_found: warn
+    anchors: warn

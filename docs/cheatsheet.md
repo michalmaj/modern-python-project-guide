@@ -65,6 +65,7 @@ uv add --group dev mypy
 uv add --group dev pytest-cov
 uv add --group dev pre-commit
 uv add --group dev rumdl
+uv add --group dev mkdocs
 ```
 
 Sync the local environment:
@@ -123,6 +124,18 @@ Lint Markdown files:
 uv run rumdl check .
 ```
 
+Preview the documentation site:
+
+```bash
+uv run mkdocs serve
+```
+
+Build the documentation site strictly:
+
+```bash
+uv run mkdocs build --strict
+```
+
 Install pre-commit hooks in the current clone:
 
 ```bash
@@ -147,6 +160,7 @@ Run all local checks:
 uv run ruff check .
 uv run ruff format --check .
 uv run rumdl check .
+uv run mkdocs build --strict
 uv run pytest --cov=text_toolkit --cov-report=term-missing
 uv run mypy
 uv build --no-sources
@@ -171,6 +185,7 @@ uv run ruff format .
 uv run ruff check .
 uv run ruff format --check .
 uv run rumdl check .
+uv run mkdocs build --strict
 uv run pytest --cov=text_toolkit --cov-report=term-missing
 uv run mypy
 uv build --no-sources
@@ -190,6 +205,7 @@ Then run:
 uv run ruff check .
 uv run ruff format --check .
 uv run rumdl check .
+uv run mkdocs build --strict
 uv run pytest --cov=text_toolkit --cov-report=term-missing
 uv run mypy
 ```
@@ -287,6 +303,7 @@ uv sync --locked --group dev
 uv run ruff check .
 uv run ruff format --check .
 uv run rumdl check .
+uv run mkdocs build --strict
 uv run pytest --cov=text_toolkit --cov-report=term-missing
 uv run mypy
 uv build --no-sources
@@ -317,6 +334,7 @@ uv.lock
 .python-version
 .github/
 docs/
+mkdocs.yml
 src/
 tests/
 ```
@@ -329,8 +347,10 @@ __pycache__/
 .pytest_cache/
 .ruff_cache/
 .mypy_cache/
+.rumdl_cache/
 .coverage
 htmlcov/
+site/
 ```
 
 ## Quick local checklist
@@ -343,6 +363,7 @@ uv sync
 uv run ruff check .
 uv run ruff format --check .
 uv run rumdl check .
+uv run mkdocs build --strict
 uv run pytest --cov=text_toolkit --cov-report=term-missing
 uv run mypy
 ```

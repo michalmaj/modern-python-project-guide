@@ -3,8 +3,8 @@
 [![CI](https://github.com/michalmaj/modern-python-project-guide/actions/workflows/ci.yml/badge.svg)](https://github.com/michalmaj/modern-python-project-guide/actions/workflows/ci.yml)
 
 A practical, beginner-friendly guide to building a clean Python project with
-`uv`, `pytest`, Ruff, mypy, `rumdl`, `pyproject.toml`, GitHub Actions, and a
-pull-request-based workflow with `pre-commit` hooks.
+`uv`, `pytest`, Ruff, mypy, `rumdl`, MkDocs, `pyproject.toml`, GitHub Actions,
+and a pull-request-based workflow with `pre-commit` hooks.
 
 This repository is both a tutorial and a working example. It introduces each
 tool gradually and shows how the pieces fit together in a maintainable project.
@@ -33,6 +33,7 @@ By following the guide, you will learn how to:
 - lint and format code with Ruff,
 - check type annotations with mypy,
 - lint Markdown documentation with `rumdl`,
+- preview and validate a documentation site with MkDocs,
 - automate fast checks with `pre-commit` hooks,
 - run automated quality checks in GitHub Actions,
 - work with branches, commits, and pull requests.
@@ -59,7 +60,8 @@ understand why each tool and file is introduced.
 12. [Test coverage with pytest-cov](docs/12_test_coverage.md)
 13. [`pre-commit` hooks](docs/13_pre_commit_hooks.md)
 14. [Markdown linting with rumdl](docs/14_markdown_linting.md)
-15. [Project checklist](docs/09_checklist.md)
+15. [Documentation site with MkDocs](docs/15_documentation_site_with_mkdocs.md)
+16. [Project checklist](docs/09_checklist.md)
 
 ## Reference material
 
@@ -102,11 +104,14 @@ modern-python-project-guide/
 │   └── workflows/
 ├── .pre-commit-config.yaml
 ├── docs/
+│   ├── index.md
+│   └── ...
 ├── src/
 │   └── text_toolkit/
 ├── tests/
 ├── CONTRIBUTING.md
 ├── README.md
+├── mkdocs.yml
 ├── pyproject.toml
 └── uv.lock
 ```
@@ -127,9 +132,16 @@ Run the same quality checks used by CI:
 uv run ruff check .
 uv run ruff format --check .
 uv run rumdl check .
+uv run mkdocs build --strict
 uv run pytest --cov=text_toolkit --cov-report=term-missing
 uv run mypy
 uv build --no-sources
+```
+
+Preview the documentation site separately with:
+
+```bash
+uv run mkdocs serve
 ```
 
 For explanations and expected results, use the

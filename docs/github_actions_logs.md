@@ -72,6 +72,7 @@ jobs:
       - name: Run Ruff linting
       - name: Check formatting
       - name: Lint Markdown
+      - name: Build documentation site
       - name: Run tests with coverage
       - name: Run type checking
       - name: Build distributions
@@ -290,6 +291,7 @@ After fixing, run:
 uv run ruff check .
 uv run ruff format --check .
 uv run rumdl check .
+uv run mkdocs build --strict
 uv run pytest --cov=text_toolkit --cov-report=term-missing
 uv run mypy
 uv build --no-sources
@@ -329,6 +331,7 @@ Then run all checks again:
 uv run ruff check .
 uv run ruff format --check .
 uv run rumdl check .
+uv run mkdocs build --strict
 uv run pytest --cov=text_toolkit --cov-report=term-missing
 uv run mypy
 ```
@@ -370,6 +373,35 @@ uv run rumdl check .
 
 Some issues can be fixed with `uv run rumdl check --fix .`, but always review
 the resulting diff before committing it.
+
+## Step: Build documentation site
+
+### What it does
+
+This step runs:
+
+```bash
+uv run mkdocs build --strict
+```
+
+It renders the documentation site and treats warnings about navigation, links,
+anchors, or configuration as failures.
+
+### If it fails
+
+Read the first warning in the log. Later messages may be consequences of the
+same missing page, invalid navigation entry, or broken link.
+
+### How to fix it
+
+Run the strict build locally:
+
+```bash
+uv run mkdocs build --strict
+```
+
+For visual review, run `uv run mkdocs serve` and open the local address shown in
+the terminal.
 
 ## Step: Run tests with coverage
 
@@ -438,6 +470,7 @@ Then run:
 uv run ruff check .
 uv run ruff format --check .
 uv run rumdl check .
+uv run mkdocs build --strict
 uv run pytest --cov=text_toolkit --cov-report=term-missing
 uv run mypy
 ```
@@ -525,6 +558,7 @@ uv sync
 uv run ruff check .
 uv run ruff format --check .
 uv run rumdl check .
+uv run mkdocs build --strict
 uv run pytest --cov=text_toolkit --cov-report=term-missing
 uv run mypy
 uv build --no-sources
@@ -656,6 +690,7 @@ Run quality checks:
 uv run ruff check .
 uv run ruff format --check .
 uv run rumdl check .
+uv run mkdocs build --strict
 uv run pytest --cov=text_toolkit --cov-report=term-missing
 uv run mypy
 ```
@@ -760,6 +795,7 @@ A green CI run means:
 - Ruff linting passed,
 - formatting check passed,
 - Markdown linting passed,
+- documentation site build passed,
 - tests and coverage reporting passed,
 - type checking passed,
 - wheel and source distribution builds passed.

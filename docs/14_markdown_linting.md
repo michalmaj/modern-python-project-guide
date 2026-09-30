@@ -101,5 +101,5 @@ Use human review for meaning, teaching quality, and tone.
 ## Continue
 
 - [Previous: `pre-commit` Hooks](13_pre_commit_hooks.md)
-- [Next: Project Checklist](09_checklist.md)
-- [Back to README](../README.md)
+- [Next: Documentation Site with MkDocs](15_documentation_site_with_mkdocs.md)
+- [Back to documentation home](index.md)

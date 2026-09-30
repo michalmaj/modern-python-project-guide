@@ -42,6 +42,7 @@ modern-python-project-guide/
 ├── CONTRIBUTING.md
 ├── LICENSE
 ├── README.md
+├── mkdocs.yml
 ├── pyproject.toml
 └── uv.lock
 ```
@@ -192,6 +193,25 @@ In this guide, Markdown linting runs with:
 uv run rumdl check .
 ```
 
+## Documentation site
+
+When the documentation set grows, a generated site can improve navigation:
+
+- [ ] MkDocs is installed as a development dependency
+- [ ] `mkdocs.yml` defines explicit navigation
+- [ ] `docs/index.md` provides a site landing page
+- [ ] source Markdown remains readable directly on GitHub
+- [ ] generated `site/` files are ignored
+- [ ] strict site builds run locally and in CI
+- [ ] building and publishing are treated as separate operations
+
+Preview and validate the site with:
+
+```bash
+uv run mkdocs serve
+uv run mkdocs build --strict
+```
+
 ## Continuous integration
 
 The project should run checks automatically in CI:
@@ -203,6 +223,7 @@ The project should run checks automatically in CI:
 - [ ] CI runs linting
 - [ ] CI checks formatting
 - [ ] CI lints Markdown
+- [ ] CI builds the documentation site strictly
 - [ ] CI runs tests with coverage reporting
 - [ ] CI runs type checking
 - [ ] CI builds a wheel and source distribution
@@ -252,6 +273,7 @@ For code changes, run:
 uv run ruff check .
 uv run ruff format --check .
 uv run rumdl check .
+uv run mkdocs build --strict
 uv run pytest --cov=text_toolkit --cov-report=term-missing
 uv run mypy
 uv build --no-sources
@@ -269,6 +291,7 @@ Then repeat:
 uv run ruff check .
 uv run ruff format --check .
 uv run rumdl check .
+uv run mkdocs build --strict
 uv run pytest --cov=text_toolkit --cov-report=term-missing
 uv run mypy
 uv build --no-sources
@@ -308,6 +331,7 @@ How do I run the tests?
 How do I inspect test coverage?
 How do I check formatting and linting?
 How do I lint Markdown documentation?
+How do I preview and validate the documentation site?
 How do I check type annotations?
 How do I build distribution files?
 What happens before code is merged?
@@ -331,5 +355,5 @@ Let the project grow gradually.
 
 ## Continue
 
-- [Previous: Markdown Linting with rumdl](14_markdown_linting.md)
-- [Back to README](../README.md)
+- [Previous: Documentation Site with MkDocs](15_documentation_site_with_mkdocs.md)
+- [Back to documentation home](index.md)
