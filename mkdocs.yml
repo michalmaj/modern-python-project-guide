@@ -1,5 +1,6 @@
 site_name: Modern Python Project Guide
 site_description: A beginner-friendly guide to modern Python project tooling.
+site_url: https://michalmaj.github.io/modern-python-project-guide/
 repo_name: michalmaj/modern-python-project-guide
 repo_url: https://github.com/michalmaj/modern-python-project-guide
 
@@ -25,6 +26,7 @@ nav:
       - pre-commit hooks: 13_pre_commit_hooks.md
       - Markdown linting with rumdl: 14_markdown_linting.md
       - Documentation site with MkDocs: 15_documentation_site_with_mkdocs.md
+      - Publishing with GitHub Pages: 16_publishing_with_github_pages.md
       - Project checklist: 09_checklist.md
   - Quickstarts:
       - Create a project with uv: quickstart_uv.md

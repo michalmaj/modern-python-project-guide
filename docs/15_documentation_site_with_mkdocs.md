@@ -101,13 +101,14 @@ The documentation checks have separate responsibilities:
 
 No single tool replaces the others.
 
-## Build is not deployment
+## Build and deployment are separate
 
-The current CI job only proves that the site can be generated. It does not
-publish HTML, change GitHub Pages settings, or require deployment permissions.
+The `Quality checks` CI job only proves that the site can be generated. It does
+not publish HTML or require deployment permissions.
 
-Publishing should be evaluated and implemented separately after the local site
-has been reviewed.
+After a reviewed change reaches `main`, a separate workflow publishes the
+generated site. Keeping these operations separate prevents pull requests from
+changing the public documentation.
 
 ## Rule of thumb
 
@@ -118,5 +119,5 @@ Use the generated site to improve navigation, search, and previewing.
 ## Continue
 
 - [Previous: Markdown Linting with rumdl](14_markdown_linting.md)
-- [Next: Project Checklist](09_checklist.md)
+- [Next: Publishing with GitHub Pages](16_publishing_with_github_pages.md)
 - [Back to documentation home](index.md)

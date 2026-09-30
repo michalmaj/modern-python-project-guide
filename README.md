@@ -1,6 +1,7 @@
 # Modern Python Project Guide
 
 [![CI](https://github.com/michalmaj/modern-python-project-guide/actions/workflows/ci.yml/badge.svg)](https://github.com/michalmaj/modern-python-project-guide/actions/workflows/ci.yml)
+[![Documentation](https://github.com/michalmaj/modern-python-project-guide/actions/workflows/pages.yml/badge.svg)](https://michalmaj.github.io/modern-python-project-guide/)
 
 A practical, beginner-friendly guide to building a clean Python project with
 `uv`, `pytest`, Ruff, mypy, `rumdl`, MkDocs, `pyproject.toml`, GitHub Actions,
@@ -17,6 +18,8 @@ tool gradually and shows how the pieces fit together in a maintainable project.
 - **Learn the complete workflow:** start with
   [Why This Guide Exists](docs/00_why_this_guide.md) and follow the main learning
   path below.
+- **Browse the published guide:** open the
+  [documentation site](https://michalmaj.github.io/modern-python-project-guide/).
 - **Find a command or solve a problem:** jump to the
   [reference material](#reference-material).
 
@@ -34,6 +37,7 @@ By following the guide, you will learn how to:
 - check type annotations with mypy,
 - lint Markdown documentation with `rumdl`,
 - preview and validate a documentation site with MkDocs,
+- publish documentation safely with GitHub Pages,
 - automate fast checks with `pre-commit` hooks,
 - run automated quality checks in GitHub Actions,
 - work with branches, commits, and pull requests.
@@ -61,7 +65,8 @@ understand why each tool and file is introduced.
 13. [`pre-commit` hooks](docs/13_pre_commit_hooks.md)
 14. [Markdown linting with rumdl](docs/14_markdown_linting.md)
 15. [Documentation site with MkDocs](docs/15_documentation_site_with_mkdocs.md)
-16. [Project checklist](docs/09_checklist.md)
+16. [Publishing with GitHub Pages](docs/16_publishing_with_github_pages.md)
+17. [Project checklist](docs/09_checklist.md)
 
 ## Reference material
 

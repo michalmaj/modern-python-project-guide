@@ -14,7 +14,8 @@ The repository currently uses this structure:
 modern-python-project-guide/
 ├── .github/
 │   ├── workflows/
-│   │   └── ci.yml
+│   │   ├── ci.yml
+│   │   └── pages.yml
 │   └── pull_request_template.md
 ├── docs/
 │   ├── 00_why_this_guide.md
@@ -107,7 +108,11 @@ Example:
 ```text
 .github/pull_request_template.md
 .github/workflows/ci.yml
+.github/workflows/pages.yml
 ```
+
+The CI workflow validates pull requests and `main`. The Pages workflow publishes
+the documentation after relevant changes reach `main`.
 
 ## mkdocs.yml
 

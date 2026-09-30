@@ -140,6 +140,8 @@ These parts are already included in the repository.
 - [x] Keep Markdown linting separate from link checks and human review
 - [x] Add an MkDocs site with explicit navigation and strict CI builds
 - [x] Keep documentation sources readable without the generated site
+- [x] Publish the documentation site with GitHub Pages
+- [x] Keep validation and deployment in separate workflows
 
 ## Next
 
@@ -169,10 +171,6 @@ They may be added later as separate chapters.
 
 - [ ] Explain publishing to PyPI
 
-### Documentation site
-
-- [ ] Decide whether to publish the MkDocs site with GitHub Pages
-
 ### Release automation
 
 - [ ] Explain versioning
@@ -192,7 +190,7 @@ These topics were deliberately excluded from the original foundation:
 - Docker,
 - publishing to PyPI,
 - release automation,
-- documentation site generation,
+- documentation site generation and deployment,
 - pre-commit hooks,
 - coverage gates,
 - complex multi-job CI,
